@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.25">
+    <meta property="og:title" content="Decoration Refinement Guide">
+    <meta property="og:description" content="Page covering the Decoration Refinement Process">
+    <meta property="og:image" content="https://i.imgur.com/3w8qUf4.png">
+    <meta property="og:url" content="https://hunterachieves.github.io/Refinement/index.html">
+    <meta property="og:type" content="website">
+    <title>Decoration Refinement Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="images/mezelounge.gif" type="image/gif">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            color: #343a40;
+            height: 100vh;
+            padding-top: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            z-index: 1000;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar a {
+            color: #343a40;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background-color: #f8f9fa;
+        }
+
+        .sidebar .accordion-button {
+            background-color: #fff;
+            color: #343a40;
+            border: none;
+        }
+
+        .sidebar .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .sidebar .accordion-item {
+            border: none;
+        }
+
+        .sidebar .accordion-collapse {
+            background-color: #f8f9fa;
+        }
+
+        .main-content {
+            margin-left: 270px;
+            margin-right: 220px;
+            padding: 20px;
+            flex-grow: 1;
+            background-color: #ffffff;
+            color: #7030a0;
+        }
+
+        .right-sidebar {
+            width: 200px;
+            background-color: #fff;
+            color: #343a40;
+            height: 100vh;
+            padding: 10px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            overflow-y: auto;
+            z-index: 1000;
+            border-left: 1px solid #ddd;
+        }
+
+        .right-sidebar a {
+            color: #7030a0;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .right-sidebar a:hover {
+            background-color: #f8f9fa;
+        }
+
+        .navbar-toggler {
+            display: inline-block;
+            border: none;
+            background: none;
+            outline: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .navbar-toggler span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #7030a0;
+            margin: 5px 0;
+        }
+
+        .hamburger-container {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-container {
+                display: block;
+            }
+
+            .sidebar {
+                width: 200px;
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                z-index: 999;
+                background-color: #fff;
+                padding-top: 60px;
+            }
+
+            .sidebar.show {
+                display: block;
+            }
+
+            .right-sidebar {
+                width: 200px;
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100%;
+                z-index: 999;
+                background-color: #fff;
+                padding-top: 60px;
+            }
+
+            .right-sidebar.show {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+                margin-right: 0;
+                padding: 10px;
+            }
+
+            .navbar-toggler {
+                display: inline-block;
+            }
+        }
+
+        .role-crown {
+            color: #98FB98;
+        }
+
+        .role-master999 {
+            color: #f1c40f;
+        }
+
+        .role-prayergod {
+            color: #0051ff;
+        }
+
+        .role-monstiecollector {
+            color: #d05380;
+        }
+
+        .role-roadmaster {
+            color: #000094;
+        }
+
+        .role-z4roadmaster {
+            color: #11ec11;
+        }
+
+        .role-z4easy {
+            color: #00feff;
+        }
+
+        .role-lonewolf {
+            color: #0051ff;
+        }
+
+        .role-masterofallweapons {
+            color: #e91e63;
+        }
+
+        .role-sns {
+            color: #9b59b6;
+        }
+
+        .role-ds {
+            color: #9b59b6;
+        }
+
+        .role-gs {
+            color: #9b59b6;
+        }
+
+        .role-ls {
+            color: #9b59b6;
+        }
+
+        .role-hammer {
+            color: #9b59b6;
+        }
+
+        .role-hh {
+            color: #9b59b6;
+        }
+
+        .role-lance {
+            color: #9b59b6;
+        }
+
+        .role-gl {
+            color: #9b59b6;
+        }
+
+        .role-swaxe {
+            color: #9b59b6;
+        }
+
+        .role-tonfa {
+            color: #9b59b6;
+        }
+
+        .role-lbg {
+            color: #9b59b6;
+        }
+
+        .role-hbg {
+            color: #9b59b6;
+        }
+
+        .role-bow {
+            color: #9b59b6;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-purple {
+            color: #7030a0;
+            border-color: #7030a0;
+        }
+
+        .btn-purple:hover,
+        .btn-check:checked+label.btn-purple {
+            background-color: #7030a0;
+            color: white;
+            border-color: #7030a0;
+        }
+
+        .table-bordered {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #7030a0;
+            padding: 8px;
+        }
+
+        .video-container,
+        .images-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .video-container video,
+        .images-container img {
+            margin-right: 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #7030a0;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.querySelector('.navbar-toggler');
+            const sidebar = document.getElementById('sidebar');
+            const rightSidebar = document.getElementById('right-sidebar');
+
+            toggleButton.addEventListener('click', function () {
+                sidebar.classList.toggle('show');
+                rightSidebar.classList.toggle('show');
+                toggleButton.classList.toggle('active');
+            });
+
+            const toggleCosts = document.querySelectorAll('input[name="toggleCosts"]');
+            const ravienteCost = document.querySelectorAll('.raviente-cost');
+            const violentCost = document.querySelectorAll('.violent-cost');
+            const berserkCost = document.querySelectorAll('.berserk-cost');
+            const extremeCost = document.querySelectorAll('.extreme-cost');
+            const costText = document.getElementById('costText');
+
+            toggleCosts.forEach(toggle => {
+                toggle.addEventListener('change', function () {
+                    const showAllCosts = this.value === 'all';
+                    ravienteCost.forEach(el => el.style.display = showAllCosts || this.value === 'raviente' ? 'table-row' : 'none');
+                    violentCost.forEach(el => el.style.display = showAllCosts || this.value === 'violent' ? 'table-row' : 'none');
+                    berserkCost.forEach(el => el.style.display = showAllCosts || this.value === 'berserk' ? 'table-row' : 'none');
+                    extremeCost.forEach(el => el.style.display = showAllCosts || this.value === 'extreme' ? 'table-row' : 'none');
+
+                    switch (this.value) {
+                        case 'raviente':
+                            costText.innerHTML = 'Complete Mats: Gem x2 Blk Hide x61 Blk Scale x51 Blk Blood x29 Bright Crystal x29 Blk Tail x25 Blk Horn x14 Blk Wing x18 Blk Fang x11 Blk Spike x20 Hidden Marrow x21';
+                            break;
+                        case 'violent':
+                            costText.innerHTML = 'Complete Mats: Violent Blood x2 Blk Hide x51 Blk Scale x61 Blk Blood x26 Bright Crystal x26 Blk Tail x19 Blk Horn x11 Blk Wing x18 Blk Fang x9 Blk Spike x24 Hidden Marrow x14';
+                            break;
+                        case 'berserk':
+                            costText.innerHTML = 'Complete Mats: Blk Hide x53 Blk Scale x53 Blk Blood x31 Bright Crystal x31 Blk Tail x21 Blk Horn x9 Blk Wing x14 Blk Fang x8 Blk Spike x20 Hidden Marrow x10';
+                            break;
+                        case 'extreme':
+                            costText.innerHTML = 'Complete Mats: Blk Hide x66 | Blk Scale x66 | Blk Blood x42 | Bright Crystal x34 | Blk Tail x6 | Blk Horn x12 | Blk Fang x12 | Blk Spike x32	Hidden Marrow x16	Ruby x43	Sapphire x43';
+                            break;
+                        default:
+                            costText.innerHTML = '';
+                            break;
+                    }
+                });
+            });
+
+            const toggleDecos = document.querySelectorAll('input[name="toggleDecos"]');
+            const bmDecos = document.querySelectorAll('.bm-deco');
+            const gnDecos = document.querySelectorAll('.gn-deco');
+
+            toggleDecos.forEach(toggle => {
+                toggle.addEventListener('change', function () {
+                    const showAllDecos = this.value === 'all';
+                    bmDecos.forEach(el => el.style.display = showAllDecos || this.value === 'bm' ? 'table-row' : 'none');
+                    gnDecos.forEach(el => el.style.display = showAllDecos || this.value === 'gn' ? 'table-row' : 'none');
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="hamburger-container">
+        <button class="navbar-toggler" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <a href="../index.html">
+            <img src="../images/logo-new.png" alt="Logo" class="logo" style="width: 200px;"></a>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        General Achievements
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="role-crown" href="../crown-hunter.html">🏆 Crown Hunter</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-master999" href="../master-of-999.html">⭐ Master of 999</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-prayergod" href="../prayer-god.html">⭐ Prayer God</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-monstiecollector" href="../monstie-collector.html">🏅 Monstie Collector</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Hunting Road Achievements
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link role-roadmaster" href="../road-master.html">💀 Road Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-z4roadmaster" href="../z4-road-master.html">💀 Z4 Road Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-z4easy" href="../z4-easy.html">♘ Z4 Easy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lonewolf" href="../lone-wolf.html">✹ Lone Wolf</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-masterofallweapons" href="../master-of-all-weapons.html">🏅 Master of All Weapons</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-sns" href="../sns-master.html">🏅 SNS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-ds" href="../ds-master.html">🏅 DS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-gs" href="../gs-master.html">🏅 GS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-ls" href="../ls-master.html">🏅 LS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hammer" href="../hammer-master.html">🏅 Hammer Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hh" href="../hh-master.html">🏅 HH Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lance" href="../lance-master.html">🏅 Lance Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-gl" href="../gl-master.html">🏅 GL Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-swaxe" href="../swaxe-master.html">🏅 Swaxe Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-tonfa" href="../tonfa-master.html">🏅 Tonfa Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lbg" href="../lbg-master.html">🏅 LBG Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hbg" href="../hbg-master.html">🏅 HBG Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-bow" href="../bow-master.html">🏅 Bow Master</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Achievement Guides
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../guide.html">Hunting Road Achievement Guides</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        General Guides
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Server-Essentials/">MezeLounge Server Essentials</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Decoration Refinement Guide</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <h1>Decoration Refinement Guide</h1>
+        <h2 id="basics" class="section-title">General Details</h2>
+        <div class="images-container">
+            <img src="images/Grankrefine2.png" alt="Grankrefine" width="560" height="315">
+            <div>
+                <p>A G Rank armor can be <strong>refined</strong> as a decoration after being upgraded to Lv7. With the piece at Lv7, navigate to the Blacksmith and look for the Refine G Armor section.</p>
+                <p>As a general practice, remember this naming convention when refining decos:</p>
+                <p>
+                    <strong>BM GX 1</strong> - Blademaster Head <span style="border-left: 2px solid #7030a0; margin: 0 10px;"></span> <strong>GN GX 1</strong> - Gunner Head<br>
+                    <strong>BM GX 2</strong> - Blademaster Chest <span style="border-left: 2px solid #7030a0; margin: 0 10px;"></span> <strong>GN GX 2</strong> - Gunner Chest<br>
+                    <strong>BM GX 3</strong> - Blademaster Arms <span style="border-left: 2px solid #7030a0; margin: 0 10px;"></span> <strong>GN GX 3</strong> - Gunner Arms<br>
+                    <strong>BM GX 4</strong> - Blademaster Waist <span style="border-left: 2px solid #7030a0; margin: 0 10px;"></span> <strong>GN GX 4</strong> - Gunner Waist<br>
+                    <strong>BM GX 5</strong> - Blademaster Legs <span style="border-left: 2px solid #7030a0; margin: 0 10px;"></span> <strong>GN GX 5</strong> - Gunner Legs
+                </p>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <video width="560" height="315" controls>
+                <source src="Refining_a_Raviente_Piece.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>★<strong>Short video showcasing the refining process</strong></p>
+        </div>
+        
+        <h2 id="raviente-decorations" class="section-title">Raviente Decorations</h2>
+        <p>Below is a listing of the existing Raviente Decorations, alongside the required Gear piece to refine to obtain them.
+            G-Rank Raviente Gear can be found at the Blacksmith under the G-Rank Armor section.</p>
+        <div class="btn-group" role="group" aria-label="Toggle Decos">
+            <input type="radio" class="btn-check" name="toggleDecos" id="allDecos" value="all" checked>
+            <label class="btn btn-outline-primary btn-purple" for="allDecos">All Decos</label>
+
+            <input type="radio" class="btn-check" name="toggleDecos" id="bmDecos" value="bm">
+            <label class="btn btn-outline-primary btn-purple" for="bmDecos">BM Decos</label>
+
+            <input type="radio" class="btn-check" name="toggleDecos" id="gnDecos" value="gn">
+            <label class="btn btn-outline-primary btn-purple" for="gnDecos">GN Decos</label>
+        </div>
+
+        <table class="table-bordered" style="width: 100%; color: #7030a0; margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th>Decoration</th>
+                    <th>Equipment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bm-deco">
+                    <td><strong>Raviente BM GX1</strong></td>
+                    <td>Raviente GX Head LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Raviente BM GX2</strong></td>
+                    <td>Raviente GX Mail LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Raviente BM GX3</strong></td>
+                    <td>Raviente GX Arms LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Raviente BM GX4</strong></td>
+                    <td>Raviente GX Coil LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Raviente BM GX5</strong></td>
+                    <td>Raviente GX Greaves LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Raviente GN GX1</strong></td>
+                    <td>Raviente GX Cap LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Raviente GN GX2</strong></td>
+                    <td>Raviente GX Vest LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Raviente GN GX3</strong></td>
+                    <td>Raviente GX Guard LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Raviente GN GX4</strong></td>
+                    <td>Raviente GX Coat LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Raviente GN GX5</strong></td>
+                    <td>Raviente GX Leggings LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Violent Ravi BM GX1</strong></td>
+                    <td>Raviente GX Head Violent LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Violent Ravi BM GX2</strong></td>
+                    <td>Raviente GX Mail Violent LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Violent Ravi BM GX3</strong></td>
+                    <td>Raviente GX Arms Violent LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Violent Ravi BM GX4</strong></td>
+                    <td>Raviente GX Coil Violent LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Violent Ravi BM GX5</strong></td>
+                    <td>Raviente GX Greaves Violent LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Violent Ravi GN GX1</strong></td>
+                    <td>Raviente GX Cap Violent LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Violent Ravi GN GX2</strong></td>
+                    <td>Raviente GX Vest Violent LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Violent Ravi GN GX3</strong></td>
+                    <td>Raviente GX Guard Violent LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Violent Ravi GN GX4</strong></td>
+                    <td>Raviente GX Coat Violent LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Violent Ravi GN GX5</strong></td>
+                    <td>Raviente GX Leggings Violent LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Berserk Ravi BM GX1</strong></td>
+                    <td>Raviente GX Head Berserk LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Berserk Ravi BM GX2</strong></td>
+                    <td>Raviente GX Mail Berserk LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Berserk Ravi BM GX3</strong></td>
+                    <td>Raviente GX Arms Berserk LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Berserk Ravi BM GX4</strong></td>
+                    <td>Raviente GX Coil Berserk LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Berserk Ravi BM GX5</strong></td>
+                    <td>Raviente GX Greaves Berserk LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Berserk Ravi GN GX1</strong></td>
+                    <td>Raviente GX Cap Berserk LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Berserk Ravi GN GX2</strong></td>
+                    <td>Raviente GX Vest Berserk LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Berserk Ravi GN GX3</strong></td>
+                    <td>Raviente GX Guard Berserk LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Berserk Ravi GN GX4</strong></td>
+                    <td>Raviente GX Coat Berserk LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Berserk Ravi GN GX5</strong></td>
+                    <td>Raviente GX Leggings Berserk LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Extreme Ravi BM GX1</strong></td>
+                    <td>Raviente GX Head Extreme LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Extreme Ravi BM GX2</strong></td>
+                    <td>Raviente GX Mail Extreme LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Extreme Ravi BM GX3</strong></td>
+                    <td>Raviente GX Arms Extreme LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Extreme Ravi BM GX4</strong></td>
+                    <td>Raviente GX Coil Extreme LV7</td>
+                </tr>
+                <tr class="bm-deco">
+                    <td><strong>Extreme Ravi BM GX5</strong></td>
+                    <td>Raviente GX Greaves Extreme LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Extreme Ravi GN GX1</strong></td>
+                    <td>Raviente GX Cap Extreme LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Extreme Ravi GN GX2</strong></td>
+                    <td>Raviente GX Vest Extreme LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Extreme Ravi GN GX3</strong></td>
+                    <td>Raviente GX Guard Extreme LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Extreme Ravi GN GX4</strong></td>
+                    <td>Raviente GX Coat Extreme LV7</td>
+                </tr>
+                <tr class="gn-deco">
+                    <td><strong>Extreme Ravi GN GX5</strong></td>
+                    <td>Raviente GX Leggings Extreme LV7</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="refining-material-costs" class="section-title">Refining Material Costs</h2>
+        <div class="btn-group" role="group" aria-label="Toggle Costs">
+            <input type="radio" class="btn-check" name="toggleCosts" id="allCosts" value="all" checked>
+            <label class="btn btn-outline-primary btn-purple" for="allCosts">All Costs</label>
+
+            <input type="radio" class="btn-check" name="toggleCosts" id="ravienteCosts" value="raviente">
+            <label class="btn btn-outline-primary btn-purple" for="ravienteCosts">Raviente G</label>
+
+            <input type="radio" class="btn-check" name="toggleCosts" id="violentCosts" value="violent">
+            <label class="btn btn-outline-primary btn-purple" for="violentCosts">Violent Ravi G</label>
+
+            <input type="radio" class="btn-check" name="toggleCosts" id="berserkCosts" value="berserk">
+            <label class="btn btn-outline-primary btn-purple" for="berserkCosts">Berserk Ravi G</label>
+
+            <input type="radio" class="btn-check" name="toggleCosts" id="extremeCosts" value="extreme">
+            <label class="btn btn-outline-primary btn-purple" for="extremeCosts">Extreme Ravi G</label>
+        </div>
+
+        <table class="table-bordered" style="width: 100%; color: #7030a0; margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th>Part</th>
+                    <th>LV</th>
+                    <th>Mat 1</th>
+                    <th>Mat 2</th>
+                    <th>Mat 3</th>
+                    <th>Mat 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>G1</td>
+                    <td>Gem x2</td>
+                    <td>Blk Hide x10</td>
+                    <td>Blk Horn x2</td>
+                    <td>Hidden Marrow x3</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>G2</td>
+                    <td>Blk Hide x2</td>
+                    <td>Blk Blood x2</td>
+                    <td>Blk Horn x1</td>
+                    <td>Blk Spike x2</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>G3</td>
+                    <td>Blk Scale x2</td>
+                    <td>Bright Crystal x2</td>
+                    <td>Blk Wing x2</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>G4</td>
+                    <td>Blk Hide x3</td>
+                    <td>Blk Blood x2</td>
+                    <td>Blk Tail x2</td>
+                    <td>Blk Fang x3</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>G5</td>
+                    <td>Blk Scale x3</td>
+                    <td>Bright Crystal x2</td>
+                    <td>Blk Horn x2</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>G6</td>
+                    <td>Blk Hide x3</td>
+                    <td>Blk Blood x2</td>
+                    <td>Blk Wing x2</td>
+                    <td>Blk Spike x3</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>G7</td>
+                    <td>Blk Scale x3</td>
+                    <td>Bright Crystal x2</td>
+                    <td>Blk Tail x3</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GF1</td>
+                    <td>Blk Hide x4</td>
+                    <td>Blk Blood x2</td>
+                    <td>Blk Horn x2</td>
+                    <td>Blk Fang x2</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GF2</td>
+                    <td>Blk Scale x4</td>
+                    <td>Bright Crystal x2</td>
+                    <td>Blk Wing x2</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GF3</td>
+                    <td>Blk Hide x4</td>
+                    <td>Blk Blood x2</td>
+                    <td>Blk Tail x4</td>
+                    <td>Blk Spike x4</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GF4</td>
+                    <td>Blk Scale x4</td>
+                    <td>Bright Crystal x2</td>
+                    <td>Blk Horn x2</td>
+                    <td>Hidden Marrow x3</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GF5</td>
+                    <td>Blk Hide x5</td>
+                    <td>Blk Blood x3</td>
+                    <td>Blk Wing x4</td>
+                    <td>Blk Fang x3</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GF6</td>
+                    <td>Blk Scale x5</td>
+                    <td>Bright Crystal x3</td>
+                    <td>Blk Tail x5</td>
+                    <td>Hidden Marrow x3</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GF7</td>
+                    <td>Blk Hide x6</td>
+                    <td>Blk Blood x3</td>
+                    <td>Blk Horn x2</td>
+                    <td>Blk Spike x5</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GX1</td>
+                    <td>Blk Scale x6</td>
+                    <td>Bright Crystal x3</td>
+                    <td>Blk Wing x2</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GX2</td>
+                    <td>Blk Hide x7</td>
+                    <td>Blk Blood x4</td>
+                    <td>Blk Tail x5</td>
+                    <td>Blk Fang x1</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GX3</td>
+                    <td>Blk Scale x7</td>
+                    <td>Bright Crystal x4</td>
+                    <td>Blk Horn x1</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GX4</td>
+                    <td>Blk Hide x8</td>
+                    <td>Blk Blood x4</td>
+                    <td>Blk Wing x3</td>
+                    <td>Blk Spike x6</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GX5</td>
+                    <td>Blk Scale x8</td>
+                    <td>Bright Crystal x4</td>
+                    <td>Blk Tail x6</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GX6</td>
+                    <td>Blk Hide x9</td>
+                    <td>Blk Blood x5</td>
+                    <td>Blk Horn x2</td>
+                    <td>Blk Fang x2</td>
+                </tr>
+                <tr class="raviente-cost">
+                    <td><strong>Raviente G</strong></td>
+                    <td>GX7</td>
+                    <td>Blk Scale x9</td>
+                    <td>Bright Crystal x5</td>
+                    <td>Blk Wing x3</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>G1</td>
+                    <td>Violent Blood x2</td>
+                    <td>Blk Scale x10</td>
+                    <td>Blk Wing x4</td>
+                    <td>Blk Spike x6</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>G2</td>
+                    <td>Blk Hide x2</td>
+                    <td>Blk Blood x1</td>
+                    <td>Blk Horn x1</td>
+                    <td>Blk Spike x2</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>G3</td>
+                    <td>Blk Scale x2</td>
+                    <td>Bright Crystal x1</td>
+                    <td>Blk Wing x1</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>G4</td>
+                    <td>Blk Hide x3</td>
+                    <td>Blk Blood x1</td>
+                    <td>Blk Tail x1</td>
+                    <td>Blk Fang x2</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>G5</td>
+                    <td>Blk Scale x3</td>
+                    <td>Bright Crystal x1</td>
+                    <td>Blk Horn x2</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>G6</td>
+                    <td>Blk Hide x3</td>
+                    <td>Blk Blood x1</td>
+                    <td>Blk Wing x2</td>
+                    <td>Blk Spike x2</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>G7</td>
+                    <td>Blk Scale x3</td>
+                    <td>Bright Crystal x1</td>
+                    <td>Blk Tail x2</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GF1</td>
+                    <td>Blk Hide x4</td>
+                    <td>Blk Blood x2</td>
+                    <td>Blk Horn x1</td>
+                    <td>Blk Fang x2</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GF2</td>
+                    <td>Blk Scale x4</td>
+                    <td>Bright Crystal x2</td>
+                    <td>Blk Wing x1</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GF3</td>
+                    <td>Blk Hide x4</td>
+                    <td>Blk Blood x2</td>
+                    <td>Blk Tail x2</td>
+                    <td>Blk Spike x3</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GF4</td>
+                    <td>Blk Scale x4</td>
+                    <td>Bright Crystal x2</td>
+                    <td>Blk Horn x1</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GF5</td>
+                    <td>Blk Hide x5</td>
+                    <td>Blk Blood x3</td>
+                    <td>Blk Wing x2</td>
+                    <td>Blk Fang x2</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GF6</td>
+                    <td>Blk Scale x5</td>
+                    <td>Bright Crystal x3</td>
+                    <td>Blk Tail x3</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GF7</td>
+                    <td>Blk Hide x6</td>
+                    <td>Blk Blood x3</td>
+                    <td>Blk Horn x2</td>
+                    <td>Blk Spike x5</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GX1</td>
+                    <td>Blk Scale x6</td>
+                    <td>Bright Crystal x3</td>
+                    <td>Blk Wing x2</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GX2</td>
+                    <td>Blk Hide x7</td>
+                    <td>Blk Blood x4</td>
+                    <td>Blk Tail x5</td>
+                    <td>Blk Fang x1</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GX3</td>
+                    <td>Blk Scale x7</td>
+                    <td>Bright Crystal x4</td>
+                    <td>Blk Horn x1</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GX4</td>
+                    <td>Blk Hide x8</td>
+                    <td>Blk Blood x4</td>
+                    <td>Blk Wing x3</td>
+                    <td>Blk Spike x6</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GX5</td>
+                    <td>Blk Scale x8</td>
+                    <td>Bright Crystal x4</td>
+                    <td>Blk Tail x6</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GX6</td>
+                    <td>Blk Hide x9</td>
+                    <td>Blk Blood x5</td>
+                    <td>Blk Horn x3</td>
+                    <td>Blk Fang x2</td>
+                </tr>
+                <tr class="violent-cost">
+                    <td><strong>Violent G</strong></td>
+                    <td>GX7</td>
+                    <td>Blk Scale x9</td>
+                    <td>Bright Crystal x5</td>
+                    <td>Blk Wing x3</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>G1</td>
+                    <td>Blk Blood x8</td>
+                    <td>Bright Crystal x8</td>
+                    <td>Blk Tail x6</td>
+                    <td>Blk Fang 2</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>G2</td>
+                    <td>Blk Hide x3</td>
+                    <td>Blk Blood x1</td>
+                    <td>Blk Horn x1</td>
+                    <td>Blk Spike x2</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>G3</td>
+                    <td>Blk Scale x3</td>
+                    <td>Bright Crystal x1</td>
+                    <td>Blk Wing x1</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>G4</td>
+                    <td>Blk Hide x3</td>
+                    <td>Blk Blood x1</td>
+                    <td>Blk Tail x1</td>
+                    <td>Blk Fang x1</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>G5</td>
+                    <td>Blk Scale x3</td>
+                    <td>Bright Crystal x1</td>
+                    <td>Blk Horn x1</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>G6</td>
+                    <td>Blk Hide x4</td>
+                    <td>Blk Blood x1</td>
+                    <td>Blk Wing x1</td>
+                    <td>Blk Spike x3</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>G7</td>
+                    <td>Blk Scale x4</td>
+                    <td>Bright Crystal x1</td>
+                    <td>Blk Tail x1</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GF1</td>
+                    <td>Blk Hide x4</td>
+                    <td>Blk Blood x1</td>
+                    <td>Blk Horn x1</td>
+                    <td>Blk Fang x1</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GF2</td>
+                    <td>Blk Scale x4</td>
+                    <td>Bright Crystal x1</td>
+                    <td>Blk Wing x2</td>
+                    <td>Hidden Marrow x1</td>                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GF3</td>
+                    <td>Blk Hide x4</td>
+                    <td>Blk Blood x1</td>
+                    <td>Blk Tail x2</td>
+                    <td>Blk Spike x4</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GF4</td>
+                    <td>Blk Scale x4</td>
+                    <td>Bright Crystal x1</td>
+                    <td>Blk Horn x1</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GF5</td>
+                    <td>Blk Hide x5</td>
+                    <td>Blk Blood x2</td>
+                    <td>Blk Wing x2</td>
+                    <td>Blk Fang x1</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GF6</td>
+                    <td>Blk Scale x5</td>
+                    <td>Bright Crystal x2</td>
+                    <td>Blk Tail x2</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GF7</td>
+                    <td>Blk Hide x6</td>
+                    <td>Blk Blood x3</td>
+                    <td>Blk Horn x1</td>
+                    <td>Blk Spike x5</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GX1</td>
+                    <td>Blk Scale x6</td>
+                    <td>Bright Crystal x3</td>
+                    <td>Blk Wing x2</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GX2</td>
+                    <td>Blk Hide x7</td>
+                    <td>Blk Blood x4</td>
+                    <td>Blk Tail x4</td>
+                    <td>Blk Fang x1</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GX3</td>
+                    <td>Blk Scale x7</td>
+                    <td>Bright Crystal x4</td>
+                    <td>Blk Horn x1</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GX4</td>
+                    <td>Blk Hide x8</td>
+                    <td>Blk Blood x4</td>
+                    <td>Blk Wing x3</td>
+                    <td>Blk Spike x6</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GX5</td>
+                    <td>Blk Scale x8</td>
+                    <td>Bright Crystal x4</td>
+                    <td>Blk Tail x5</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GX6</td>
+                    <td>Blk Hide x9</td>
+                    <td>Blk Blood x5</td>
+                    <td>Blk Horn x3</td>
+                    <td>Blk Fang x2</td>
+                </tr>
+                <tr class="berserk-cost">
+                    <td><strong>Berserk G</strong></td>
+                    <td>GX7</td>
+                    <td>Blk Scale x9</td>
+                    <td>Bright Crystal x5</td>
+                    <td>Blk Wing x3</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>G1</td>
+                    <td>Ruby x8</td>
+                    <td>Sapphire x8</td>
+                    <td>Blk Tail x6</td>
+                    <td>Blk Fang x2</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>G2</td>
+                    <td>Blk Hide x6</td>
+                    <td>Blk Blood x2</td>
+                    <td>Blk Horn x1</td>
+                    <td>Blk Spike x4</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>G3</td>
+                    <td>Blk Scale x6</td>
+                    <td>Bright Crystal x3</td>
+                    <td>Ruby x5</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>G4</td>
+                    <td>Blk Hide x6</td>
+                    <td>Blk Blood x3</td>
+                    <td>Sapphire x5</td>
+                    <td>Blk Fang x3</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>G5</td>
+                    <td>Blk Scale x6</td>
+                    <td>Bright Crystal x3</td>
+                    <td>Blk Horn x2</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>G6</td>
+                    <td>Blk Hide x6</td>
+                    <td>Blk Blood x3</td>
+                    <td>Ruby x5</td>
+                    <td>Blk Spike x8</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>G7</td>
+                    <td>Blk Scale x6</td>
+                    <td>Bright Crystal x3</td>
+                    <td>Sapphire x5</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GF1</td>
+                    <td>Blk Hide x5</td>
+                    <td>Blk Blood x5</td>
+                    <td>Blk Horn x1</td>
+                    <td>Blk Fang x2</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GF2</td>
+                    <td>Blk Scale x5</td>
+                    <td>Bright Crystal x3</td>
+                    <td>Ruby x8</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GF3</td>
+                    <td>Blk Hide x5</td>
+                    <td>Blk Blood x5</td>
+                    <td>Sapphire x8</td>
+                    <td>Blk Spike x6</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GF4</td>
+                    <td>Blk Scale x5</td>
+                    <td>Bright Crystal x3</td>
+                    <td>Blk Horn x2</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GF5</td>
+                    <td>Blk Hide x6</td>
+                    <td>Blk Blood x5</td>
+                    <td>Ruby x8</td>
+                    <td>Blk Fang x2</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GF6</td>
+                    <td>Blk Scale x8</td>
+                    <td>Bright Crystal x3</td>
+                    <td>Sapphire x8</td>
+                    <td>Hidden Marrow x2</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GF7</td>
+                    <td>Blk Hide x8</td>
+                    <td>Blk Blood x6</td>
+                    <td>Blk Horn x2</td>
+                    <td>Blk Spike x8</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GX1</td>
+                    <td>Blk Scale x6</td>
+                    <td>Bright Crystal x3</td>
+                    <td>Ruby x3</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GX2</td>
+                    <td>Blk Hide x7</td>
+                    <td>Blk Blood x4</td>
+                    <td>Sapphire x4</td>
+                    <td>Blk Fang x1</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GX3</td>
+                    <td>Blk Scale x7</td>
+                    <td>Bright Crystal x4</td>
+                    <td>Blk Horn x1</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GX4</td>
+                    <td>Blk Hide x8</td>
+                    <td>Blk Blood x4</td>
+                    <td>Ruby x3</td>
+                    <td>Blk Spike x6</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GX5</td>
+                    <td>Blk Scale x8</td>
+                    <td>Bright Crystal x4</td>
+                    <td>Sapphire x5</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GX6</td>
+                    <td>Blk Hide x9</td>
+                    <td>Blk Blood x5</td>
+                    <td>Blk Horn x3</td>
+                    <td>Blk Fang x2</td>
+                </tr>
+                <tr class="extreme-cost">
+                    <td><strong>Extreme G</strong></td>
+                    <td>GX7</td>
+                    <td>Blk Scale x9</td>
+                    <td>Bright Crystal x5</td>
+                    <td>Ruby x3</td>
+                    <td>Hidden Marrow x1</td>
+                </tr>
+            </tbody>
+        </table>
+        <p id="costText" style="color: #7030a0; font-weight: bold;"></p>
+
+        <h2 id="credits" class="section-title">Credits</h2>
+        <section><p><strong>✽ Thanks to Yuna for providing exact data on the Decoration Costs per stage.</strong></p></section>
+    </div>
+    <div id="right-sidebar" class="right-sidebar">
+        <h4 style="color: #7030a0;"><strong>Navigation</strong></h4>
+        <a href="#basics" style="color: #7030a0;">General Details</a>
+        <a href="#raviente-decorations" style="color: #7030a0;">Raviente Decorations</a>
+        <a href="#refining-material-costs" style="color: #7030a0;">Refining Material Costs</a>
+        <a href = "#credits" style="color: #7030a0;">Credits</a>
+    </div>
+    <div class="button-mode ">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <span class="ball"></span>
+        </label>
+      </div>
+      
+      
+      
+      <script>
+       const checkbox = document.getElementById("checkbox");
+      
+      document.addEventListener("DOMContentLoaded", () => {
+          const isDarkMode = localStorage.getItem("darkMode") === "true";
+          document.body.classList.toggle("dark", isDarkMode);
+          checkbox.checked = isDarkMode;
+      });
+      
+      checkbox.addEventListener("change", () => {
+          const isDarkMode = checkbox.checked;
+          document.body.classList.toggle("dark", isDarkMode);
+          localStorage.setItem("darkMode", isDarkMode);
+      });
+      </script>
+</body>
+
+</html>
