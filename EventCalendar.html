@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MezeLounge Calendar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.25">
+    <meta property="og:title" content="MezeLounge Server Event Calendar">
+    <meta property="og:description" content="Calendar for Server Events">
+    <meta property="og:image" content="https://i.imgur.com/3w8qUf4.png">
+    <meta property="og:url" content="https://hunterachieves.github.io/EventCalendar.html">
+    <meta property="og:type" content="website">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" href="images/mezelounge.gif" type="image/gif">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px 20px;
+        }
+        h1 {
+            padding-top: 10px;
+            margin-bottom: 10px;
+            font-size: 35px;
+            color: #7030a0;
+        }
+        .iframe-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 120%;
+            box-sizing: border-box;
+            margin-top: 5px;
+            overflow: hidden; /* Ensure no scrollbars are shown */
+            position: relative; /* For positioning the iframe */
+        }
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute; /* Ensure the iframe covers the container */
+            top: 0;
+            left: 0;
+        }
+        .navbar-toggler {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        #sidebar {
+            width: 250px;
+        }
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 10px 10px;
+            }
+            .iframe-container {
+                height: -40vh;
+                margin-top: 5px;
+            }
+            h1 {
+                padding-top: 10px;
+                margin-bottom: 5px; /* Reduce bottom margin */
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hamburger-container">
+        <button class="navbar-toggler" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <a href="index.html">
+            <img src="images/logo-new.png" alt="Logo" class="logo" style="width: 200px;"></a>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        General Achievements
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link role-crown" href="crown-hunter.html">🏆 Crown Hunter</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-master999" href="master-of-999.html">⭐ Master of 999</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-prayergod" href="prayer-god.html">⭐ Prayer God</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-monstiecollector" href="monstie-collector.html">🏅 Monstie Collector</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        Hunting Road Achievements
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link role-roadmaster" href="../road-master.html">💀 Road Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-z4roadmaster" href="../z4-road-master.html">💀 Z4 Road Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-z4easy" href="../z4-easy.html">♘ Z4 Easy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lonewolf" href="../lone-wolf.html">✹ Lone Wolf</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-masterofallweapons" href="../master-of-all-weapons.html">🏅 Master of All Weapons</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-sns" href="../sns-master.html">🏅 SNS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-ds" href="../ds-master.html">🏅 DS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-gs" href="../gs-master.html">🏅 GS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-ls" href="../ls-master.html">🏅 LS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hammer" href="../hammer-master.html">🏅 Hammer Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hh" href="../hh-master.html">🏅 HH Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lance" href="../lance-master.html">🏅 Lance Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-gl" href="../gl-master.html">🏅 GL Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-swaxe" href="../swaxe-master.html">🏅 Swaxe Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-tonfa" href="../tonfa-master.html">🏅 Tonfa Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lbg" href="../lbg-master.html">🏅 LBG Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hbg" href="../hbg-master.html">🏅 HBG Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-bow" href="../bow-master.html">🏅 Bow Master</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Achievement Guides
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../guide.html">Hunting Road Achievement Guides</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        General Guides
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Server-Essentials/">MezeLounge Server Essentials</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content container">
+        <h1>MezeLounge Event Calendar</h1>
+        <div class="iframe-container">
+            <iframe src="calendar/index.html" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="button-mode ">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <span class="ball"></span>
+        </label>
+      </div>
+      
+      
+      
+      <script>
+     const checkbox = document.getElementById("checkbox");
+const iframe = document.querySelector("iframe");
+
+document.addEventListener("DOMContentLoaded", () => {
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    document.body.classList.toggle("dark", isDarkMode);
+    checkbox.checked = isDarkMode;
+    // Send the dark mode status to the iframe
+    sendDarkModeStatusToIframe(isDarkMode);
+});
+
+checkbox.addEventListener("change", () => {
+    const isDarkMode = checkbox.checked;
+    document.body.classList.toggle("dark", isDarkMode);
+    localStorage.setItem("darkMode", isDarkMode);
+    // Send the dark mode status to the iframe
+    sendDarkModeStatusToIframe(isDarkMode);
+});
+
+function sendDarkModeStatusToIframe(isDarkMode) {
+    const message = isDarkMode ? "toggleDarkMode" : "toggleLightMode";
+    if (iframe) {
+        iframe.contentWindow.postMessage(message, window.location.origin);
+    }
+}
+
+      </script>
+</body>
+</html>
