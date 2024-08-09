@@ -442,6 +442,47 @@ max-width: 100%;
 }
 }
     
+body.dark .modal-content , body.dark .info-text{
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+body.dark .modal-header {
+  border-bottom: 1px solid #444;
+}
+
+body.dark .modal-title {
+  color: #fff;
+}
+
+body.dark .btn-close {
+  filter: invert(1);
+}
+
+body.dark .nav-link {
+  color: #fff;
+}
+
+body.dark .nav-link.active {
+  background-color: #444;
+  border-color: #444;
+}
+
+body.dark .tab-content {
+  background-color: #2c2c2c;
+}
+
+body.dark .tab-pane {
+  color: #fff;
+}
+
+body.dark .info-text h3 {
+  color: #fff;
+}
+
+body.dark .info-text p {
+  color: #ccc;
+}
 
 
 
@@ -518,50 +559,3 @@ max-width: 100%;
    body.dark .role-roadmaster {
     color: #5664ff;
    }
-
-    
-body.dark .modal-content , body.dark .info-text{
-  background-color: #2c2c2c;
-  color: #fff;
-}
-
-body.dark .modal-header {
-  border-bottom: 1px solid #444;
-}
-
-body.dark .modal-title {
-  color: #fff;
-}
-
-body.dark .btn-close {
-  filter: invert(1);
-}
-
-body.dark .nav-link {
-  color: #fff;
-}
-
-body.dark .nav-link.active {
-  background-color: #444;
-  border-color: #444;
-}
-
-body.dark .tab-content {
-  background-color: #2c2c2c;
-}
-
-body.dark .tab-pane {
-  color: #fff;
-}
-
-body.dark .info-text h3 {
-  color: #fff;
-}
-
-body.dark .info-text p {
-  color: #ccc;
-}
-
-
-
- 
