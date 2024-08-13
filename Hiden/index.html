@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.25">
+    <meta property="og:title" content="Hiden Guide">
+    <meta property="og:description" content="Guide to the Hiden Armor system and Decoration refining process.">
+    <meta property="og:url" content="https://mezehub.github.io/Hiden">
+    <meta property="og:type" content="website">
+    <title>Hiden Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="images/mezelounge.gif" type="image/gif">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+          body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            color: #343a40;
+            height: 100vh;
+            padding-top: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            z-index: 1000;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar a {
+            color: #343a40;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background-color: #f8f9fa;
+        }
+
+        .sidebar .accordion-button {
+            background-color: #fff;
+            color: #343a40;
+            border: none;
+        }
+
+        .sidebar .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .sidebar .accordion-item {
+            border: none;
+        }
+
+        .sidebar .accordion-collapse {
+            background-color: #f8f9fa;
+        }
+
+        .main-content {
+            margin-left: 270px;
+            margin-right: 220px;
+            padding: 20px;
+            flex-grow: 1;
+            background-color: #ffffff;
+            color: #7030a0;
+        }
+
+        .right-sidebar {
+            width: 200px;
+            background-color: #fff;
+            color: #343a40;
+            height: 100vh;
+            padding: 10px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            overflow-y: auto;
+            z-index: 1000;
+            border-left: 1px solid #ddd;
+        }
+
+        .right-sidebar a {
+            color: #7030a0;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .right-sidebar a:hover {
+            background-color: #f8f9fa;
+        }
+
+        .navbar-toggler {
+            display: inline-block;
+            border: none;
+            background: none;
+            outline: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .navbar-toggler span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #7030a0;
+            margin: 5px 0.
+        }
+
+        .hamburger-container {
+            display: none;
+        }
+
+        .images-container img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-container {
+                display: block;
+            }
+
+            .sidebar {
+                width: 200px;
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                z-index: 999;
+                background-color: #fff;
+                padding-top: 60px;
+            }
+
+            .sidebar.show {
+                display: block;
+            }
+
+            .right-sidebar {
+                width: 200px;
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100%;
+                z-index: 999;
+                background-color: #fff;
+                padding-top: 60px;
+            }
+
+            .right-sidebar.show {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+                margin-right: 0;
+                padding: 10px;
+            }
+
+            .navbar-toggler {
+                display: inline-block;
+            }
+        }
+
+        table {
+            width: 100%;
+            color: #7030a0;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            border: 1px solid #7030a0;
+            text-align: left;
+        }
+
+        th {
+            background-color: #7030a0;
+            color: #ffffff;
+        }
+
+        td {
+            background-color: #ffffff;
+            color: #7030a0;
+        }
+
+        body.dark .sidebar {
+background-color: #1a1a1a;
+}
+
+body.dark h1 {
+color: #ffffff;
+}
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.querySelector('.navbar-toggler');
+            const sidebar = document.getElementById('sidebar');
+            const rightSidebar = document.getElementById('right-sidebar');
+
+            toggleButton.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                rightSidebar.classList.toggle('show');
+                toggleButton.classList.toggle('active');
+            });
+
+            const filterDropdown = document.getElementById('weapon-filter');
+            const tableRows = document.querySelectorAll('#refining-table tbody tr');
+
+            filterDropdown.addEventListener('change', function() {
+                const selectedWeapon = filterDropdown.value;
+                tableRows.forEach(row => {
+                    if (selectedWeapon === 'all' || row.dataset.weaponType === selectedWeapon) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="hamburger-container">
+        <button class="navbar-toggler" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <a href="index.html">
+            <img src="../images/mezehub.png" alt="Logo" class="logo" style="width: 200px;"></a>
+        <div class="accordion" id="accordionExample">
+            <!-- Sidebar content goes here -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        General Achievements
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="crown-hunter.html">🏆 Crown Hunter</a></li>
+                            <li class="nav-item"><a class="nav-link" href="master-of-999.html">⭐ Master of 999</a></li>
+                            <li class="nav-item"><a class="nav-link" href="prayer-god.html">⭐ Prayer God</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Hunting Road Achievements
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link role-roadmaster" href="road-master.html">💀 Road Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-z4roadmaster" href="z4-road-master.html">💀 Z4 Road Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-z4easy" href="z4-easy.html">♘ Z4 Easy</a></li>
+                            <li class="nav-item"><a class="nav-link role-lonewolf" href="lone-wolf.html">✹ Lone Wolf</a></li>
+                            <li class="nav-item"><a class="nav-link role-masterofallweapons" href="master-of-all-weapons.html">🏅 Master of All Weapons</a></li>
+                            <li class="nav-item"><a class="nav-link role-sns" href="sns-master.html">🏅 SNS Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-ds" href="ds-master.html">🏅 DS Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-gs" href="gs-master.html">🏅 GS Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-ls" href="ls-master.html">🏅 LS Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-hammer" href="hammer-master.html">🏅 Hammer Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-hh" href="hh-master.html">🏅 HH Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-lance" href="lance-master.html">🏅 Lance Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-gl" href="gl-master.html">🏅 GL Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-swaxe" href="swaxe-master.html">🏅 Swaxe Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-tonfa" href="tonfa-master.html">🏅 Tonfa Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-lbg" href="lbg-master.html">🏅 LBG Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-hbg" href="hbg-master.html">🏅 HBG Master</a></li>
+                            <li class="nav-item"><a class="nav-link role-bow" href="bow-master.html">🏅 Bow Master</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        General Guides
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="Server-Essentials/">MezeLounge Server Essentials</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Refinement/">Decoration Refinement Guide</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        Resources
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="EventCalendar.html">MezeLounge Event Calendar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="transmogs.html">MezeLounge Transmog Overview</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="description">
+            <h1 id="introduction" style="text-align: center;"><strong>Hiden Guide</strong></h1>
+
+            <h2 style="text-align: center;">Introduction</h2>
+            <p>Hiden equipment allows you to obtain the very powerful Weapon Tech skills. Tech skills grant a 20-30% damage increase (depending on weapon), Fencing, and Super High-Grade Earplugs. In addition to this, each weapon gets unique special effects from its Tech skill.</p>
+            <p>To gain the full effects of the Tech skill, you need 30 skill points. This can be obtained on any set by equipping 3 Hiden decorations, either “True” or “Hiden”, in addition to a Hiden Skill Cuff. This skill is incredibly powerful and, assuming you use a Hiden Skull Cuff, also does not impact your total skill cap, so it should always be used in endgame sets.</p>
+
+            <h2 id="item-acquisition" style="text-align: center;">Item Acquisition</h2>
+            <p>There are three sets of Hiden items: Souls, Ribbons, and Merits. Souls are split into Low, Mid, High, and Top, whereas Ribbons and Merits are both only split into Low, Mid, and High. Each Hiden item is given in “Other Rewards” if their requirements are met. A list of eligible quests for each material is included below.</p>
+            <p>As normal quests only reward 1 material, however, there are two primary ways of obtaining the items more quickly. Firstly, there are HR5 and GR daily quests that award a large number of Hiden items, but these are limited to two per day. Secondly, doing “Guild Priority Requests” rewards 3-6 of the relevant Hiden material every quest. Priority Requests change daily, and can be checked at the Bounty Board by the Blacksmith entrance. There are also Unlimited Guild Priority Requests. There are three Priority UL monsters per day, which give Low, Mid and High / Top Hiden materials respectively.</p>
+            <div class="images-container">
+                <img src="images/image3.png" alt="Hiden Items">
+                <img src="images/image1.png" alt="Priority Requests">
+            </div>
+
+            <h2 id="equipment-refining" style="text-align: center;">Equipment / Refining</h2>
+            <p>To obtain Hiden equipment, you need to follow a few steps. You can create Hiden decorations by refining armor, just like any GF or GX decoration. At the Blacksmith, go to the Refine G Armor section, and select a GX7 Hiden armor piece to refine. Unlike normal decoration refining, it does not matter which equipment piece you refine for a Hiden decoration. Unlike GX decoration refining, <strong>what determines the decoration you refine is the color of the equipment piece.</strong> For example, every piece of the “Byakko・Kensei GX” armor will give a “Tonfa Hiden・White” decoration, whereas pieces of the “Genbu・Kensei GX” armor will give “Tonfa Hiden・Black”. Below is a table of all Hiden armors and which decoration they give.</p>
+            <div class="images-container">
+                <img src="images/image5.png" alt="Hiden Decorations">
+            </div>
+
+            <p>To get the True decorations, you need one of each color Hiden decoration. These can then be crafted into any of that weapon’s True decorations in the normal “Create Deco” section.</p>
+            <div class="images-container">
+                <img src="images/image6.png" alt="True Decorations">
+            </div>
+
+            <p>Unlike the vanilla game, Hiden Skill Cuffs can now be directly crafted at the blacksmith using Ribbons and Merits. The section where you can find Skill Cuffs is:</p>
+            <p><strong>Skill Cuff –> Hiden Cuffs –> True Cuffs</strong></p>
+            <div class="images-container">
+                <img src="images/image4.png" alt="Hiden Skill Cuffs">
+            </div>
+
+            <h2 id="refine-table" style="text-align: center;">Hiden Refining Table</h2>
+            
+            <!-- Dropdown for filtering weapon types -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <label for="weapon-filter" style="font-weight: bold; color: #7030a0;">Filter by Weapon Type:</label>
+                <select id="weapon-filter">
+                    <option value="all">All</option>
+                    <option value="SnS">Sword & Shield</option>
+                    <option value="DS">Dual Swords</option>
+                    <option value="GS">Great Sword</option>
+                    <option value="LS">Long Sword</option>
+                    <option value="Hammer">Hammer</option>
+                    <option value="HH">Hunting Horn</option>
+                    <option value="Lance">Lance</option>
+                    <option value="GL">Gunlance</option>
+                    <option value="SAF">Switch Axe F</option>
+                    <option value="Tonfa">Tonfa</option>
+                    <option value="MS">Magnet Spike</option>
+                    <option value="LBG">Light Bowgun</option>
+                    <option value="HBG">Heavy Bowgun</option>
+                    <option value="Bow">Bow</option>
+                </select>
+            </div>
+
+            <table id="refining-table">
+                <thead>
+                    <tr>
+                        <th>Weapon Type</th>
+                        <th>Base Armor</th>
+                        <th>Armor Upgrade</th>
+                        <th>Refined Decoration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-weapon-type="SnS">
+                        <td rowspan="4"><strong>Sword & Shield</strong></td>
+                        <td rowspan="2">Garnet</td>
+                        <td>Byakko・Kensei</td>
+                        <td>SnS Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="SnS">
+                        <td>Genbu・Kensei</td>
+                        <td>SnS Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="SnS">
+                        <td rowspan="2">Rubellite</td>
+                        <td>Suzaku・Kensei</td>
+                        <td>SnS Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="SnS">
+                        <td>Seiryu・Kensei</td>
+                        <td>SnS Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="DS">
+                        <td rowspan="4"><strong>Dual Swords</strong></td>
+                        <td rowspan="2">Amethyst</td>
+                        <td>Byakko・双龍</td>
+                        <td>DS Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="DS">
+                        <td>Genbu・双龍</td>
+                        <td>DS Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="DS">
+                        <td rowspan="2">Lazurite</td>
+                        <td>Suzaku・双龍</td>
+                        <td>DS Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="DS">
+                        <td>Seiryu・双龍</td>
+                        <td>DS Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="GS">
+                        <td rowspan="4"><strong>Great Sword</strong></td>
+                        <td rowspan="2">Coral</td>
+                        <td>Byakko・剣王</td>
+                        <td>GS Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="GS">
+                        <td>Genbu・剣王</td>
+                        <td>GS Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="GS">
+                        <td rowspan="2">Zircon</td>
+                        <td>Suzaku・剣王</td>
+                        <td>GS Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="GS">
+                        <td>Seiryu・剣王</td>
+                        <td>GS Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="LS">
+                        <td rowspan="4"><strong>Long Sword</strong></td>
+                        <td rowspan="2">Quartz</td>
+                        <td>Byakko・刀神</td>
+                        <td>LS Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="LS">
+                        <td>Genbu・刀神</td>
+                        <td>LS Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="LS">
+                        <td rowspan="2">Spinel</td>
+                        <td>Suzaku・刀神</td>
+                        <td>LS Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="LS">
+                        <td>Seiryu・刀神</td>
+                        <td>LS Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="Hammer">
+                        <td rowspan="4"><strong>Hammer</strong></td>
+                        <td rowspan="2">Emerald</td>
+                        <td>Byakko・鈍器獣</td>
+                        <td>Hammer Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="Hammer">
+                        <td>Genbu・鈍器獣</td>
+                        <td>Hammer Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="Hammer">
+                        <td rowspan="2">Jade</td>
+                        <td>Suzaku・鈍器獣</td>
+                        <td>Hammer Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="Hammer">
+                        <td>Seiryu・鈍器獣</td>
+                        <td>Hammer Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="HH">
+                        <td rowspan="4"><strong>Hunting Horn</strong></td>
+                        <td rowspan="2">Pearl</td>
+                        <td>Byakko・奏帝</td>
+                        <td>HH Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="HH">
+                        <td>Genbu・奏帝</td>
+                        <td>HH Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="HH">
+                        <td rowspan="2">Agate</td>
+                        <td>Suzaku・奏帝</td>
+                        <td>HH Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="HH">
+                        <td>Seiryu・奏帝</td>
+                        <td>HH Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="Lance">
+                        <td rowspan="4"><strong>Lance</strong></td>
+                        <td rowspan="2">Ruby</td>
+                        <td>Byakko・Heaven 槍</td>
+                        <td>Lance Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="Lance">
+                        <td>Genbu・Heaven 槍</td>
+                        <td>Lance Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="Lance">
+                        <td rowspan="2">Pyrope</td>
+                        <td>Suzaku・Heaven 槍</td>
+                        <td>Lance Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="Lance">
+                        <td>Seiryu・Heaven 槍</td>
+                        <td>Lance Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="GL">
+                        <td rowspan="4"><strong>Gunlance</strong></td>
+                        <td rowspan="2">Sapphire</td>
+                        <td>Byakko・砲皇</td>
+                        <td>GL Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="GL">
+                        <td>Genbu・砲皇</td>
+                        <td>GL Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="GL">
+                        <td rowspan="2">アイオラ</td>
+                        <td>Suzaku・砲皇</td>
+                        <td>GL Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="GL">
+                        <td>Seiryu・砲皇</td>
+                        <td>GL Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="SAF">
+                        <td rowspan="4"><strong>Switch Axe F</strong></td>
+                        <td rowspan="2">Onyx</td>
+                        <td>Byakko・斬将</td>
+                        <td>SAF Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="SAF">
+                        <td>Genbu・斬将</td>
+                        <td>SAF Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="SAF">
+                        <td rowspan="2">Rutile</td>
+                        <td>Suzaku・斬将</td>
+                        <td>SAF Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="SAF">
+                        <td>Seiryu・斬将</td>
+                        <td>SAF Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="Tonfa">
+                        <td rowspan="4"><strong>Tonfa</strong></td>
+                        <td rowspan="2">Hisui</td>
+                        <td>Byakko・霧風</td>
+                        <td>Tonfa Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="Tonfa">
+                        <td>Genbu・霧風</td>
+                        <td>Tonfa Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="Tonfa">
+                        <td rowspan="2">Blood</td>
+                        <td>Suzaku・霧風</td>
+                        <td>Tonfa Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="Tonfa">
+                        <td>Seiryu・霧風</td>
+                        <td>Tonfa Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="MS">
+                        <td rowspan="4"><strong>Magnet Spike</strong></td>
+                        <td rowspan="2">Tanzanite</td>
+                        <td>Byakko・磁星</td>
+                        <td>MS Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="MS">
+                        <td>Genbu・磁星</td>
+                        <td>MS Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="MS">
+                        <td rowspan="2">Hematite</td>
+                        <td>Suzaku・磁星</td>
+                        <td>MS Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="MS">
+                        <td>Seiryu・磁星</td>
+                        <td>MS Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="LBG">
+                        <td rowspan="4"><strong>Light Bowgun</strong></td>
+                        <td rowspan="2">Topaz</td>
+                        <td>Byakko・銃傑</td>
+                        <td>LBG Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="LBG">
+                        <td>Genbu・銃傑</td>
+                        <td>LBG Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="LBG">
+                        <td rowspan="2">Citrine</td>
+                        <td>Suzaku・銃傑</td>
+                        <td>LBG Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="LBG">
+                        <td>Seiryu・銃傑</td>
+                        <td>LBG Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="HBG">
+                        <td rowspan="4"><strong>Heavy Bowgun</strong></td>
+                        <td rowspan="2">Tourmaline</td>
+                        <td>Byakko・銃仙</td>
+                        <td>HBG Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="HBG">
+                        <td>Genbu・銃仙</td>
+                        <td>HBG Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="HBG">
+                        <td rowspan="2">Peridot</td>
+                        <td>Suzaku・銃仙</td>
+                        <td>HBG Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="HBG">
+                        <td>Seiryu・銃仙</td>
+                        <td>HBG Hiden・Blue</td>
+                    </tr>
+                    <tr data-weapon-type="Bow">
+                        <td rowspan="4"><strong>Bow</strong></td>
+                        <td rowspan="2">Lapis</td>
+                        <td>Byakko・Bow 鬼</td>
+                        <td>Bow Hiden・White</td>
+                    </tr>
+                    <tr data-weapon-type="Bow">
+                        <td>Genbu・Bow 鬼</td>
+                        <td>Bow Hiden・Black</td>
+                    </tr>
+                    <tr data-weapon-type="Bow">
+                        <td rowspan="2">Turquoise</td>
+                        <td>Suzaku・Bow 鬼</td>
+                        <td>Bow Hiden・Red</td>
+                    </tr>
+                    <tr data-weapon-type="Bow">
+                        <td>Seiryu・Bow 鬼</td>
+                        <td>Bow Hiden・Blue</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+
+    <div id="right-sidebar" class="right-sidebar">
+        <h4 style="color: #7030a0;"><strong>Navigation</strong></h4>
+        <a href="#introduction" style="color: #7030a0;">Introduction</a>
+        <a href="#item-acquisition" style="color: #7030a0;">Item Acquisition</a>
+        <a href="#equipment-refining" style="color: #7030a0;">Equipment/Refining</a>
+        <a href ="#refine-table" style = "color:#7030a0;">Hiden Refining Table</a>"
+    </div>
+
+    <div class="button-mode">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span class="ball"></span>
+        </label>
+    </div>
+
+    <script>
+        const checkbox = document.getElementById("checkbox");
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const isDarkMode = localStorage.getItem("darkMode") === "true";
+            document.body.classList.toggle("dark", isDarkMode);
+            checkbox.checked = isDarkMode;
+        });
+
+        checkbox.addEventListener("change", () => {
+            const isDarkMode = checkbox.checked;
+            document.body.classList.toggle("dark", isDarkMode);
+            localStorage.setItem("darkMode", isDarkMode);
+        });
+    </script>
+</body>
+
+</html>

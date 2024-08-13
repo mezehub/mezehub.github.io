@@ -1,0 +1,561 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css);
+
+h1, h2, h3, h4, h5, h6, ul, th {
+    font-family: 'Poppins', sans-serif;
+}
+th{
+    text-align: center;
+}
+
+iframe {
+   text-align: center;
+  }
+  
+        /* Table styles */
+        .responsive-table {
+            overflow-x: auto; /* Enables horizontal scrolling on smaller screens */
+        }
+h1{
+    font-size: 35px;
+    font-weight: 700;
+    text-align: center;
+    color: #001973;
+    padding-bottom: 30px;
+}
+h2{
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    color: #001973;
+}
+.navbar-nav .nav-link.active {
+    background-color: #343a40; /* dark background color */
+    color: #ffffff; /* text color */
+  }
+      /* Define cell colors */
+      .red-bg { background-color: #FF0000; color: white; } /* Adjust the hex color code as needed */
+      .yellow-bg { background-color: #fef2cb; color: #ffc22c; } /* Adjust the hex color code as needed */
+      .yellow-2 { background-color: #fef2cb; color: red; } /* Adjust the hex color code as needed */
+
+      .green-bg { background-color: #12cf12; color: #ffffff; } /* Adjust the hex color code as needed */
+      .blue-bg { background-color: #0000FF; color: rgb(252, 249, 249);} /* Adjust the hex color code as needed */
+      .aqua-bg {background-color: #00FFFF;}
+      .g-green {background-color: #c5e0b3;}
+      .g-blue {background-color: #BDD6EE;}
+      .mint-green {background-color: #548135; color: white;}
+      .vivid-blue {background-color: #2929ff; color: white;}
+      .sky-blue {background-color: #21C5FF ; color: white;}
+      .amber {background-color: #ffc000;}
+      .purple {background-color: #7030a0; color: white;}
+      .soft-yellow {background-color: #fef2cb;}
+      .gray {background-color: #b7b7b7;}
+      .cyan-blue{background-color: #3d85c6; color: white;}
+      .light-aqua {background-color: #e1edf1; color: #6fd9ff;}
+      .light-purple {background-color: #d9d2e9;color: #7031a1;}
+      .pastel {background-color: #EAD1DC; color: #7031a1;}
+      .light-red {background-color: #f4cccc;color: #e37979;}
+      table {
+          width:100%;
+      margin-left: auto;
+      margin-right: auto;
+      border-collapse: separate; /* Use separate to allow border-radius */
+      border-spacing: 0; /* Remove cell spacing */
+      border: 0.5px solid black; /* Add border to the table */
+      box-shadow: 5px 5px 10px rgba(0.5, 0.5, 0.5, 0.5); /* Horizontal offset, vertical offset, blur radius, and color */
+
+      border-radius: 15px; /* Rounded corners for the table */
+  }
+  th, td {
+      padding: 10px; /* Add padding inside cells */
+      border: 0.5px solid black; /* Add border to each cell */
+  }
+  /* Rounded corners for the first and last cell in each row */
+  tr:first-child th:first-child {
+      border-top-left-radius: 15px;
+  }
+  tr:first-child th:last-child {
+      border-top-right-radius: 15px;
+  }
+  tr:last-child td:first-child {
+      border-bottom-left-radius: 15px;
+  }
+.full-td {
+    margin: 0;
+    padding: 0;
+    width: 30% !important;
+    height: 15rem !important;
+  }
+  .full-td iframe {
+    margin: 0;
+    padding: 0;
+    height: 18.5rem;
+    width: 100%!important;
+    background-color: black;
+
+  }
+  .full-td img{
+    margin: 0;
+    padding: 0;
+    width: 100%!important;
+    height: 18.5rem;
+  }
+  @media only screen and (max-width: 768px) {
+   
+    .full-td {
+        margin: 0;
+        padding: 0;
+        width: auto !important;
+        height: auto !important;
+      }
+      .full-td iframe {
+        margin: 0;
+        padding: 0;
+        height: 200px !important;
+        width: 300px!important;
+        background-color: black;
+    
+      }
+      .full-td img{
+        margin: 0;
+        padding: 0;
+        width: 300px!important;
+        height: 200px !important;
+      }
+  }
+   /* Tables colours */
+
+   /* Colours for crown hunter page can be adjusted from here */
+   .crown-hunter-th {background-color: #548135; color: white;}
+   .crown-hunter-td {background-color: #c1ddaf; color: white;}
+
+
+      /* Colours for Lone Wolf page can be adjusted from here */
+   .lone-wolf-th {background-color: #2929ff; color: white;}
+   .lone-wolf-td {background-color: #c6c6f7; color: white;}
+
+
+      /* Colours for Road Master page can be adjusted from here */
+
+   .road-master-th { background-color: #0000FF; color: rgb(252, 249, 249);} 
+   .road-master-td { background-color: #5a5aff; color: rgb(252, 249, 249);} 
+
+      /* Colours for Z4 Road Master page can be adjusted from here */
+
+   .z4-road-master-th { background-color: #12cf12; color: #ffffff; } 
+   .z4-road-master-td { background-color: #b5f8b5; color: #000000; } 
+
+      /* Colours for Z4 Easy page can be adjusted from here */
+
+      .z4-easy-th {background-color: #00FFFF;}
+      .z4-easy-td {background-color: #b8fcfc;}
+
+       /* Colours for Master of 999 page can be adjusted from here */
+       .master-999-th {background-color: #ffc000; color: #000000;}
+       .master-999-td {background-color: #fde493;}
+
+       /* Colours for Master of all Weapons page can be adjusted from here */
+     .master-all-th {background-color: red; color: white;}
+     .master-all-td {background-color: #fcb3b3;}   
+     
+     /* Colours for SNS Master page can be adjusted from here */
+     .sns-master-th {background-color: #7030a0; color: white;}
+     .sns-master-td {background-color: #e4d0f0; color: black;}
+
+       /* Colours for DS Master page can be adjusted from here */
+       .ds-master-th {background-color: #7030a0; color: white;}
+       .ds-master-td {background-color: #e4d0f0; color: black;}
+       
+       /* Colours for GS Master page can be adjusted from here */
+       .gs-master-th {background-color: #7030a0; color: white;}
+       .gs-master-td {background-color: #e4d0f0; color: black;}
+       
+       /* Colours for LS Master page can be adjusted from here */
+       .master-th {background-color: #7030a0 !important; color: white !important;}
+       .master-td {background-color: #e4d0f0 !important; color: black !important;}
+         
+       /* Colours for Hammer Master page can be adjusted from here */
+       .hammer-master-th {background-color: #7030a0; color: white;}
+       .hammer-master-td {background-color: #e4d0f0; color: black;}
+          
+       /* Colours for HH Master page can be adjusted from here */
+       .hh-master-th {background-color: #7030a0; color: white;}
+       .hh-master-td {background-color: #e4d0f0; color: black;}
+                 
+       /* Colours for lance Master page can be adjusted from here */
+       .lance-master-th {background-color: #7030a0; color: white;}
+       .lance-master-td {background-color: #e4d0f0; color: black;}
+                   
+       /* Colours for GL Master page can be adjusted from here */
+       .gl-master-th {background-color: #7030a0; color: white;}
+       .gl-master-td {background-color: #e4d0f0; color: black;}
+                     
+       /* Colours for Swaxe Master page can be adjusted from here */
+       .swaxe-master-th {background-color: #7030a0; color: white;}
+       .swaxe-master-td {background-color: #e4d0f0; color: black;}
+
+                          
+       /* Colours for Tonfa Master page can be adjusted from here */
+       .tonfa-master-th {background-color: #7030a0; color: white;}
+       .tonfa-master-td {background-color: #e4d0f0; color: black;}
+       
+                          
+       /* Colours for LBG Master page can be adjusted from here */
+       .lbg-master-th {background-color: #7030a0; color: white;}
+       .lbg-master-td {background-color: #e4d0f0; color: black;}
+                          
+       /* Colours for HBG Master page can be adjusted from here */
+       .hbg-master-th {background-color: #7030a0; color: white;}
+       .hbg-master-td {background-color: #e4d0f0; color: black;}
+
+       /* Colours for BOW Master page can be adjusted from here */
+       .bow-master-th {background-color: #7030a0; color: white;}
+       .bow-master-td {background-color: #e4d0f0; color: black;}
+
+        /* Colours for Monstie collector page can be adjusted from here */  
+        .monstie-th {background-color: rgb(240, 136, 136);color: white}    
+       .monstie-td {background-color: #f4cccc;color: rgb(0, 0, 0)}
+
+       .testcolors {background-color: #00D6FF; color:white} 
+
+       table.border-collapse {
+        border-collapse: collapse;
+    }
+    
+    .no-border td {
+        border: none;
+    }
+
+@media only screen and (max-width: 1000px) {
+table {
+zoom: 0.4;
+}
+}
+  @media only screen and (max-width: 768px) {
+
+.navbar-custom {
+            margin-left: 0 !important; 
+        }
+        .navbar-brand-fixed {
+            margin-left: 0 !important;
+            margin-top: 0 !important;
+        }
+  }
+
+
+
+        
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    
+  body {
+      font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  /*background-color: #f8f8f8; */
+  background-image: url('/images/10.jpg') !important;
+  background-size: cover;
+}
+
+.container {
+  width: 75%;
+  margin-top: 50px; 
+  margin-bottom: 30px;      
+  border-radius:10px ;
+  background-color: white !important ;
+  padding: 0px 50px 0px 50px;
+height: fit-content;
+
+}
+
+h1, h2, h3 {
+  color: #7030a0;
+}
+strong {
+  color: #7030a0;
+}
+h1 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+h2 {
+  border-bottom: 4px solid #7030a0;
+  font-weight: 600;
+  padding-bottom: 10px;
+  margin-top: 40px;
+}
+h3 {
+  font-weight: 600;
+}
+p {
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+ul {
+  list-style-type: disc;
+ /* margin: 20px;
+  padding-left: 40px; */
+}
+
+ul ul {
+  list-style-type: circle;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+li::marker {
+  color: #7030a0; 
+}
+
+
+.img {
+display: block;
+margin: 20px auto;
+max-width: 100%;
+}
+
+body {
+  display: flex;
+}
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-y: auto;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 !important;
+}
+.main-content {
+  margin-left: 300px;
+  flex: 1;
+  max-width: 75%;
+  justify-content: center;
+  align-items: center;
+background-color: transparent;  
+}
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+.accordion-button:not(.collapsed) {
+  color: #7030a0;
+  background-color: #e4d0f0;
+  border-radius: 5%;
+
+}
+.accordion-button::after {
+  background-image: none;
+}
+.accordion-item {
+  border: none;
+  margin-top: -20px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+}
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+.hamburger-container {
+display: none;
+position: relative;
+}
+
+@media (max-width: 768px) {
+.hamburger-container {
+display: block;
+position: absolute;
+top: 10px;
+right: 10px;
+width: 100%;
+text-align: right;
+z-index: 1052;
+}
+
+.navbar-toggler {
+background-color: transparent;
+padding: 5px;
+display: inline-block;
+}
+
+.navbar-toggler span {
+display: block;
+width: 22px;
+height: 2px;
+background-color: #fff;
+margin: 4px auto;
+transition: background-color 0.3s ease-in-out;
+}
+
+.navbar-toggler.active span {
+background-color: #7030a0;
+}
+
+.container {
+max-width: 87%;
+padding: 20px 10px 20px 10px !important;
+margin-top: 70px !important;
+margin-bottom: 50px !important;
+}
+
+.main-content {
+
+margin: 0 auto; /* Center the content */
+justify-content: center;
+align-items: center;
+}
+
+.sidebar {
+display: none;
+}
+
+.sidebar.show {
+display: block;
+position: fixed;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+background-color: #f8f9fa;
+z-index: 1051;
+}
+
+.table-responsive {
+  height: auto;
+overflow-x: auto;
+}
+
+img {
+max-width: 100%;
+}
+}
+    
+body.dark .modal-content , body.dark .info-text{
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+body.dark .modal-header {
+  border-bottom: 1px solid #444;
+}
+
+body.dark .modal-title {
+  color: #fff;
+}
+
+body.dark .btn-close {
+  filter: invert(1);
+}
+
+body.dark .nav-link {
+  color: #fff;
+}
+
+body.dark .nav-link.active {
+  background-color: #444;
+  border-color: #444;
+}
+
+body.dark .tab-content {
+  background-color: #2c2c2c;
+}
+
+body.dark .tab-pane {
+  color: #fff;
+}
+
+body.dark .info-text h3 {
+  color: #fff;
+}
+
+body.dark .info-text p {
+  color: #ccc;
+}
+
+
+
+   
+   body.dark .container , body.dark .iframe-container{
+     background-color: #2c2c2c !important; /* Dark mode background color for container */
+   }
+
+   body.dark .sidebar {
+     background-color: #1a1a1a; /* Dark mode background color for sidebar */
+   }
+   
+   body.dark h1 {
+     color: #fff;
+   }
+   body.dark .accordion-button , body.dark .accordion-item {
+       background-color: #1a1a1a; 
+       color: white;
+   }
+   body.dark td ,    body.dark th {
+       color: white;
+   }
+   .checkbox {
+     opacity: 0;
+     position: absolute;
+   }
+   
+   .button-mode {
+     position: absolute;
+     top: 25px;
+     right: 20px;
+     z-index: 1000;
+   }
+   
+   .checkbox-label {
+     background-color: #111;
+     width: 50px;
+     height: 26px;
+     border-radius: 50px;
+     position: relative;
+     padding: 5px;
+     cursor: pointer;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   
+   .fa-moon {
+     color: #f1c40f;
+   }
+   
+   .fa-sun {
+     color: #f39c12;
+   }
+   
+   .checkbox-label .ball {
+     background-color: #fff;
+     width: 22px;
+     height: 22px;
+     position: absolute;
+     left: 2px;
+     top: 2px;
+     border-radius: 50%;
+     transition: transform 0.2s linear;
+   }
+   
+   .checkbox:checked + .checkbox-label .ball {
+     transform: translateX(24px);
+   }
+   body.dark .sns-master-td {
+    color: #000000 !important;
+   }
+
+   body.dark .role-roadmaster {
+    color: #5664ff;
+   }
