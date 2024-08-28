@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.25">
+    <meta property="og:title" content="MezeLounge Server Essentials">
+    <meta property="og:description" content="Document covering essential game related things, and answering FAQ.">
+    <meta property="og:image" content="https://i.imgur.com/3w8qUf4.png">
+    <meta property="og:url" content="https://hunterachieves.github.io/MezeLoungeServerEssentials.html">
+    <meta property="og:type" content="website">
+    <title>MezeLounge Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="mezehub.png" type="image/gif">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            color: #343a40;
+            height: 100vh;
+            padding-top: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            z-index: 1000;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar a {
+            color: #343a40;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background-color: #f8f9fa;
+        }
+
+        .sidebar .accordion-button {
+            background-color: #fff;
+            color: #343a40;
+            border: none;
+        }
+
+        .sidebar .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .sidebar .accordion-item {
+            border: none;
+        }
+
+        .sidebar .accordion-collapse {
+            background-color: #f8f9fa;
+        }
+
+        .main-content {
+            margin-left: 270px;
+            margin-right: 220px;
+            padding: 20px;
+            flex-grow: 1;
+            background-color: #ffffff;
+            color: #7030a0;
+        }
+
+        .right-sidebar {
+            width: 200px;
+            background-color: #fff;
+            color: #343a40;
+            height: 100vh;
+            padding: 10px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            overflow-y: auto;
+            z-index: 1000;
+            border-left: 1px solid #ddd;
+        }
+
+        .right-sidebar a {
+            color: #7030a0;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .right-sidebar a:hover {
+            background-color: #f8f9fa;
+        }
+
+        .navbar-toggler {
+            display: inline-block;
+            border: none;
+            background: none;
+            outline: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .navbar-toggler span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #7030a0;
+            margin: 5px 0;
+        }
+
+        .hamburger-container {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-container {
+                display: block;
+            }
+
+            .sidebar {
+                width: 200px;
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                z-index: 999;
+                background-color: #fff;
+                padding-top: 60px;
+            }
+
+            .sidebar.show {
+                display: block;
+            }
+
+            .right-sidebar {
+                width: 200px;
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100%;
+                z-index: 999;
+                background-color: #fff;
+                padding-top: 60px;
+            }
+
+            .right-sidebar.show {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+                margin-right: 0;
+                padding: 10px;
+            }
+
+            .navbar-toggler {
+                display: inline-block;
+            }
+        }
+    </style>
+       <style>     
+        .role-crown { color: #98FB98; }
+        .role-master999 { color: #f1c40f; }
+        .role-prayergod { color: #0051ff; }
+        .role-monstiecollector { color: #d05380; }
+        .role-roadmaster { color: #000094; }
+        .role-z4roadmaster { color: #11ec11; }
+        .role-z4easy { color: #00feff; }
+        .role-lonewolf { color: #0051ff; }
+        .role-masterofallweapons { color: #e91e63; }
+        .role-sns { color: #9b59b6; }
+        .role-ds { color: #9b59b6; }
+        .role-gs { color: #9b59b6; }
+        .role-ls { color: #9b59b6; }
+        .role-hammer { color: #9b59b6; }
+        .role-hh { color: #9b59b6; }
+        .role-lance { color: #9b59b6; }
+        .role-gl { color: #9b59b6; }
+        .role-swaxe { color: #9b59b6; }
+        .role-tonfa { color: #9b59b6; }
+        .role-lbg { color: #9b59b6; }
+        .role-hbg { color: #9b59b6; }
+        .role-bow { color: #9b59b6; }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.querySelector('.navbar-toggler');
+            const sidebar = document.getElementById('sidebar');
+            const rightSidebar = document.getElementById('right-sidebar');
+
+            toggleButton.addEventListener('click', function () {
+                sidebar.classList.toggle('show');
+                rightSidebar.classList.toggle('show');
+                toggleButton.classList.toggle('active');
+            });
+        });
+    </script>
+</head>
+
+<body>
+   <div class="hamburger-container">
+        <button class="navbar-toggler" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <a href="index.html">
+            <img src="images/mezehub.png" alt="Logo" class="logo" style="width: 200px;"></a>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        General Achievements
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="role-crown" href="crown-hunter.html">🏆 Crown Hunter</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-master999" href="master-of-999.html">⭐ Master of 999</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-prayergod" href="prayer-god.html">⭐ Prayer God</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-monstiecollector" href="monstie-collector.html">🏅 Monstie Collector</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Hunting Road Achievements
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link role-roadmaster" href="road-master.html">💀 Road Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-z4roadmaster" href="z4-road-master.html">💀 Z4 Road Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-z4easy" href="z4-easy.html">♘ Z4 Easy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lonewolf" href="lone-wolf.html">✹ Lone Wolf</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-masterofallweapons" href="master-of-all-weapons.html">🏅 Master of All Weapons</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-sns" href="sns-master.html">🏅 SNS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-ds" href="ds-master.html">🏅 DS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-gs" href="gs-master.html">🏅 GS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-ls" href="ls-master.html">🏅 LS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hammer" href="hammer-master.html">🏅 Hammer Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hh" href="hh-master.html">🏅 HH Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lance" href="lance-master.html">🏅 Lance Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-gl" href="gl-master.html">🏅 GL Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-swaxe" href="swaxe-master.html">🏅 Swaxe Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-tonfa" href="tonfa-master.html">🏅 Tonfa Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lbg" href="lbg-master.html">🏅 LBG Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hbg" href="hbg-master.html">🏅 HBG Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-bow" href="bow-master.html">🏅 Bow Master</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Achievement Guides
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="guide.html">Hunting Road Achievement Guides</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        General Guides
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="Server-Essentials/">MezeLounge Server Essentials</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Refinement/">Decoration Refinement Guide</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        Resources
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="EventCalendar.html">MezeLounge Event Calendar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="transmogs.html">MezeLounge Transmog Overview</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <div class="main-content">
+        <h1 id="mezelounge-essentials" style="color: #7030a0;">MezeLounge Server Essentials</h1>
+        <p style="color: #7030a0; text-align: center;"><strong>Document covering essential game-related things, and answering FAQs.</strong></p>
+
+        <h2 id="game-installation" style="color: #7030a0;">Game Installation</h2>
+<p style="color: #7030a0;">This video guide will have everything you need to install MHFZ.</p>
+<div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4fm9kqZQu8s" frameborder="0" allowfullscreen></iframe>
+</div>
+        <h2 id="faq" style="color: #7030a0;">Frequently Asked Questions</h2>
+        <p style="color: #7030a0;"><strong>Q. How do I register?</strong><br>
+            A. You are able to create a character by simply inputting an Account ID (of your choosing) and a password.
+        </p>
+        <p style="color: #7030a0;"><strong>Q. I’ve created a character, but it shows me a profile that is HR7?</strong><br>
+            A. The “Hunter Application Possible” HR7 profile it shows is only a placeholder, you will still be HR1 when you click “Start Game”
+        </p>
+        <p style="color: #7030a0;"><strong>Q. How do I get a pre-made GR1 Character?</strong><br>
+            A. The only way to get a pre-made GR1 character is if you have proof of owning a previous G-Rank character (Image, video) typically sent to Sera or Dixdros.
+        </p>
+        <p style="color: #7030a0;"><strong>Q. I get Error Code 10054 when I play the game, why does that happen?</strong><br>
+            A. Error Code 10054 usually indicates a problem with one’s own internet connection, in rare cases it can be the server itself.
+        </p>
+        <p style="color: #7030a0;"><strong>Q. My launcher is stuck, it won’t finish updating / white screen error message</strong><br>
+            A. This happens when not properly setting up the game, you must allow MHFZ to bypass your firewall / antivirus for it to work properly.
+        </p>
+
+        <h2 id="controller-config" style="color: #7030a0;">Controller Configurations</h2>
+        <p style="color: #7030a0;">This section of the guide is particularly useful to answer one of the most asked questions in the server, how to change the camera settings (In this case, general camera + gunner aim)</p>
+        <p style="color: #7030a0;"><strong>Start Menu -> Input Options -> Scroll down to “Camera Pan Speed” and change it to “Smooth 2”</strong></p>
+        <p style="color: #7030a0;">The game by default does not have the camera movement set for right joystick, but that can be changed in the same Input Options menu, Input Options -> Key Settings -> Highlight Gamepad, and change the circled options to “Portable Type” exit, and confirm the setting.</p>
+        <img src="images/image19.png" alt="Controller Config" style="width: 232.50px; height: 267.14px;">
+        <img src="images/image16.png" alt="Controller Config" style="width: 345.50px; height: 263.55px;">
+        <p style="color: #7030a0;">This is page 2 of Input Settings, note that Aiming Type is set to Type 2, as well as Aiming Camera Type.</p>
+        <img src="images/image10.png" alt="Controller Config" style="width: 325.00px; height: 401.00px;">
+        <p style="color: #7030a0;">Depending on the controller being used, you may run into trigger issues that most commonly happen for Xbox, or generic USB controllers.</p>
+        <ul>
+            <li style="color: #7030a0;">This <a href="https://pastebin.com/mTe3KWzf">pastebin</a> will have further instructions on how to set up PS4 / PS5 / Switch / Xbox, please check the pastebin if you have further controller issues.</li>
+        </ul>
+        <ul>
+            <li style="color: #7030a0;">Most common issues are fixed by simply running MHFZ through your Steam Library.</li>
+        </ul>
+        <ul>
+            <li style="color: #7030a0;">The Pastebin above will touch on the required Xinput+ that Xbox One X Controllers tend to need.</li>
+        </ul>
+
+        <h2 id="useful-links" style="color: #7030a0;">Useful Links</h2>
+        <ul>
+            <li><a href="https://xl3lackout.github.io/MHFZ-Ferias-English-Project/">Ferias</a> - Incredibly useful database for Monster Hunter Frontier, includes information on how to get certain materials, data on armor, weapons, etc.</li>
+            <li><a href="https://hunterachieves.github.io/index.html">MezeLounge MHF-Z Achievements</a> - Website archiving completed challenge runs / weapon guides for said runs.</li>
+            <li><a href="https://mertna.github.io/MHFZ-Skills/">Mertna</a> - Lists every skill in the game, HH notes, etc.</li>
+            <li><a href="https://www.youtube.com/watch?v=2douFwvr27c&list=PL1Iuxwks6lafn1kUma6YGbZtvoT_jD_su">SephVII</a> - In-depth guides for every weapon in the game.</li>
+            <li><a href="https://drive.google.com/drive/u/0/folders/1VihaVE_dY6W0gFzXDGEILffLewckACbQ">Set Searcher</a> - Useful tool that’ll help you choose the skills you’d want in a set.</li>
+            <li><a href="https://docs.google.com/spreadsheets/d/1kzTWKzPYKKFL7ETe0cGwzky3geL9tAZXsfqUwQOV1Pw/edit?usp=sharing">Misc Spreadsheet</a> - Spreadsheet detailing My Mission, Hunter Navi, Halk skills and Diva questline. All of these are explained in further detail throughout the guide.</li>
+            <li><a href="https://docs.google.com/document/d/1Vwyu1WJgjvdN1qsYd-o-Hp0P9ZSrGgp-IHUN0jC9Was/edit#heading=h.5qdxwh2nos88">Poogie Guide</a> - A more in-depth guide regarding the Poogie.</li>
+            <li><a href="https://github.com/DorielRivalet/mhfz-overlay">MHFZ-Overlay</a> - Allows players to keep track of in-game stats such as Monster HP, Status Info, etc.</li>
+            <li><a href="https://tenrouz.github.io/">Tower Weapon Simulator</a> - Used to simulate stats when upgrading Tower / Tenrou weapons (mostly useful for late / end game).</li>
+            <li><a href="https://dorielrivalet.github.io/mhfz-damage-calculator/index.html">Damage Calculator</a> - Damage Calculator/Simulator</li>
+        </ul>
+
+        <h2 id="progression-guide" style="color: #7030a0;">Rough Progression "Guide"</h2>
+        <p style="color: #7030a0;">Prior to G Rank, the progression in Frontier works the same as in other MH games – do Key quests until you unlock an Urgent quest, do the Urgent to rank up. Unlike most mainline games, Frontier actually shows you which quests are the Key quests for a rank. Key quests are marked with an orange diamond and are also marked as clear when you beat them, unlike other quests in the game.</p>
+        <div style="text-align: left;">
+            <a href="images/image17.png" target="_blank">
+                <img src="images/image17.png" alt="Progression Guide" style="width: 350.00px; height: 350.00px;">
+            </a>
+        </div>
+        <p style="color: #7030a0;">As you rank up, you’ll unlock more key features and in-game systems. The main unlocks for each rank are:</p>
+        
+
+<table style="width: 100%; color: #7030a0; border-collapse: collapse; margin-bottom: 20px;">
+    <tr>
+        <th class = "sns-master-th" >Low/High Rank</th>
+        <th class = "sns-master-th">Unlocks</th>
+    </tr>
+    <tr>
+        <td style="padding: 8px; border: 1px solid #7030a0;">HR2</td>
+        <td style="padding: 8px; border: 1px solid #7030a0;">Partner, Partnya, Halk, Taloncharm, Caravan Gem / Skills</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px; border: 1px solid #7030a0;">HR3</td>
+        <td style="padding: 8px; border: 1px solid #7030a0;">Transcendence, Guild</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px; border: 1px solid #7030a0;">HR4</td>
+        <td style="padding: 8px; border: 1px solid #7030a0;">Poogie</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px; border: 1px solid #7030a0;">HR5</td>
+        <td style="padding: 8px; border: 1px solid #7030a0;">Hardcore Monsters, Styles, My Mission (In the house menu), Exotic Monsters<br><strong>It is important to note the sudden change in difficulty when jumping from HR5 to HR6</strong>, it is highly recommended to ask someone for help, if you are unable to solo the Supremacy Monsters.</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px; border: 1px solid #7030a0;">HR6</td>
+        <td style="padding: 8px; border: 1px solid #7030a0;">My Mission (In the quest menu, expanded further down in the guide.)</td>
+    </tr>
+</table>
+
+<table style="width: 100%; color: #7030a0; border-collapse: collapse;">
+    <tr>
+        <th class = "sns-master-th">G Rank</th>
+        <th class = "sns-master-th">Unlocks</th>
+    </tr>
+    <tr>
+        <td style="padding: 8px; border: 1px solid #7030a0;">GR1</td>
+        <td style="padding: 8px; border: 1px solid #7030a0;">Switch Axe & Tonfa, Extreme Style, Magnet Spike questline</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px; border: 1px solid #7030a0;">GR50</td>
+        <td style="padding: 8px; border: 1px solid #7030a0;">Poogie GR License (Skill Cuffs)</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px; border: 1px solid #7030a0;">GR100</td>
+        <td style="padding: 8px; border: 1px solid #7030a0;">G Exotics</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px; border: 1px solid #7030a0;">GR2 / 4 / 6 / 800</td>
+        <td style="padding: 8px; border: 1px solid #7030a0;">Zenith Rank 1 / 2 / 3 / 4 Monsters</td>
+    </tr>
+    <tr>
+        <td style="padding: 8px; border: 1px solid #7030a0;">GR999</td>
+        <td style="padding: 8px; border: 1px solid #7030a0;">Unlimited Monsters</td>
+    </tr>
+</table>
+<p style="color: #7030a0;">Please make sure to check out the Event Quest tab, as a lot of those are quests that give you free decos!<br>
+    One in particular, will give you a very strong weapon early on in the game.</p>
+    <div>
+        <a href="images/image3.png" target="_blank">
+            <img src="images/image3.png" alt="Progression Guide" style="width: 368.22px; height: 350.50px;">
+        </a>
+    </div>
+    <p style="color: #7030a0;">This quest will allow you to make the “Resolute” weapons.</p>
+
+        <h2 id="npc-hunters" style="color: #7030a0;">NPC Hunters</h2>
+        <p style="color: #7030a0;">Frontier has various NPC hunters that can be used to help you on hunts. These NPCs vary in usefulness, availability and utility. Below is an image of the “NPC Settings” tab, which can be used to enable or disable each NPC type, as well as controlling in which order NPCs are prioritized when starting a hunt. Aside from the Halk, which is completely free to bring, each NPC takes up one space in your quest. Just like mainline games, quests can only have up to 4 players. The different NPCs are elaborated on further later in the guide.</p>
+        <div style="text-align: left;">
+        <a href="images/image1.png" target="_blank">
+        <img src="images/image1.png" alt="NPC Settings" style="width: 323.00px; height: 405.00px;">
+        </a>
+        </div>
+
+
+        <h2 id="taloncharm" style="color: #7030a0;">Taloncharm</h2>
+        <p style="color: #7030a0;">The Hunter’s Taloncharm is the result of combining both Power Taloncharm, and Armor Taloncharm.</p>
+        <p style="color: #7030a0;">Buy Powercharm(x2) & Armorcharm(x2) from the general store. In GCP Exchange, look for Lao Shan Claw (x2)</p>
+        <p style="color: #7030a0;">See image below for combination recipe.</p>
+        <img src="images/image2.png" alt="Taloncharm" style="width: 502.50px; height: 162.74px;">
+        <p style="color: #7030a0;">Important note - The charms <strong>DO NOT</strong> stack. The Hunter’s Taloncharm has the effects of all the others, so you only need to have that in your inventory.</p>
+
+        <h2 id="caravan" style="color: #7030a0;">Caravan</h2>
+        <p style="color: #7030a0;">When you reach HR2, you have access to the Caravan Gem, and Caravan Skills. Through the Move Menu, go to Pallone Caravan and interact with the “Boss” NPC to unlock the Gem, which appears as a colored circle next to your name. This is typically something you grind out during G-Rank, but it is best to get it ASAP as it is leveled up passively by doing quests.</p>
+        <p style="color: #7030a0;">It is <strong>highly recommended</strong> that you change the Gem’s color to <strong>Rainbow</strong>, since it will accumulate every color required at the same time during your hunts, and it will speed up the process of leveling the Gem. This can be done at the building across the bridge. <strong>The color changes on its own once a day</strong>, so make sure your Gem is Rainbow before doing quests. Especially if you plan to play for an extended period. While this can be annoying, playing with Rainbow Gem from the start will cut down on a lot of color grinding throughout the game.</p>
+        <p style="color: #7030a0;">Once you’ve accumulated enough Gem colors, you can rank the Gem up using Caravan Points. When you qualify for the upgrade you will no longer be collecting colors, so you should ideally upgrade the Gem level as soon as you reach the cap (e.g. 259 of each color to go from level 1 to level 2).</p>
+        <p style="color: #7030a0;">The importance of the Caravan Gem, however, is that the higher the level, the more skills it will unlock, some of which are incredibly useful, and must haves. Caravan Skills can be changed in your equipment box.</p>
+        <img src="images/image6.png" alt="Caravan Gem" style="width: 485.78px; height: 254.50px;">
+        <img src="images/image11.png" alt="Caravan Gem" style="width: 280.50px; height: 264.00px;">
+        <img src="images/image8.png" alt="Caravan Gem" style="width: 226.66px; height: 265.43px;">
+
+        <h2 id="transcendence" style="color: #7030a0;">Transcendence</h2>
+        <p style="color: #7030a0;">Upon reaching HR3, talking to the Guild Master will unlock a buff that will appear in your item bar. Similar to Wystones from MH4U, Transcendence has a charging time and an activation time. Transcendence will charge as time passes during your quests, gradually filling up until it’s ready for use, having the icon change from a silver color to gold. While using and activating the “Transcended” state, the icon will slowly revert back to silver.</p>
+        <p style="color: #7030a0;">During this state, attacks will gain a special effect depending on the element of your weapon, and the monster’s elemental resistance. If you manage to hit the monster a sufficient amount of times, the Transcend Icon will change into a knife. Sheathing your weapon and activating the “Hexaflash Dance” (Hexa), previously called “Arcane Pulse”, the hunter will dash at the monster and activate the corresponding effect depending on the weapon element.</p>
+        <a href="images/image15.png" target="_blank">
+            <img src="images/image15.png" alt="Transcendence" style="width: 589.00px; height: 64.00px;">
+        </a>
+        <p style="color: #7030a0;">Transcendence can be upgraded for longer duration, stronger effects, etc. This will be touched up in the Hunter’s Festival section.</p>
+        <a href="images/image18.png" target="_blank">
+            <img src="images/image18.png" alt="Transcendence" style="width: 624.00px; height: 276.00px;">
+        </a>
+        <p style="color: #7030a0;">In-depth details are available via the <a href="hexaflash.html" target="_blank">Hexaflash Data page</a>.</p>
+        
+        
+
+        <h2 id="guild-clan" style="color: #7030a0;">Guild / Clan</h2>
+        <p style="color: #7030a0;">In game, you will find the Guild Reception NPC on the right side of the hub (on login) there you are able to select the option “Join Clan” where you can request to join any guild.</p>
+        <div style="text-align: left;">
+            <a href="images/image13.png" target="_blank">
+                <img src="images/image13.png" alt="Guild Reception" style="width: 624.00px; height: 349.33px;">
+            </a>
+        </div>
+        <p style="color: #7030a0;">Joining a guild is incredibly important when playing MHFZ. A guild has many big benefits such as Guild Food, Guild Poogies, and an event that will be expanded on later called the Hunters Festival.</p>
+        <p style="color: #7030a0;"><strong>Guild Food</strong> when using the proper recipe, can activate skills separate from your Set skills, lasting a total of 90 minutes. Recipes for the skills given by Guild Food can be found <a href="https://mertna.github.io/MHFZ-Skills/?skills=guildfood">here</a>.<br>
+        <strong>NOTE:</strong> Ingredients can be bought at the Grocery store, as well as Guild Shop.</p>
+        <p style="color: #7030a0;">Guild Poogies are special because depending on the one you feed, you will get a buff that can be very helpful. The item required to feed this is called Poogie Cracker, which can also be found at the Guild Shop. Sometimes they must be fed multiple times in order to get the skill. Each effect / outfit the Poogie can have can be found <a href="https://mertna.github.io/MHFZ-Skills/?skills=poogie">here</a>. The skill lasts until you log out, or activate another Poogie skill.</p>
+        
+
+        <h2 id="pets" style="color: #7030a0;">Pets (Halk & Poogie)</h2>
+        <p style="color: #7030a0;">Unlocked at HR2, the Halk is a flying Wyvern NPC that can accompany you during your quests. Halks can be quite helpful once invested in, getting multiple useful abilities such as showing the entire map without needing one, occasionally revealing the locations of large monsters, and being able to heal you from various status ailments. Halks are elaborated on further in the “Types of NPC Hunters'' section.</p>
+        <p style="color: #7030a0;">You also unlock the ability to get a Poogie at HR4. Getting a Poogie is simple, but if you do it wrong you can <strong>potentially lock yourself out of getting a Poogie</strong>, and its benefits, until you use the “Get Points'' option with the Tore Manager enough times. The full Poogie guide can be found in the useful links above.</p>
+
+        <h2 id="hunters-festival" style="color: #7030a0;">Hunter’s Festival</h2>
+        <p style="color: #7030a0;">The Hunter’s Festival is an event that takes place monthly, divided into three phases:</p>
+        <p style="color: #7030a0;"><strong>Phase 1</strong> is the sign-up week, Guild Leaders have the opportunity to sign up their Guilds for the Hunter’s Festival, being randomly assigned into one of 2 teams, blue and red.</p>
+        <p style="color: #7030a0;"><strong>Phase 2</strong> is the soul gathering week, during this phase hunters will collect souls after finishing quests, and deliver them to the Hunter’s Festival NPC. By collecting enough souls you can qualify for certain milestone rewards. There are rewards for both individual contribution and total guild souls. You can also bring “Soul Gems” with you on quests to get 20, 40, or 80 additional souls depending on the Gem. Only one can be used per quest, and smaller Gems are used first.</p>
+        <p style="color: #7030a0;"><strong>Phase 3</strong> is the reward phase, this is when the points accumulated by both the Red and Blue teams are compared, although winning doesn’t actually matter, as everyone gets the rewards. During the reward phase, the Festi Exchange opens. The exchange offers many items including food ingredients, gathering materials, decoration jewels, and a range of common / rare monster materials. It is also one of the only sources of Black Ravi materials in the game.</p>
+        <p style="color: #7030a0;">The main point of Hunter’s Festival however, is the ability to be able to craft very powerful Festival decos, which a lot of armor set builds use.</p>
+        <p style="color: #7030a0;">With some of these milestone rewards, come the material needed to <strong>upgrade the effects of Transcend</strong>. Purity Ritual - Red/Blue are what you will receive through the festival, so long as you are meeting the milestones during the soul gathering phase.(Personal rewards, not clan rewards, those give different materials) The Transcend menu can be accessed through the Pause menu.</p>
+        <img src="images/image9.png" alt="Hunter’s Festival" style="width: 462.26px; height: 343.50px;">
+        <img src="images/image14.png" alt="Hunter’s Festival" style="width: 448.50px; height: 215.28px;">
+        <p style="color: #7030a0;">Personal rewards acquired by meeting milestone:</p>
+        <img src="images/image20.png" alt="Hunter’s Festival" style="width: 442.98px; height: 232.93px;">
+        <p style="color: #7030a0;">Clan rewards acquired by meeting milestone:</p>
+        <img src="images/image5.png" alt="Hunter’s Festival" style="width: 444.60px; height: 207.65px;">
+
+        <h2 id="hc-ul-monsters" style="color: #7030a0;">Hardcore & Unlimited Monsters</h2>
+        <p style="color: #7030a0;">Hardcore (HC) and Unlimited (UL) Monsters are both somewhat similar. HCs are unlocked upon reaching HR5, and allow you to refight monsters you already know, except with some new moves and higher stats. ULs only unlock once you reach GR999 and serve as HC monsters with significantly increased stats, giving you the opportunity to actually engage with monsters who would otherwise die incredibly quickly with endgame equipment.</p>
+        <p style="color: #7030a0;">In addition to affecting the fights themselves, HC monsters award twice the GR and GSR points of their normal counterparts. HC and UL monsters also award players with “Soul”, “Ribbon” and “Merit” items for the weapon they’re using (items needed to craft certain equipment).</p>
+
+        <h2 id="styles" style="color: #7030a0;">Styles</h2>
+        <p style="color: #7030a0;">When you reach HR5, you unlock 2 new styles, Heaven and Storm Style respectively. Unlocked by talking to the guild master, these styles have different movesets than the Earth style you start with. To best try out these styles and their differences, you can test them out by interacting with your bed and selecting “Practice Weapons in Dream”. Once you reach G Rank, you’ll unlock a fourth style – Extreme Style. This is generally the best style in almost all cases, as it usually has everything the other styles have and then some.</p>
+
+        <h2 id="my-mission" style="color: #7030a0;">My Mission</h2>
+        <p style="color: #7030a0;">As noted earlier, there are two types of “My Mission”: one is an area in the move menu for your house, the other is the set of My Missions listed in the “Misc Spreadsheet” link. <strong>These are two separate systems, and should not be confused.</strong> The important type of My Mission is the one accessed through the quest menu (progress is shown in the SR Status page. These quests let you upgrade various passive effects for your hunter – most notably, your raw damage cap. With no missions done, your maximum true raw attack is 800. Once you finish all 250 of the missions, your cap has drastically increased to 8000 (each “Attack Ceiling” mission increases your cap by 40 true raw). The other My Mission is <strong>only</strong> relevant for <strong>one</strong> Longplay task in the Hunter Navi.</p>
+
+        <h2 id="exotic-monsters" style="color: #7030a0;">Exotic Monsters</h2>
+        <p style="color: #7030a0;">Exotics are mainline monsters from games released after Frontier. They are significantly stronger versions of their mainline counterparts, and their equipment reflects this. Each Exotic equipment piece gives a full free armor skill, in addition to the regular points toward skills. All armor pieces from one Exotic have the same free skill, and stacking them does not give any added benefit. This means the best way to use Exotic pieces is to mix them into another set.</p>
+        <p style="color: #7030a0;">Below is a list of all the free skills granted by Exotic equipment.</p>
+        
+        <table style="width: 100%; color: #7030a0; margin-top: 20px;">
+            <tr>
+                <th class="sns-master-th" style="text-align: left;">Monster</th>
+                <th class="sns-master-th" style="text-align: left;">Free Skill</th>
+            </tr>
+            <tr>
+                <td><strong>All Weapons</strong></td>
+                <td>Speed Eating</td>
+            </tr>
+            <tr>
+                <td><strong>Amatsu</strong></td>
+                <td>Water Attack (Large)</td>
+            </tr>
+            <tr>
+                <td><strong>Barioth</strong></td>
+                <td>Ice Attack (Large)</td>
+            </tr>
+            <tr>
+                <td><strong>Brachydios</strong></td>
+                <td>Bomber</td>
+            </tr>
+            <tr>
+                <td><strong>Deviljho</strong></td>
+                <td>Starving Wolf +2</td>
+            </tr>
+            <tr>
+                <td><strong>Gore Magala</strong></td>
+                <td>Focus +2</td>
+            </tr>
+            <tr>
+                <td><strong>Nargacuga</strong></td>
+                <td>Evasion +2</td>
+            </tr>
+            <tr>
+                <td><strong>Seregios</strong></td>
+                <td>Critical Eye +5</td>
+            </tr>
+            <tr>
+                <td><strong>Shagaru Magala</strong></td>
+                <td>Status Immunity (Myriad)</td>
+            </tr>
+            <tr>
+                <td><strong>Stygian Zinogre</strong></td>
+                <td>Dragon Attack (Large)</td>
+            </tr>
+            <tr>
+                <td><strong>Uragaan (Blademaster)</strong></td>
+                <td>Guard +2</td>
+            </tr>
+            <tr>
+                <td><strong>Uragaan (Gunner)</strong></td>
+                <td>Ammo Combiner</td>
+            </tr>
+            <tr>
+                <td><strong>Zinogre</strong></td>
+                <td>Thunder Attack (Large)</td>
+            </tr>
+        </table>
+        
+        <h2 id="g-rank-weapons" style="color: #7030a0;">G-Rank Weapons</h2>
+        <p style="color: #7030a0;">At GR1, you unlock the ability to use Switch Axe and Tonfa. Tonfa is a completely new weapon for Frontier, whereas Switch Axe is similar to its main series counterpart, but with enough Frontier flair to set it apart.</p>
+        <p style="color: #7030a0;">You can also unlock a 3rd new weapon, Magnet Spike, through a short questline. The process for unlocking MS is detailed below.</p>
+        <div style="text-align: left;">
+            <a href="images/image4.png" target="_blank">
+                <img src="images/image4.png" alt="G-Rank Weapons" style="width: 500px; height: 500px;">
+            </a>
+        </div>
+
+        <h2 id="zenith-monsters" style="color: #7030a0;">Zenith Monsters</h2>
+        <p style="color: #7030a0;">At GR200, GR400, GR600, and GR800 you unlock Z1, Z2, Z3, and Z4 Zenith quests respectively. Zeniths are particularly strong variants of monsters. Each Zenith has one part that’s powered up compared to their normal version. For example, Zenith Rathalos has his wings powered up. Zeniths also have powered up Roars, Wind, and/or Tremors. Breaking a Zenith’s Z part usually results in them being nerfed in some way. For example, breaking Zenith Rathalos’ wings prevents him from using Z Wind, and it removes his fire aura.</p>
+        
+        <p style="color: #7030a0;">In addition to this, most Zeniths have a powered up Elemental Blight or Status. The Z Blights can be negated by having at least 55 resistance in that element. The most important Z Blights to cover are Fire, then Thunder. The Z Blight and status effects are as follows:</p>
+        
+        <table style="width: 100%; color: #7030a0;">
+            <tr>
+                <th class ="sns-master-th" style="text-align: left;">Blight</th>
+                <th class ="sns-master-th" style="text-align: left;">Description</th>
+            </tr>
+            <tr>
+                <td><strong>Z Fire</strong></td>
+                <td>Acts similar to normal Fireblight, except it also rapidly reduces your maximum HP. You can cure Z Fireblight by rolling. (Severity of Fireblight may vary depending on Zenith level)</td>
+            </tr>
+            <tr>
+                <td><strong>Z Water</strong></td>
+                <td>Severely reduces your stamina regeneration. Taking a Dash Juice while Blighted still gives you infinite stamina, but any stamina you miss when taking the juice will still regenerate slowly.</td>
+            </tr>
+            <tr>
+                <td><strong>Z Thunder</strong></td>
+                <td>Does nothing on its own, however, if you get hit by another thunder move while blighted, you will go into cardiac arrest. If another player does not revive you within a short time limit, you instantly die. NPCs are unable to revive you. You can cure Z Thunderblight by rolling.</td>
+            </tr>
+            <tr>
+                <td><strong>Z Ice</strong></td>
+                <td>Gradually reduces your stamina. Once your stamina runs out, you get frozen. Z Iceblight can be cured by rapidly rotating the left stick (or button mashing). You can also circle the stick to break out faster once frozen.</td>
+            </tr>
+            <tr>
+                <td><strong>Z Dragon</strong></td>
+                <td>Prevents you from healing. It prevents all sources of healing, including Vampirism. Using healing items will instead play a special animation and damage you. Even if you get the special animation, Wide-Area healing will heal your teammates if they’re not blighted. The same rules apply to special sources of healing, like Lance’s guard mechanic. You can cure Z Dragonblight by rolling 13 times with your weapon sheathed. Nullberry will also cure Dragonblight.</td>
+            </tr>
+        </table>
+        
+        <table style="width: 100%; color: #7030a0; margin-top: 20px;">
+            <tr>
+                <th class ="sns-master-th" style="text-align: left;">Status</th>
+                <th class ="sns-master-th" style="text-align: left;">Description</th>
+            </tr>
+            <tr>
+                <td><strong>Z Poison</strong></td>
+                <td>Just a more severe version of normal Poison, but it cannot be cured using Antidotes. Z Poison can only be cured using Anti-Venoms, dropped by the monsters who inflict Z Poison. (Severity of Poison may vary depending on Zenith level)</td>
+            </tr>
+            <tr>
+                <td><strong>Z Paralysis</strong></td>
+                <td>Paralyzes you like normal, except Z Para will kick in multiple times after you get back up. Each time it activates, it’ll interrupt whatever you’re doing. The only way to cure Z Para is to wait for it to wear off.</td>
+            </tr>
+            <tr>
+                <td><strong>Z Sleep</strong></td>
+                <td>Like the others, is a stronger version of normal Sleep. You will instantly fall asleep, so you cannot use Energy Drinks to cure it. You need to be hit by a teammate to wake up. Unlike Z Thunder, however, NPCs can save you from Z Sleep. The monsters who inflict Z Sleep also have very dangerous moves to punish falling asleep, however.</td>
+            </tr>
+        </table>
+        
+        <p style="color: #7030a0;"><strong>The elemental blights can all also be cured by using a Nullberry.</strong></p>
+        
+
+        <h2 id="npc-types" style="color: #7030a0;">Types of NPC Hunters</h2>
+<p style="color: #7030a0;">There are several types of NPC hunters available in Monster Hunter Frontier, each with its own strengths and abilities. Below are the main types:</p>
+<ul style="color: #7030a0;">
+    <li><strong>Partner:</strong> Your main NPC companion, available from HR2. Partners can be customized with various equipment and skills to suit different playstyles.</li>
+    <li><strong>Partnya:</strong> Similar to Partners but have different equipment and skill options. They can also be customized extensively.</li>
+    <li><strong>Halk:</strong> A flying Wyvern NPC that provides various support abilities like healing and revealing monster locations.</li>
+    <li><strong>Poogie:</strong> A small pig companion that can provide various buffs depending on its outfit and the food it’s fed.</li>
+</ul>
+
+<p style="color: #7030a0;">The most important NPC hunters in Frontier are your Partner, Partnya, and Halk. The others – Legendary Rasta, Rasta, Fosta, and Temporary Rasta – have their uses, but are generally not worth using. Legendary Rasta requires you to contract the Rasta you want and then bring a Legendary Rasta Ticket with you on a hunt. Fosta are free to bring, but it’s random which weapon they’ll use. As such, their contribution will vary a lot between hunts. Rasta are NPCs you receive from other players, though this currently does not work properly in the server. Temporary Rasta can be contracted in the Rasta Bar and have to be contracted again between quests. These are generally more trouble than they’re worth. If you want additional slot fillers, use Fosta.</p>
+<div style="text-align: left;">
+    <a href="images/image21.png" target="_blank">
+        <img src="images/image21.png" alt="Additional NPCs" style="width: 812px; height: 400.75px;">
+    </a>
+</div>
+
+<p style="color: #7030a0;">Moving on to the main three, the Halk is the simplest. Halks are completely free to bring on hunts as they do not take up a slot in your party. Halks can be fed monster materials to gain points toward elements and statuses, and they can be equipped with up to three skills (listed in the Misc Spreadsheet). The third skill slot is unlocked at GR150. Halks can only have one element, and one status, and the combination of the two determines how your Halk will look. You can find, train, and customize your Halk in the “My Support” area in your house’s move menu. The Halk skills are equipable through the Halk Instructor’s “Skill Book Settings” menu. New skills are learned by picking up the glowing item your Halk sometimes drops at the end of quests, though you can get duplicate skills.</p>
+<div style="text-align: left;">
+    <a href="images/image7.png" target="_blank">
+        <img src="images/image7.png" alt="Halk Customization" style="width: 812px; height: 400.75px;">
+    </a>
+</div>
+
+<p style="color: #7030a0;">Also found within the My Support area are Frontier’s Felyne companions: Partnya. The Partnya’s main strength in Frontier is their ability to support just by existing. Even without any upgrades to their equipment, Partnya double the part break rewards from quests – if you need an item from a wing break, you’ll get two chances to obtain the item if you bring your cat. In addition to this, Partnya have additional inventory slots you can access mid-hunt. This is particularly useful for Gunners, since the Partnya pouch essentially doubles your ammo capacity without needing to craft anything. As your cat levels up their Partner Rank, you unlock more item slots in their pouch (1 slot every 100 PR, maxing out at 5 slots at PR400). The last 5 slots are only available through the Assist Course, which is unavailable in the MezeLounge server. You can also give your Partnya armor skills for useful support skills like Encourage and Assist through the treasure cat in My Tore’s Felyne Square, but this is outside the scope of the guide.</p>
+
+<p style="color: #7030a0;">Finally we have your Partner. Like Legendary Rasta, your Partner can become very powerful. Unlike Legendary Rasta, however, getting a truly powerful Partner requires a lot of investment. Your Partner ranks up alongside you as you take them on quests and can use all the same weapon types as you can. Partners can change equipment, just like the player, though their armor functions quite differently to the player. Partners have different “tiers” of armor, and defense values remain the same within tiers. Z1 armor is sufficient to maximize your Partner’s defense. Partners also don’t gain armor skills the same way players do. For your Partner, armor pieces do not matter. All their skills are unlocked using GCP, through its own menu by talking to the partner. You will, however, need a lot of both GCP and hunts in order to fully max out your partner.</p>
+
+
+
+<h2 id="hunters-navi" style="color: #7030a0;">Hunter’s Navi</h2>
+<p style="color: #7030a0;">The Hunter’s Navi is an in-game guide of sorts. It has several tasks you can complete. Completing a task rewards you with various items. The “Misc Spreadsheet” contains a list of all the Navi tasks in the game. The descriptions on some of them are outdated, but most of the tasks are fairly self-explanatory.</p>
+
+<div style="text-align: left;">
+    <a href="images/hunternavi.png" target="_blank">
+        <img src="images/hunternavi.png" alt="Hunter’s Navi" style="width: 556px; height: 400.375px; margin-right: 10px;">
+    </a>
+    <a href="images/hunternavi2.png" target="_blank">
+        <img src="images/hunternavi2.png" alt="Hunter’s Navi" style="width: 556px; height: 400.375px;">
+    </a>
+</div>
+
+<p style="color: #7030a0;">The most consistently problematic task is the 2nd task in the GR2 set. To complete this task, you need to craft an “Orb Weapon”. These are the weapons crafted from one of four “Orb” items obtained through Gear Acquisition quests. There are, however, some Orb weapons that do not count for the task. You need a weapon from the “Blue Orb” (Anti-Teostra Weaponry), “White Orb” (Anti-Voljang Weaponry), “Black Orb” (Anti-Chameleos Weaponry), or “Yellow Orb” (Anti-Kushala Daora Weaponry). The “Peach”, “Green”, and “Purple Orb” weapons DO NOT work.</p>
+
+
+    <h2 id="endgame" style="color: #7030a0;">Endgame – Hunter’s Road</h2>
+    <p style="color: #7030a0;">Hunter’s Road is one of the endgame activities in Monster Hunter Frontier. It involves tackling a series of increasingly difficult monsters, each providing better rewards. The goal is to progress as far as possible to earn valuable materials and bragging rights.</p>
+    
+    <p style="color: #7030a0;">The Hunter’s Road is what most people would consider the biggest part of MezeLounge’s endgame content. “Road” is a type of quest where you hunt 1 monster per floor continuously, with the difficulty increasing the higher the floor you are. During Road, you are given 2 monster options every floor, more often than not (unless going for high points) the picks are highly dependent on survivability. As you go deeper into Road, with time you will know what picks are better for the team composition, what monsters are easier, which are too risky, etc. Every 10th floor, there is the option to fight a regular monster or a White Fatalis. W.Fatalis will net you a big amount of points, so learning how to deal with his fight is very important as a new player.</p>
+    
+    <p style="color: #7030a0;">Hunting Road ends up being a necessity, as set building during the endgame generally requires you to have Road Points, which are gained by accumulating the Road Points you get per run.</p>
+    
+    <p style="color: #7030a0;">During Roads you will also sometimes get a floor with several Shakalaka. These floors give Guild Medals in addition to RdP. The medals are primarily used to get more Soul Gems for Festi, or for getting additional gestures.</p>
+    
+
+    <h2 id="road-skills" style="color: #7030a0;">Hunting Road Skills</h2>
+<p style="color: #7030a0;">During Hunter’s Road, players can unlock and use special skills that are only available in this mode. These skills provide various benefits, such as increased damage, better defense, and unique abilities that help in taking down the toughest monsters.</p>
+
+<p style="color: #7030a0;">Under “Status”, you will find the “Road Status” menu, showing you all Road specific skills that you are able to equip in order to optimize your Road runs.</p>
+
+<div style="text-align: left;">
+    <a href="images/image12.jpg" target="_blank">
+        <img src="images/image12.jpg" alt="Road Status Menu" style="width: 812px; height: 400.75px;">
+    </a>
+</div>
+
+<p style="color: #7030a0;">Base Cost limit is 100, this can be increased to 130 using Cost Books. The books can be bought from Road Shop for 10 RdP each. You need 30 books to max the Cost limit.</p>
+
+<p style="color: #7030a0;">The purple road skills have no impact on road quests. They are only used for Duremudira and Arrogant Duremudira quests. All these skills are free to equip, however, so you can always keep them active without affecting the rest of your road skills.</p>
+
+<p style="color: #7030a0;"><strong>Skills recommendations</strong></p>
+<p style="color: #7030a0;"><strong>Almost always active:</strong></p>
+<ul style="color: #7030a0;">
+    <li>Revival Sage</li>
+    <li>All Res Lv2 (or 3)</li>
+</ul>
+
+<p style="color: #7030a0;"><strong>Active for more points and guild medals:</strong></p>
+<ul style="color: #7030a0;">
+    <li>Rd P Up Lv3</li>
+    <li>Bonus Encounter</li>
+</ul>
+
+<p style="color: #7030a0;"><strong>Leftover cost:</strong></p>
+<ul style="color: #7030a0;">
+    <li>Defense</li>
+</ul>
+
+<p style="color: #7030a0;"><strong>Other considerations:</strong></p>
+<ul style="color: #7030a0;">
+    <li>Advancement Guru Lv3 (usually run for high floor runs, not something typically used for point gain)</li>
+    <li>Attack Lv5 (Also ran for max damage)</li>
+</ul>
+
+<p style="color: #7030a0;">Advancement Guru and Attack typically replace Rd P Up, Bonus Encounter and/or Revival Sage for max damage roads.</p>
+
+<h2 id="credits" style="color: #7030a0;">Credits</h2>
+
+<div style="color: #7030a0; text-align: center;">
+    <p>Special thanks to:</p>
+    <p><strong>Blaze, Ninjar, & ZeroArcadia </strong> for gathering the content, and forming the structure of the guide.</p>
+    <p><strong>ADarkRaccoon</strong> for the "How To Install MHFZ (MezeLounge Server) - Monster Hunter Frontier Z" Guide.</p>
+    <p><strong>Mertnya</strong> for hosting various resources such as the Guild Food Skills Table, and Poogie Skills Table.</p>
+</div>
+
+
+    
+    </div>
+
+    <div id="right-sidebar" class="right-sidebar">
+        <h4 style="color: #7030a0;"><strong>Navigation</strong></h4>
+        <a href="#mezelounge-essentials" style="color: #7030a0;">MezeLounge Server Essentials</a>
+        <a href="#game-installation" style="color: #7030a0;">Game Installation</a>
+        <a href="#faq" style="color: #7030a0;">Frequently Asked Questions</a>
+        <a href="#controller-config" style="color: #7030a0;">Controller Configurations</a>
+        <a href="#useful-links" style="color: #7030a0;">Useful Links</a>
+        <a href="#progression-guide" style="color: #7030a0;">Rough Progression "Guide"</a>
+        <a href="#npc-hunters" style="color: #7030a0;">NPC Hunters</a>
+        <a href="#taloncharm" style="color: #7030a0;">Taloncharm</a>
+        <a href="#caravan" style="color: #7030a0;">Caravan</a>
+        <a href="#transcendence" style="color: #7030a0;">Transcendence</a>
+        <a href="#guild-clan" style="color: #7030a0;">Guild / Clan</a>
+        <a href="#pets" style="color: #7030a0;">Pets (Halk & Poogie)</a>
+        <a href="#hunters-festival" style="color: #7030a0;">Hunter’s Festival</a>
+        <a href="#hc-ul-monsters" style="color: #7030a0;">Hardcore & Unlimited Monsters</a>
+        <a href="#styles" style="color: #7030a0;">Styles</a>
+        <a href="#my-mission" style="color: #7030a0;">My Mission</a>
+        <a href="#exotic-monsters" style="color: #7030a0;">Exotic Monsters</a>
+        <a href="#g-rank-weapons" style="color: #7030a0;">G-Rank Weapons</a>
+        <a href="#zenith-monsters" style="color: #7030a0;">Zenith Monsters</a>
+        <a href="#npc-types" style="color: #7030a0;">Types of NPC Hunters</a>
+        <a href="#hunters-navi" style="color: #7030a0;">Hunter’s Navi</a>
+        <a href="#endgame" style="color: #7030a0;">Endgame – Hunter’s Road</a>
+        <a href="#road-skills" style="color: #7030a0;">Hunting Road Skills</a>
+    </div>
+    <div class="button-mode ">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <span class="ball"></span>
+        </label>
+      </div>
+      
+      
+      
+      <script>
+       const checkbox = document.getElementById("checkbox");
+      
+      document.addEventListener("DOMContentLoaded", () => {
+          const isDarkMode = localStorage.getItem("darkMode") === "true";
+          document.body.classList.toggle("dark", isDarkMode);
+          checkbox.checked = isDarkMode;
+      });
+      
+      checkbox.addEventListener("change", () => {
+          const isDarkMode = checkbox.checked;
+          document.body.classList.toggle("dark", isDarkMode);
+          localStorage.setItem("darkMode", isDarkMode);
+      });
+      </script>
+</body>
+</html>
