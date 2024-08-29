@@ -45,7 +45,50 @@
         }
 
 
-        
+
+
+        .right-sidebar {
+    width: 200px;
+    background-color: #fff;
+    color: #343a40;
+    height: 100vh;
+    padding: 10px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    overflow-y: auto;
+    z-index: 1000;
+    border-left: 1px solid #ddd;
+}
+
+.right-sidebar a {
+    color: #7030a0;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.right-sidebar a:hover {
+    background-color: #f8f9fa;
+}
+
+.main-content {
+    margin-left: 270px;
+    margin-right: 220px;
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #ffffff;
+    color: #7030a0;
+}
+
+.table-responsive .weapon {
+    display: table; /* Make the weapon table visible by default */
+}
+
+.table-responsive .transmog {
+    display: none; /* Hide the transmog table by default */
+}
+
         </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -58,6 +101,8 @@
             });
         });
     </script>
+
+    
 </head>
 <body>
     <div class="hamburger-container">
@@ -231,11 +276,17 @@
         </div>
     </div>
 </div>
-        
     </div>
+    <div id="right-sidebar" class="right-sidebar">
+        <h4 style="color: #7030a0;"><strong>Navigation</strong></h4>
+        <a href="#introduction" style="color: #7030a0;">Introduction</a>
+        <a href="#gacha-rolling" style="color: #7030a0;">Gacha Rolling</a>
+        <a href="#gacha-list" style="color: #7030a0;">Gacha List</a>
+    </div>
+    
     <div class="main-content container">
         <div id="cogwheel"></div>
-        <h1 style="text-align: center; font-size: 35px; padding-top: 50px; margin-bottom:30px; color: #7030a0;">Gacha List</h1>
+        <h1 style="text-align: center; font-size: 35px; padding-top: 50px; margin-bottom:30px; color: #7030a0;">MezeLounge Gacha</h1>
 
     </h1>
    
@@ -280,6 +331,59 @@
             text-align: center;
         }
     </style>
+  <h2 id="introduction" style="text-align: center;">Introduction</h2>
+  <p style="text-align: left;">Gacha Rolling is a process that allows you to “gamble” your luck for a chance at various items, equipment tickets, and transmog tickets.</p>
+  
+  <p style="text-align: left;">To obtain Gacha Tickets, you’ll want to Navigate to the Road Shop.</p>
+  
+  <ul style="text-align: left;">
+      <li>
+          <span style="color: rgb(222, 88, 255);">(As a bonus, all players are granted at least 10 Gacha tickets for free each cycle. Distributed via the Guide Lady)</span>
+      </li>
+  </ul>
+  
+  <p style="text-align: left;">Look in the following section “Weekly Limited” and head towards the final page. When there, you should see a ticket labeled with the naming convention of the ongoing gacha at the time. In this case, we will be using Summer Tkt as an example.</p>
+  
+  <div style="text-align: left; margin-top: 20px; margin-bottom: 20px;">
+      <img src="gacha-images/image3.png" alt="Point Exchange Screenshot" style="max-width: 100%; width: 600px; height: auto;">
+  </div>
+  
+  <h2 id="gacha-rolling" style="text-align: center;">Gacha Rolling</h2>
+  <p style="text-align: left;">In order to roll with Gacha tickets, you’ll first have to find a Gacha Cat that accepts them.</p>
+  
+  <p style="text-align: left;">The most well-known place to find a Gacha Cat is within the Workshop/Blacksmith. You can also find one in the Clan Hall.</p>
+  
+  <p style="text-align: left;">Talk to the Cat, and choose the <strong>Normal Gacha</strong> option.</p>
+  
+  <div style="text-align: left; margin-top: 20px; margin-bottom: 20px;">
+      <img src="gacha-images/image2.png" alt="Gacha Cat Selection Screenshot" style="max-width: 100%; width: 600px; height: auto;">
+  </div>
+  
+  <p style="text-align: left;">After selection, you’ll be presented with a pop-up listing the following:</p>
+  <ul style="text-align: left;">
+      <li>The title of the current Gacha Cycle (Summer Festival), the 3 Gacha Rolling Options (1, 10, or 50 Tickets) and your current ticket count at the bottom.</li>
+  </ul>
+  
+  <div style="text-align: left; margin-top: 20px; margin-bottom: 20px;">
+      <img src="gacha-images/image1.png" alt="Gacha Rolling Process Screenshot" style="max-width: 100%; width: 600px; height: auto;">
+  </div>
+  
+  <p style="text-align: left;"><em>Video showcasing the Gacha Rolling process</em></p>
+  <div style="text-align: left; margin-top: 20px; margin-bottom: 20px;">
+      <video controls style="max-width: 100%; width: 600px; height: auto;">
+          <source src="../videos/Gacha.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  
+  <h2 id="gacha-list" style="text-align: center;">Gacha List</h2>
+<p style="text-align: left;">Below are the current Gacha rolls for this cycle.</p>
+    
+<p style="text-align: left; color: rgb(222, 88, 255)">
+    Current Gacha: Summer Gacha<br>
+    Time Remaining: <span id="time-remaining"></span>
+</p>
+
 <div class="btn-container">
         <button id="transmogButton">Transmog</button>
         <button id="weaponButton">Weapon</button>
@@ -326,7 +430,7 @@
     </table>
 
     <script>
-   document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
     // URLs for the Google Sheets CSV and TSV data
     const transmogUrl = 'https://docs.google.com/spreadsheets/d/1qxifSyRNq02J3X4mrduiusCwgNTAMKquXqWoxMrtgGA/pub?gid=0&single=true&output=csv';
     const weaponUrl = 'https://docs.google.com/spreadsheets/d/1qxifSyRNq02J3X4mrduiusCwgNTAMKquXqWoxMrtgGA/pub?gid=342299954&single=true&output=tsv';
@@ -373,14 +477,21 @@
                     <td class="sns-master-td">${cells[3]}</td>
   <td class="full-td"> <a href="${cells[4]}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to expand">
                                 <img src="${cells[4]}" style="width: 400px;">
-                            </a></td>                `;
+                            </a></td>`;
                 tableBody.appendChild(tr);
             });
         })
         .catch(error => console.error('Error fetching the Weapon data:', error));
 
-    // Initial setup: hide the weapon table
-    document.querySelector('.weapon').style.display = 'none';
+    // Initial setup: weapon table displayed, transmog table hidden
+    document.querySelector('.weapon').style.display = 'table';
+    document.querySelector('.transmog').style.display = 'none';
+    
+    // Ensure the weapon button is active by default
+    document.getElementById('weaponButton').style.backgroundColor = '#7031a1';
+    document.getElementById('weaponButton').style.color = 'white';
+    document.getElementById('transmogButton').style.backgroundColor = 'white';
+    document.getElementById('transmogButton').style.color = '#7031a1';
 
     // Functionality to toggle between tables and interchange button background colors
     document.getElementById('weaponButton').onclick = function() {
@@ -406,9 +517,12 @@
     };
 });
 
+
     </script>
     <style>
     </style>
+
+
 <br><br><br><br>
     </div>
     <div class="button-mode ">
@@ -427,23 +541,81 @@
       </style>
       
       <script>
-       const checkbox = document.getElementById("checkbox");
-      
-      document.addEventListener("DOMContentLoaded", () => {
-          const isDarkMode = localStorage.getItem("darkMode") === "true";
-          document.body.classList.toggle("dark", isDarkMode);
-          checkbox.checked = isDarkMode;
-      });
-      
-      checkbox.addEventListener("change", () => {
-          const isDarkMode = checkbox.checked;
-          document.body.classList.toggle("dark", isDarkMode);
-          localStorage.setItem("darkMode", isDarkMode);
-      });
-      </script>
+   document.addEventListener('DOMContentLoaded', function() {
+    // Hardcode the end time of the event in UTC (YYYY-MM-DDTHH:MM:SSZ)
+    const eventEndTimeUTC = new Date('2024-09-01T04:00:00Z').getTime(); // Corresponding to 00:00 EST
+
+    function updateTimeRemaining() {
+        const now = new Date().getTime();
+        const timeRemaining = eventEndTimeUTC - now;
+
+        if (timeRemaining > 0) {
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            document.getElementById('time-remaining').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        } else {
+            document.getElementById('time-remaining').textContent = 'Event has ended';
+        }
+    }
+
+    // Update the countdown every second
+    setInterval(updateTimeRemaining, 1000);
+
+
+
+
+    
+            // Dark mode settings
+            const checkbox = document.getElementById("checkbox");
+            document.addEventListener("DOMContentLoaded", () => {
+                const isDarkMode = localStorage.getItem("darkMode") === "true";
+                document.body.classList.toggle("dark", isDarkMode);
+                checkbox.checked = isDarkMode;
+            });
+    
+            checkbox.addEventListener("change", () => {
+                const isDarkMode = checkbox.checked;
+                document.body.classList.toggle("dark", isDarkMode);
+                localStorage.setItem("darkMode", isDarkMode);
+            });
+        });
+    </script>
   </body>
   <script>
     function switchImage(imagePath) {
         document.getElementById('displayedImage').src = imagePath;
     }
 </script>
+
+<style>
+    body.dark {
+        background-color: #121212;
+        color: white;
+    }
+
+    body.dark h2 {
+        color: #7030a0; /* Headers stay purple */
+    }
+
+    body.dark p, body.dark td, body.dark th, body.dark ul {
+        color: white;
+    }
+
+    body.dark #gacha-info {
+        color: rgb(222, 88, 255); /* Keeping the gacha info red */
+    }
+
+    .sns-master-th {
+        padding: 20px !important;
+    }
+
+    body.dark .right-sidebar {
+     background-color: #1a1a1a; /* Dark mode background color for sidebar */
+   }
+    td {
+        text-align: center;
+    }
+</style>
