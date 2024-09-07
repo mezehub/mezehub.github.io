@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Introduction</title>
+    <title>Home - MezeHub</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.25">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
     <link rel="icon" href="mezehub.png" type="image/gif">
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <style>     
+     <script src="/js/header.js" type="module"></script>
+     <style>     
         .role-crown { color: #98FB98; }
         .role-master999 { color: #f1c40f; }
         .role-prayergod { color: #0051ff; }
@@ -105,6 +107,8 @@
         .role-lbg { color: #9b59b6; }
         .role-hbg { color: #9b59b6; }
         .role-bow { color: #9b59b6; }
+        #cogwheel {
+        z-index: -1 !important; }
     </style>
 </head>
 <body>
@@ -117,9 +121,11 @@
     </div>
     <div id="sidebar" class="sidebar">
         <a href="../index.html">
-            <img src="../images/mezehub.png" alt="Logo" class="logo" style="width: 200px;"></a>
+            <img src="/images/mezehub.png" alt="Logo" class="logo" style="width: 200px;"></a>
                     <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
+                  
+                <div class="accordion-item">
+
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
 
@@ -127,7 +133,8 @@
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-
+                    <ul class="navbar-nav">
+                     
                     <div class="accordion-body">
                         <ul class="navbar-nav">
                             <li class="nav-item">
@@ -140,7 +147,7 @@
                                 <a class="nav-link role-prayergod" href="/achievements/prayer-god.html">⭐ Prayer God</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link role-monstiecollector" href="/achievements/monstie-collector.html">🏅 Wallpaper Enthusiast</a>
+                                <a class="nav-link role-monstiecollector" href="/achievements/monstie-collector.html">🏅 Monstie Collector</a>
                             </li>
                         </ul>
                     </div>
@@ -258,7 +265,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingSix">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                        Server Resources
+                        Resources
                     </button>
                 </h2>
                 <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -271,7 +278,7 @@
                                 <a class="nav-link" href="/transmogs/">MezeLounge Transmog Overview</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/gacha/">MezeLounge Gacha</a>
+                                <a class="nav-link" href="/gacha/">Gacha List</a>
                             </li>
                         </ul>
                     </div>
@@ -279,284 +286,83 @@
             </div>
         </div>
     </div>
-    <div class="main-content container">
-        <div id="cogwheel"></div>
+    
+        <div class="main-container">
+            <div id="cogwheel"></div>
 
-        <h1 style="text-align: center; font-size: 35px; padding-top: 50px; color: #7030a0;">MEZELOUNGE MHF-Z Achievements</h1>
-        <div><button class="btn btn-info help-button" data-bs-toggle="modal" data-bs-target="#infoModal">Info</button>
-        </div><div class="table-container">
-            <div class="table-responsive">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th class="master-th clickable-header" colspan="2" data-bs-toggle="modal" data-bs-target="#generalAchievementsModal">General Achievements</th>
-                            <th class="master-th clickable-header" colspan="2" data-bs-toggle="modal" data-bs-target="#huntingRoadAchievementsModal">Hunting Road Achievements</th>
-                            <th class="master-th clickable-header" colspan="2" data-bs-toggle="modal" data-bs-target="#weaponMasteryAchievementsModal">Weapon Mastery Achievements</th>
-                        </tr>
-                        <tr>
-                            <th class="master-th">ROLE</th>
-                            <th class="master-th">DESCRIPTION</th>
-                            <th class="master-th">ROLE</th>
-                            <th class="master-th">DESCRIPTION</th>
-                            <th class="master-th">ROLE</th>
-                            <th class="master-th">DESCRIPTION</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="mint-green">🏆 <span class="bold">Crown Hunter</span> 🏆</td>
-                            <td>All Gold Crowns obtained</td>
-                            <td style="background-color: #ff00d8;">🎗️<span class="bold">Z4 Road Legend</span>🎗️</td>
-                            <td>Clear Z4 Floor 200 Solo or with a team (video proof required)
-                                <br>
-                                <b style="font-size: 16px;">✸Players who obtain this role will be granted a transmog 
-                                    <br>
-                                    <a href="videos/Kelis D (Male).mp4" target="_blank">Kelis D (Male)</a> 
-                                    or <br>
-                                    <a href="videos/Kelis D (Female).mp4" target="_blank">Kelis D (Female)</a>
-                                </b>
-                            </td>
-                            
-                            
-                            <td class="bg-e91e63">🏅 <span class="bold">Master of All Weapons</span> 🏅</td>
-                            <td>The following role will be awarded after achieving ALL other weapon Master Roles.
-                                <br>
-                                <b style="font-size: 16px;">✸Players who obtain this role will be granted a transmog (Utante D)</b>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="bg-f1c40f">⭐ <span class="bold">Master of 999</span> ⭐</td>
-                            <td>Achieve GR999 and GSR999 with all Weapons</td>
-                            <td class="bg-000094">💀 <span class="bold">Road Master</span> 💀</td>
-                            <td>Achieve Road Rank Max</td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">SNS Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with Sword and Shield</td>
-                        </tr>
-                        <tr>
-                            <td class="bg-0051ff">⭐ <span class="bold">Prayer God</span> ⭐</td>
-                            <td>Complete the <strong>≪Ultimate Musou Quest≫ Rush to Prayers</strong> Quest in Solo or Duo, (with photo evidence of the quest details and the player name in one picture!, or make a video of the run)
-                                <br>
-                                <br>
-                                <b style="font-size: 16px;">✸Completion of this quest will grant permission to use Prayer Gem effects in the exclusive channel (Prayer Channel)</b>
-                            </td>
-                            <td class="bg-11ec11">💀 <span class="bold">Z4 Road Master</span> 💀</td>
-                            <td>Clear Z4 Floor 150 Solo or with a team (video proof required)
-                                <br>
-                                <b style="font-size: 16px;">✸Players who obtain this role will be granted a transmog 
-                                    <br>
-                                    <a href="videos/Eris D (Male).mp4" target="_blank">Eris D (Male)</a> 
-                                    or <br>
-                                    <a href="videos/Eris D (Female).mp4" target="_blank">Eris D (Female)</a>
-                                </b>
-                            </td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">DS Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with Dual Swords</td>
-                        </tr>
-                        <tr>
-                            <td class="bg-d05380">🏅 <span class="bold">Wallpaper Enthusiast</span> 🏅</td>
-                            <td>Collect all Monster Wallpapers!</td>
-                            <td class="bg-00feff">♘ <span class="bold">Z4? Easy</span> ♘</td>
-                            <td>Clear Z4 Floor 100 Solo or with a team (video proof required)
-                                <br>
-                                <b style="font-size: 16px;">✸Players who obtain this role will be granted a transmog 
-                                    <br>
-                                    <a href="videos/Higakure C (Male).mp4" target="_blank">Higakure C (Male)</a> 
-                                    or <br>
-                                    <a href="videos/Higakure C (Female).mp4" target="_blank">Higakure C (Female)</a>
-                                </b>
-                            </td>
-                            </td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">GS Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with a Great Sword</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-0051ff">✹ <span class="bold">Lone Wolf</span> ✹</td>
-                            <td>Clear Z4 Road Floor 100 Solo (Magnet Spike allowed, video proof required)</td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">LS Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with a Longsword</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">Hammer Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with a Hammer</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">HH Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with a Hunting Horn
-                                <br>
-                                <b style="font-size: 16px;">✸Due to imbalance, HH Master will only have a requirement of reaching Floor 60, for all group sizes, (1,2,3, and 4P)</b>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">Lance Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with a Lance</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">GL Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with a Gunlance</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">Swaxe Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with a Switch Axe</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">Tonfa Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with Tonfas</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">LBG Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with a Light Bowgun</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">HBG Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with a Heavy Bowgun</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="bg-9b59b6">🏅 <span class="bold">Bow Master</span> 🏅</td>
-                            <td>Achieve the required floors with a team, all equipped with a Bow</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <br><br><br>
-            </div>
-        </div>
-    </div>
+            <div class="content-wrapper">
 
-    <!-- Modals for Info Text Boxes -->
-    <div class="modal fade" id="generalAchievementsModal" tabindex="-1" aria-labelledby="generalAchievementsModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="generalAchievementsModalLabel">General Achievements</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="info-text">
-                        <h3>General Achievements</h3>
-                        <p>You'll need screenshot proof of yourself with your info for the status, and send Dixdros, Sera, Ezemania, or Blaze a DM of it for proof.</p>
-                        <p>* If your obtained achievement is not listed here, please let us know so your accomplishments may be added.</p>
+                <div class="hero-section">
+                    <div class="video-wrapper">
+                        <video class="hero-video" src="/videos/header.mp4" autoplay loop muted></video>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="huntingRoadAchievementsModal" tabindex="-1" aria-labelledby="huntingRoadAchievementsModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="huntingRoadAchievementsModalLabel">Hunting Road Achievements</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="info-text">
-                        <h3>Hunting Road Achievements</h3>
-                        <p>Achievements obtained by showing fortitude on the Hunting Road</p>
+                    <div class="overlay"></div>
+                    <div class="logo1"></div>
+                    <div class="hero-text">A hub of resources for MezeLounge.
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="weaponMasteryAchievementsModal" tabindex="-1" aria-labelledby="weaponMasteryAchievementsModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="weaponMasteryAchievementsModalLabel">Weapon Mastery Achievements</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="info-text">
-                        <h3>Weapon Mastery Achievements</h3>
-                        <p>The following roles all fall under the same requirement. Each run has to be fully recorded and uploaded somewhere so we can verify it. Depending with how many players the run starts is how many floors of you have to go through. 1 Player/2 Player groups need to reach floor 60 of Z4 Road. 3 Player Groups need to reach floor 80 of Z4 Road. 4 Player Groups need to reach floor 100 of Z4 Road.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Info Modal -->
-    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="infoModalLabel">Information</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <ul class="nav nav-tabs" id="infoTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general" type="button" role="tab" aria-controls="general" aria-selected="true">General Achievements</button>
+                    <ul class="action-list">
+                        <li>
+                            <a class="btn manual-download" href="https://drive.google.com/file/d/1b2aA8ghCvcjVRzTK0J2NCmGcVtUN_ju8/view?usp=sharing">
+                                <img class="btn-logo" src="/images/original.png" alt="Logo">
+                                <span class="btn-text">Download Our Client</span>
+                            </a>
                         </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="hunting-road-tab" data-bs-toggle="tab" data-bs-target="#hunting-road" type="button" role="tab" aria-controls="hunting-road" aria-selected="false">Hunting Road Achievements</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="weapon-mastery-tab" data-bs-toggle="tab" data-bs-target="#weapon-mastery" type="button" role="tab" aria-controls="weapon-mastery" aria-selected="false">Weapon Mastery Achievements</button>
+                        <li>
+                            <a class="btn discord-join" href="https://discord.gg/monster-hunter-frontier-eu-973963573619486740">
+                                <img class="btn-logo" src="/images/discordicon.png" alt="Logo">
+                                <span class="btn-text">Join the Community</span>
+                            </a>
                         </li>
                     </ul>
-                    <div class="tab-content" id="infoTabContent">
-                        <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
-                            <div class="info-text">
-                                <h3>General Achievements</h3>
-                                <p>You'll need screenshot proof of yourself with your info for the status, and send Dixdros, Sera, Ezemania, or Blaze a DM of it for proof.</p>
-                                <p>* If your obtained achievement is not listed here, please let us know so your accomplishments may be added.</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="hunting-road" role="tabpanel" aria-labelledby="hunting-road-tab">
-                            <div class="info-text">
-                                <h3>Hunting Road Achievements</h3>
-                                <p>Achievements obtained by showing fortitude on the Hunting Road</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="weapon-mastery" role="tabpanel" aria-labelledby="weapon-mastery-tab">
-                            <div class="info-text">
-                                <h3>Weapon Mastery Achievements</h3>
-                                <p>The following roles all fall under the same requirement. Each run has to be fully recorded and uploaded somewhere so we can verify it. Depending with how many players the run starts is how many floors of you have to go through. 1 Player/2 Player groups need to reach floor 60 of Z4 Road. 3 Player Groups need to reach floor 80 of Z4 Road. 4 Player Groups need to reach floor 100 of Z4 Road.</p>
-                            </div>
-                        </div>
+                    
+                </div>
+                <div class="content-area">
+                    <!-- Content Block 1 -->
+                    <div class="content-block">
+                        <h2>What is Mezehub?</h2>
+                        <p>
+                            Mezehub is a central source of resources for the MezeLounge (MHF-Z) private server. It contains various guides and resources split across sections for all levels of players. The website sections are as follows:
+                           <li> <strong>General Achievements</strong> - Contains pages for each of our server’s general achievements, logging proof of completion.</li>
+                            <li> <strong>Hunting Road Achievements</strong> - Contains pages for each of our server’s Hunting Road achievements, logging proof of completion.</li>
+                            <li> <strong>Achievement Guides</strong> - A list of guides for obtaining our server’s achievements.</li>
+                            <li> <strong>General Guides</strong> - A list of guides specifically pertaining to the server, e.g., MezeLounge Server Essentials guide.</li>
+                            <li> <strong>Server Resources</strong> - A list of useful (but miscellaneous) server resources, such as our Event Calendar, Transmog list, and rotational Gacha lineup.</li>
+                        </p>
+                    </div>
+                
+                    <!-- Content Block 2 -->
+                    <div class="content-block">
+                        <h2>How do I play on MezeLounge?</h2>
+                        <p>
+                           <li>First, make sure you’ve downloaded our client via the button above.</li>
+                           <li>Extract the files and open the mhf.exe.</li>
+                            <li>Once open, input your desired username and password, and the game will register you automatically.</li>
+                        </p>
+                        <p><strong>Note:</strong> Anti-virus software may cause complications with every file being downloaded, or flagging it as a virus. This is a false-positive and you can safely ignore it. The best practice is to input the MHF file path as an exclusion for your protection software. For additional server details, check out our <a href="/Server-Essentials/" target="_blank">Server Essentials guide</a>.</p>
+                    </div>
+                
+                    <!-- Content Block 3 -->
+                    <div class="content-block">
+                        <h2>Extras</h2>
+                        <p>
+                            The Mezehub website is hosted by me (Blaze). However, the resources available here are a combination of the community's efforts to improve the player’s experience and answer questions for both new and old players. Appropriate credits for each guide should be placed at the end of their respective page.
+                        </p>
+                        <p><strong>If there are any credits missing for any pages, contact me on Discord so I can fix it.</strong></p>
+                        <p>Lastly, if you need any help or have any questions, feel free to join the <a href="https://discord.gg/monster-hunter-frontier-eu-973963573619486740" target="_blank">MezeLounge Discord</a> and ping @Blaze, @Moderators, or @Trial Moderators.</p>
                     </div>
                 </div>
+                
             </div>
         </div>
+        
+
+    
+
+            
+        
     </div>
+
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const toggleButton = document.querySelector('.navbar-toggler');
@@ -596,10 +402,7 @@
       });
       </script>     
       <style>
-        .button-mode {
-    
-     right: 80px !important;
-   }
+     
       </style> 
 </body>
 </html>
