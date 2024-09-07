@@ -675,6 +675,16 @@ body.dark .info-text p {
   z-index: 2;
 }
 
+.logo2 {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  background: url(https://mezehub.github.io/images/meze1.png) no-repeat center;
+  background-size: contain;
+  filter: drop-shadow(0 0 16px rgba(15, 0, 34, 0.8));
+  z-index: 2;
+}
+
 .hero-text {
   color: white;
   padding: 20px;
