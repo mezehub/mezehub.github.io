@@ -552,3 +552,29 @@ body.dark td ,    body.dark th {
 body.dark .sns-master-td {
  color: #000000 !important;
 }
+.btn {
+  display: flex; 
+  align-items: center;
+  padding: 10px 20px;
+  background: #4f1f5c;
+  color: white;
+  text-decoration: none;
+  border-radius: 3px;
+  box-shadow: 0px 1px 7px rgba(31, 5, 43, 0.3), -0.5px -1px 6px rgba(209, 185, 255, 0.1), -1px -2px 5px rgba(217, 186, 231, 0.02);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  background: #8c5ba0;
+}
+
+.btn-logo {
+  width: 34px; 
+  height: auto;
+  margin-right: 10px; 
+}
+
+.btn-text {
+  font-size: 16px; 
+  font-weight: 500;
+}
