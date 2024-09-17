@@ -669,7 +669,7 @@ body.dark .info-text p {
   position: relative;
   width: 50%;
   height: 50%;
-  background: url(https://mezehub.github.io/images/mezehub.png) no-repeat center;
+  background: url(/images/meze-logo.png) no-repeat center;
   background-size: contain;
   filter: drop-shadow(0 0 16px rgba(15, 0, 34, 0.8));
   z-index: 2;
@@ -679,7 +679,7 @@ body.dark .info-text p {
   position: relative;
   width: 50%;
   height: 50%;
-  background: url(https://mezehub.github.io/images/meze1.png) no-repeat center;
+  background: url(/images/guide-logo.png) no-repeat center;
   background-size: contain;
   filter: drop-shadow(0 0 16px rgba(15, 0, 34, 0.8));
   z-index: 2;
