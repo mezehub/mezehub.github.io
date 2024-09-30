@@ -407,124 +407,158 @@
 </p>
 
 <div class="btn-container">
-        <button id="transmogButton">Transmog</button>
-        <button id="weaponButton">Weapon</button>
-        </div>
+    <button id="transmogButton">Transmog</button>
+    <button id="weaponButton">Weapon</button>
+    <button id="itemsButton">Items</button> <!-- New Items button -->
+</div>
+
 <div class="table-responsive">
     <table class="transmog" border="1">
         <thead>
-            
-        
             <tr>
-               
                 <th class="sns-master-th">Transmog</th>
                 <th class="sns-master-th">Blacksmith Section</th>
                 <th class="sns-master-th">Page</th>
                 <th class="sns-master-th">Image</th>
-
-               
             </tr>
         </thead>
         <tbody>
-        
-        
-            </tfoot>
+        </tbody>
     </table>
 
     <table class="weapon" border="1">
         <thead>
-            
-        
             <tr>
                 <th class="sns-master-th">Weapon</th>
                 <th class="sns-master-th">Type</th>
                 <th class="sns-master-th">Blacksmith Section</th>
                 <th class="sns-master-th">Page</th>
                 <th class="sns-master-th">Image</th>
-
-               
             </tr>
         </thead>
         <tbody>
-        
-        
-            </tfoot>
+        </tbody>
+    </table>
+
+    <table class="items" border="1" style="display: none;"> <!-- New Items table -->
+        <thead>
+            <tr>
+                <th class="sns-master-th">Item</th>
+                <th class="sns-master-th">Quantity</th>
+                <th class="sns-master-th">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>10th Weapon Ticket</td><td>1x</td><td>14367 Weapon Package Table Last Page! (No MS)</td></tr>
+            <tr><td>G2 Potion</td><td>10x</td><td>4358</td></tr>
+            <tr><td>Power Ritual Red</td><td>1x</td><td>11381</td></tr>
+            <tr><td>Power Ritual Blue</td><td>1x</td><td>11382</td></tr>
+            <tr><td>Power Ritual Dark</td><td>1x</td><td>11383</td></tr>
+            <tr><td>Purity Ritual Red</td><td>1x</td><td>11384</td></tr>
+            <tr><td>Purity Ritual Blue</td><td>1x</td><td>11385</td></tr>
+            <tr><td>Purity Ritual Dark</td><td>1x</td><td>11386</td></tr>
+            <tr><td>Max Potion</td><td>10x</td><td>27</td></tr>
+            <tr><td>GRP Ticket (4k)</td><td>5x</td><td>7979</td></tr>
+            <tr><td>100k Gz Cheque</td><td>1x</td><td>7977</td></tr>
+            <tr><td>50k GZ Cheque</td><td>1x</td><td>7976</td></tr>
+            <tr><td>40k GZ Cheque</td><td>2x</td><td>7975</td></tr>
+            <tr><td>Guild Cheque (1k)</td><td>5x</td><td>1468</td></tr>
+            <tr><td>Fire Res Fruit</td><td>5x</td><td>5122</td></tr>
+            <tr><td>Water Res Fruit</td><td>5x</td><td>5123</td></tr>
+            <tr><td>Dragon Res Fruit</td><td>5x</td><td>5124</td></tr>
+            <tr><td>Thunder Res Fruit</td><td>5x</td><td>5795</td></tr>
+            <tr><td>Ele Attack Fruit</td><td>5x</td><td>5126</td></tr>
+            <tr><td>Ice Res Fruit</td><td>5x</td><td>5796</td></tr>
+            <tr><td>Wind Res Fruit</td><td>5x</td><td>5797</td></tr>
+            <tr><td>Evasion Fruit</td><td>5x</td><td>5798</td></tr>
+            <tr><td>Elixir of Peace</td><td>5x</td><td>8031</td></tr>
+            <tr><td>2012 Anniv D Tkt</td><td>1x</td><td>14497 Transmog Premium Table Page 39/40 / Female its Page 39/40/41</td></tr>
+            <tr><td>Legendary Rasta Tkt</td><td>1x</td><td>14063</td></tr>
+        </tbody>
     </table>
 
     <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // URLs for the Google Sheets CSV and TSV data
-    const transmogUrl = 'https://docs.google.com/spreadsheets/d/1qxifSyRNq02J3X4mrduiusCwgNTAMKquXqWoxMrtgGA/pub?gid=0&single=true&output=csv';
-    const weaponUrl = 'https://docs.google.com/spreadsheets/d/1qxifSyRNq02J3X4mrduiusCwgNTAMKquXqWoxMrtgGA/pub?gid=342299954&single=true&output=tsv';
+        document.addEventListener('DOMContentLoaded', function() {
+            // URLs for the Google Sheets CSV and TSV data
+            const transmogUrl = 'https://docs.google.com/spreadsheets/d/1qxifSyRNq02J3X4mrduiusCwgNTAMKquXqWoxMrtgGA/pub?gid=0&single=true&output=csv';
+            const weaponUrl = 'https://docs.google.com/spreadsheets/d/1qxifSyRNq02J3X4mrduiusCwgNTAMKquXqWoxMrtgGA/pub?gid=342299954&single=true&output=tsv';
 
-    // Fetch and populate the Transmog table
-    fetch(transmogUrl)
-        .then(response => response.text())
-        .then(data => {
-            const rows = data.split('\n').slice(1); // Skip the header row
-            const tableBody = document.querySelector('.transmog tbody');
+            // Fetch and populate the Transmog table
+            fetch(transmogUrl)
+                .then(response => response.text())
+                .then(data => {
+                    const rows = data.split('\n').slice(1); // Skip the header row
+                    const tableBody = document.querySelector('.transmog tbody');
 
-            rows.forEach(row => {
-                const cells = row.split(',');
-                const tr = document.createElement('tr');
+                    rows.forEach(row => {
+                        const cells = row.split(',');
+                        const tr = document.createElement('tr');
 
-                tr.innerHTML = `
-                    <td class="sns-master-td">${cells[0]}</td>
-                    <td class="sns-master-td">${cells[1]}</td>
-                    <td class="sns-master-td">${cells[2]}</td>
-                     <td class="full-td"> <a href="${cells[3]}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to expand">
-                                <img src="${cells[3]}" style="width: 400px;">
-                            </a></td>
-                `;
-                tableBody.appendChild(tr);
-            });
-        })
-        .catch(error => console.error('Error fetching the Transmog data:', error));
+                        tr.innerHTML = `
+                            <td class="sns-master-td">${cells[0]}</td>
+                            <td class="sns-master-td">${cells[1]}</td>
+                            <td class="sns-master-td">${cells[2]}</td>
+                            <td class="full-td">
+                                <a href="${cells[3]}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to expand">
+                                    <img src="${cells[3]}" style="width: 400px;">
+                                </a>
+                            </td>
+                        `;
+                        tableBody.appendChild(tr);
+                    });
+                })
+                .catch(error => console.error('Error fetching the Transmog data:', error));
 
-    // Fetch and populate the Weapon table
-    fetch(weaponUrl)
-        .then(response => response.text())
-        .then(data => {
-            const rows = data.split('\n').slice(1); // Skip the header row
-            const tableBody = document.querySelector('.weapon tbody');
+            // Fetch and populate the Weapon table
+            fetch(weaponUrl)
+                .then(response => response.text())
+                .then(data => {
+                    const rows = data.split('\n').slice(1); // Skip the header row
+                    const tableBody = document.querySelector('.weapon tbody');
 
-            rows.forEach(row => {
-                const cells = row.split('\t'); // TSV data is tab-separated
-                const tr = document.createElement('tr');
+                    rows.forEach(row => {
+                        const cells = row.split('\t'); // TSV data is tab-separated
+                        const tr = document.createElement('tr');
 
-                tr.innerHTML = `
-                    <td class="sns-master-td">${cells[0]}</td>
-                    <td class="sns-master-td">${cells[1]}</td>
-                    <td class="sns-master-td">${cells[2]}</td>
-                    <td class="sns-master-td">${cells[3]}</td>
-  <td class="full-td"> <a href="${cells[4]}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to expand">
-                                <img src="${cells[4]}" style="width: 400px;">
-                            </a></td>`;
-                tableBody.appendChild(tr);
-            });
-        })
-        .catch(error => console.error('Error fetching the Weapon data:', error));
+                        tr.innerHTML = `
+                            <td class="sns-master-td">${cells[0]}</td>
+                            <td class="sns-master-td">${cells[1]}</td>
+                            <td class="sns-master-td">${cells[2]}</td>
+                            <td class="sns-master-td">${cells[3]}</td>
+                            <td class="full-td">
+                                <a href="${cells[4]}" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to expand">
+                                    <img src="${cells[4]}" style="width: 400px;">
+                                </a>
+                            </td>
+                        `;
+                        tableBody.appendChild(tr);
+                    });
+                })
+                .catch(error => console.error('Error fetching the Weapon data:', error));
 
-    // Initial setup: weapon table displayed, transmog table hidden
-    document.querySelector('.weapon').style.display = 'table';
-    document.querySelector('.transmog').style.display = 'none';
-    
-    // Ensure the weapon button is active by default
-    document.getElementById('weaponButton').style.backgroundColor = '#7031a1';
-    document.getElementById('weaponButton').style.color = 'white';
-    document.getElementById('transmogButton').style.backgroundColor = 'white';
-    document.getElementById('transmogButton').style.color = '#7031a1';
+            // Initial setup: weapon table displayed, transmog and items tables hidden
+            document.querySelector('.weapon').style.display = 'table';
+            document.querySelector('.transmog').style.display = 'none';
+            document.querySelector('.items').style.display = 'none';
 
-    // Functionality to toggle between tables and interchange button background colors
-    document.getElementById('weaponButton').onclick = function() {
-        document.querySelector('.weapon').style.display = 'table';
-        document.querySelector('.transmog').style.display = 'none';
-        
-        // Change background colors
-        this.style.backgroundColor = '#7031a1';  // Active color
-        this.style.color = 'white';
-        document.getElementById('transmogButton').style.backgroundColor = 'white'; // Inactive color
-        document.getElementById('transmogButton').style.color = '#7031a1';
+            // Ensure the weapon button is active by default
+            document.getElementById('weaponButton').style.backgroundColor = '#7031a1';
+            document.getElementById('weaponButton').style.color = 'white';
+            document.getElementById('transmogButton').style.backgroundColor = 'white';
+            document.getElementById('transmogButton').style.color = '#7031a1';
+            document.getElementById('itemsButton').style.backgroundColor = 'white';
+            document.getElementById('itemsButton').style.color = '#7031a1';
+
+            // Functionality to toggle between tables and change button background colors
+            document.getElementById('weaponButton').onclick = function() {
+                document.querySelector('.weapon').style.display = 'table';
+                document.querySelector('.transmog').style.display = 'none';
+                document.querySelector('.items').style.display = 'none';
+                
+                this.style.backgroundColor = '#7031a1';  // Active color
+                this.style.color = 'white';
+                document.getElementById('transmogButton').style.backgroundColor = 'white'; // Inactive color
+                document.getElementById('transmogButton').style.color = '#7031a1';
     };
 
     document.getElementById('transmogButton').onclick = function() {
