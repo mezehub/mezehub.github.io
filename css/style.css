@@ -656,6 +656,18 @@ body.dark .info-text p {
   transform: translate(-50%, -50%);
 }
 
+
+.hero-video2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+
 .overlay {
   position: absolute;
   top: 0;
@@ -680,6 +692,16 @@ body.dark .info-text p {
   width: 50%;
   height: 50%;
   background: url(/images/guide-logo.png) no-repeat center;
+  background-size: contain;
+  filter: drop-shadow(0 0 16px rgba(15, 0, 34, 0.8));
+  z-index: 2;
+}
+
+.logo3 {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  background: url(/images/meze2ndyear.png) no-repeat center;
   background-size: contain;
   filter: drop-shadow(0 0 16px rgba(15, 0, 34, 0.8));
   z-index: 2;
