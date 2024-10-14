@@ -1,12 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>SNS Master- MHF-Z Achievements</title>
+    <title>SNS Master - MezeHub</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.25">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Mezehub">
+    <meta property="og:description" content="A central hub of resources for Mezelounge">
+    <meta property="og:image" content="https://mezehub.github.io/images/mezehub.png">
+    <meta property="og:type" content="website">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
-    <link rel="icon" href="../mezehub.png" type="image/gif">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="icon" href="mezehub.png" type="image/gif">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <style>     
+     <script src="/js/header.js" type="module"></script>
+     <style>     
+        .role-crown { color: #98FB98; }
+        .role-master999 { color: #f1c40f; }
+        .role-prayergod { color: #0051ff; }
+        .role-monstiecollector { color: #d05380; }
+        .role-roadmaster { color: #000094; }
+        .role-z4roadmaster { color: #11ec11; }
+        .role-z4easy { color: #00feff; }
+        .role-lonewolf { color: #0051ff; }
+        .role-masterofallweapons { color: #e91e63; }
+        .role-sns { color: #9b59b6; }
+        .role-ds { color: #9b59b6; }
+        .role-gs { color: #9b59b6; }
+        .role-ls { color: #9b59b6; }
+        .role-hammer { color: #9b59b6; }
+        .role-hh { color: #9b59b6; }
+        .role-lance { color: #9b59b6; }
+        .role-gl { color: #9b59b6; }
+        .role-swaxe { color: #9b59b6; }
+        .role-tonfa { color: #9b59b6; }
+        .role-lbg { color: #9b59b6; }
+        .role-hbg { color: #9b59b6; }
+        .role-bow { color: #9b59b6; }</style>
+    <style>
+        .master-th, .master-td {
+            padding: 15px;
+            text-align: left;
+            vertical-align: top;
+            width: 16.66%;
+            background-color: white;
+        }
+        .info-th {
+            background-color: white !important;
+        }
+        .table-responsive {
+            margin-top: 20px;
+        }
+        .bg-f1c40f { background-color: #f1c40f; }
+        .bg-0051ff { background-color: #0051ff; }
+        .bg-e91e63 { background-color: #e91e63; }
+        .bg-d05380 { background-color: #d05380; }
+        .bg-000094 { background-color: #000094; color: white; }
+        .bg-11ec11 { background-color: #11ec11; }
+        .bg-00feff { background-color: #00feff; }
+        .bg-9b59b6 { background-color: #9b59b6; }
+        .info-text {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        .bold { font-weight: bold; }
+        .clickable-header {
+            cursor: pointer;
+            color: #7030a0;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .help-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        @media only screen and (max-width: 768px) {
+        .help-button {
+            position: absolute;
+            top: 10px;
+            right: 250px;
+            z-index: 1055;        }
+        }
         .role-crown { color: #98FB98; }
         .role-master999 { color: #f1c40f; }
         .role-prayergod { color: #0051ff; }
@@ -29,24 +111,345 @@
         .role-lbg { color: #9b59b6; }
         .role-hbg { color: #9b59b6; }
         .role-bow { color: #9b59b6; }
-        
-        
-        
-        .table-responsive td, .table-responsive th {
-            padding: 0;
-            margin: 0;
-        }
+        #cogwheel {
+        z-index: -1 !important; }
+    </style>
+</head>
+<body>
+    <div class="hamburger-container">
+        <button class="navbar-toggler" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <a href="../index.html">
+            <img src="../images/mezehub.png" alt="Logo" class="logo" style="width: 200px;"></a>
+                    <div class="accordion" id="accordionExample">
+                        <br>  
+                  
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
 
-        .table-responsive iframe {
-            width: 100%;
-            height: 125%;
-            border: 0;
-            display: block;
-        }
+                        General Achievements
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link role-crown" href="/achievements/crown-hunter.html">🏆 Crown Hunter</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-master999" href="/achievements/master-of-999.html">⭐ Master of 999</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-prayergod" href="/achievements/prayer-god.html">⭐ Prayer God</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-monstiecollector" href="/achievements/monstie-collector.html">🏅 Wallpaper Enthusiast</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            Hunting Road Achievements
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="/achievements/z4-road-legend.html">🎗️Z4 Road Legend🎗️</a>
+                            </li>
+                           <li class="nav-item">
+                                <a class="nav-link role-roadmaster" href="/achievements/road-master.html">💀 Road Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-z4roadmaster" href="/achievements/z4-road-master.html">💀 Z4 Road Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-z4easy" href="/achievements/z4-easy.html">♘ Z4 Easy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lonewolf" href="/achievements/lone-wolf.html">✹ Lone Wolf</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-masterofallweapons" href="/achievements/master-of-all-weapons.html">🏅 Master of All Weapons</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-sns" href="/achievements/sns-master.html">🏅 SNS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-ds" href="/achievements/ds-master.html">🏅 DS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-gs" href="/achievements/gs-master.html">🏅 GS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-ls" href="/achievements/ls-master.html">🏅 LS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hammer" href="/achievements/hammer-master.html">🏅 Hammer Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hh" href="/achievements/hh-master.html">🏅 HH Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lance" href="/achievements/lance-master.html">🏅 Lance Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-gl" href="/achievements/gl-master.html">🏅 GL Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-swaxe" href="/achievements/swaxe-master.html">🏅 Swaxe Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-tonfa" href="/achievements/tonfa-master.html">🏅 Tonfa Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lbg" href="/achievements/lbg-master.html">🏅 LBG Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hbg" href="/achievements/hbg-master.html">🏅 HBG Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-bow" href="/achievements/bow-master.html">🏅 Bow Master</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Achievement Guides
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/guides/">Hunting Road Achievement Guides</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        General Guides
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Server-Essentials/">MezeLounge Server Essentials</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Refinement/">Decoration Refinement Guide</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Hiden/">Hiden Armor & Deco Guide</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        Server Resources
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/achievements-roles/">MezeLounge Achievement Roles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/eventcalendar/">MezeLounge Event Calendar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/transmogs/">MezeLounge Transmog Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/gacha/">MezeLounge Gacha</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/hunting-road-shop/">Hunting Road Shop</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <div class="main-container">
+            <div id="cogwheel"></div>
+
+            <div class="content-wrapper">
+
+                <div class="hero-section">
+                    <div class="video-wrapper">
+                        <img src="/images/headers/sns1.gif" style="width: 100%;height: 100%;">
+                    </div>
+                    <div class="overlay"></div>
+                    <div class="logo-sns"></div>
+                    <div class="hero-text-achievement">SNS Master
+                    </div>
+
+                    <style>
+                        .logo-sns {
+                        position: relative;
+                        width: 250px;
+                        height: 150px;
+                        background: url(/images/sns.png) no-repeat center;
+                        background-size: contain;
+                        filter: drop-shadow(0 0 16px rgba(15, 0, 34, 0.8));
+                        z-index: 2;
+                        }
+                        </style>                    
+                    
+                    
+                </div>
+                <div class="content-area">
+                    <div class="table-responsive">
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th class="swaxe-master-th"="color: #7031a1;" colspan="8"><img src="../images/sns.png" style="width:80px ; padding-right:20px ;color:#e4d0f0;">Achieve the required floors with a team, all equipped with a Sword and Shield</th>
+                                <tr>
+                                    <td class="bow-master-td" colspan="8" style="text-align: center;">
+                                        <!-- Links to switch images -->
+                                        <div style="padding-top: 10px;">
+                                            <a href="#" onclick="switchImage('../images/prayer-sns.png'); return false;">SR/Armor (No Sigil) Values</a> |
+                                            <a href="#" onclick="switchImage('../images/prayersns-base.png'); return false;">Base Values</a>
+                                        </div>
+                                        <!-- Image display container -->
+                                        <img id="displayedImage" src="../images/prayer-sns.png" alt="Prayer SnS">
+                                      </td>
+                              </tr></tr></thead></table></div>
+                    <div class="container1" id="card-container">
+                      </div>
+                      
+                      <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="detailModalLabel">Details</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <table id="detailTable" class="table table-bordered">
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                 
+        <script>
+            let data = [];
+            async function fetchCSVData() {
+                const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSSsH8sTSzsO51MwMfmMIlCQG00iRcDSJw7_NqJEPDi6H-Zu7dLfJFSt-_UhI48p8TGsfo24lSia3bD/pub?output=csv');
+                const csvData = await response.text();
+
+                Papa.parse(csvData, {
+                    header: true, 
+                    skipEmptyLines: true,  
+                    complete: function(results) {
+                        data = results.data;  
+                        createCards(data);  
+                    },
+                    error: function(error) {
+                        console.error('Error parsing CSV:', error);
+                    }
+                });
+            }
+
+            function createCards(data) {
+                const container = document.getElementById('card-container');
+                container.innerHTML = '';  
+
+                data.forEach(item => {
+                    const dateCompleted = item['Date Completed'] || 'Unknown Date';
+                    const achievedBy = item['Achieved By:'] || 'Unknown';
+                    const discordUsername = item['Discord Username'] || 'Unknown';
+                    const verifiedRun = item['Verified Run'] || 'Unknown';
+                    const photoSubmission = item['Photo Submission'] || 'No Photo';
+
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+                    
+                    card.innerHTML = `
+                        <div class="circle">
+                            <h2>${item.id}</h2>
+                        </div>
+                        <div class="content">
+                            <p><b>Achieved By:</b><br> ${achievedBy} <br>
+                            <b>Run Time:</b> ${item['Run Time']}<br>
+                            <b>Date Completed:</b><br> ${dateCompleted}</p>
+                            <a href="#" onclick="openModal(${item.id})">Details</a>
+                        </div>
+                    `;
+
+                    container.appendChild(card);
+                });
+            }
+
+            function openModal(id) {
+                const item = data.find(i => i.id === id.toString());
+
+                if (!item) {
+                    console.error('Data not found for ID:', id);
+                    return;
+                }
+
+                const detailTable = document.getElementById('detailTable');
+                detailTable.innerHTML = `
+                    <tr><td>Achieved By</td><td>${item['Achieved By:'] || 'Unknown'}</td></tr>
+                    <tr><td>Discord Username</td><td>${item['Discord Username'] || 'Unknown'}</td></tr>
+                    <tr><td>Verified Run</td><td>${item['Verified Run'] || 'Unknown'}</td></tr>
+                    <tr><td>Photo Submission</td><td>${item['Photo Submission'] || 'No Photo'}</td></tr>
+                    <tr><td>Group Size</td><td>${item['Group Size'] || 'Unknown'}</td></tr>
+                    <tr><td>Run Time</td><td>${item['Run Time'] || 'Unknown'}</td></tr>
+                    <tr><td>Date Completed</td><td>${item['Date Completed'] || 'Unknown Date'}</td></tr>
+                `;
+
+                const modal = new bootstrap.Modal(document.getElementById('detailModal'), {
+                focus: false 
+                });
+    
+             modal.show();
+            }
+
+            async function initialize() {
+                await fetchCSVData(); 
+            }
+
+            initialize();
 
 
+                    </script>
+
+    
+
+            
         
-        </style>
+    </div>
+
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const toggleButton = document.querySelector('.navbar-toggler');
@@ -58,343 +461,6 @@
             });
         });
     </script>
-</head>
-<body>
-    <div class="hamburger-container">
-    <button class="navbar-toggler" type="button">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-</div>
-<div id="sidebar" class="sidebar">
-    <a href="../index.html">
-        <img src="../images/mezehub.png" alt="Logo" class="logo" style="width: 200px;"></a>
-                <div class="accordion" id="accordionExample">
-                    <br>  
-                    <div class="accordion-item">
-                                <a class="btn manual-download" href="/index.html">
-                                        <img class="btn-logo" src="/images/original.png" alt="Logo">
-                                        <span class="btn-text">Home</span>
-                                    </a>
-                    </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-
-                    General Achievements
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-
-                <div class="accordion-body">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link role-crown" href="/achievements/crown-hunter.html">🏆 Crown Hunter</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-master999" href="/achievements/master-of-999.html">⭐ Master of 999</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-prayergod" href="/achievements/prayer-god.html">⭐ Prayer God</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-monstiecollector" href="/achievements/monstie-collector.html">🏅 Wallpaper Enthusiast</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-            <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    Hunting Road Achievements
-                </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="/achievements/z4-road-legend.html">🎗️Z4 Road Legend🎗️</a>
-                        </li>
-                       <li class="nav-item">
-                            <a class="nav-link role-roadmaster" href="/achievements/road-master.html">💀 Road Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-z4roadmaster" href="/achievements/z4-road-master.html">💀 Z4 Road Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-z4easy" href="/achievements/z4-easy.html">♘ Z4 Easy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-lonewolf" href="/achievements/lone-wolf.html">✹ Lone Wolf</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-masterofallweapons" href="/achievements/master-of-all-weapons.html">🏅 Master of All Weapons</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-sns" href="/achievements/sns-master.html">🏅 SNS Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-ds" href="/achievements/ds-master.html">🏅 DS Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-gs" href="/achievements/gs-master.html">🏅 GS Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-ls" href="/achievements/ls-master.html">🏅 LS Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-hammer" href="/achievements/hammer-master.html">🏅 Hammer Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-hh" href="/achievements/hh-master.html">🏅 HH Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-lance" href="/achievements/lance-master.html">🏅 Lance Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-gl" href="/achievements/gl-master.html">🏅 GL Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-swaxe" href="/achievements/swaxe-master.html">🏅 Swaxe Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-tonfa" href="/achievements/tonfa-master.html">🏅 Tonfa Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-lbg" href="/achievements/lbg-master.html">🏅 LBG Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-hbg" href="/achievements/hbg-master.html">🏅 HBG Master</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link role-bow" href="/achievements/bow-master.html">🏅 Bow Master</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingFour">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    Achievement Guides
-                </button>
-            </h2>
-            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/guides/">Hunting Road Achievement Guides</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingFive">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    General Guides
-                </button>
-            </h2>
-            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Server-Essentials/">MezeLounge Server Essentials</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Refinement/">Decoration Refinement Guide</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Hiden/">Hiden Armor & Deco Guide</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingSix">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                    Server Resources
-                </button>
-            </h2>
-            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/achievements-roles/">MezeLounge Achievement Roles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/eventcalendar/">MezeLounge Event Calendar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/transmogs/">MezeLounge Transmog Overview</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/gacha/">MezeLounge Gacha</a>
-                        </li>
-                        <li class="nav-item"></li>
-                            <a class="nav-link" href="/hunting-road-shop/">Hunting Road Shop</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-        
-    </div>
-    <div class="main-content container">
-        <h1 style="text-align: center; font-size: 35px; padding-top: 50px; color: #7030a0;">🏅SNS Master🏅</h1>
-
-    </h1>
-    <div id="cogwheel"></div>
-
- 
-
-<div class="table-responsive">
-    <table border="1">
-        <thead>
-            <tr>
-                <th class="swaxe-master-th"="color: #7031a1;" colspan="8"><img src="../images/sns.png" style="width:80px ; padding-right:20px ;color:#e4d0f0;">Achieve the required floors with a team, all equipped with a Sword and Shield</th>
-                <tr>
-                    <td class="bow-master-td" colspan="8" style="text-align: center;">
-                        <!-- Links to switch images -->
-                        <div style="padding-top: 10px;">
-                            <a href="#" onclick="switchImage('../images/prayer-sns.png'); return false;">SR/Armor (No Sigil) Values</a> |
-                            <a href="#" onclick="switchImage('../images/prayersns-base.png'); return false;">Base Values</a>
-                        </div>
-                        <!-- Image display container -->
-                        <img id="displayedImage" src="../images/prayer-sns.png" alt="Prayer SnS">
-                      </td>
-              </tr>
-        
-            <tr>
-                <th class="sns-master-th">Achieved By:</th>
-                <th class="sns-master-th">Discord Username</th>
-                <th class="sns-master-th">Verified Run</th>
-                <th class="sns-master-th">Photo Submission</th>
-                <th class="sns-master-th">Group Size</th>
-                <th class="sns-master-th">Run Time</th>
-                <th class="sns-master-th">Date Completed</th>
-
-               
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Entry for SnS MASTER #1 -->
-          <tr>
-            <td class="sns-master-td"><b>Blaze</b></td>
-            <td class="sns-master-td"><b>mokk</b></td>
-            <td class="full-td" rowspan="4"><iframe width="400" height="250" src="https://www.youtube.com/embed/8Yf6vSl38Xo" title="[MHF-Z] Z4 Hunting Road Floor 100 (1 SnS, 1LBG, 2MS)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
-            <td class="full-td" rowspan="4" style="text-align: center;">
-                <a href="../images/sns-1st.png" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to expand">
-                    <img src="../images/sns-1st.png" style="width: 400px;">
-                </a>
-            </td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="4"><b>4 Players</b></td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="4"><b>6:00:02</b></td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="4"><b>April 2, 2024</b></td>
-        </tr>
-        <tr>
-            <td class="sns-master-td"><b>Kender</b></td>
-            <td class="sns-master-td"><b>sassykender</b></td>
-        </tr>
-        <tr>
-            <td class="sns-master-td"><b>Rekt</b></td>
-            <td class="sns-master-td"><b>rekt_mh</b></td>
-        </tr>
-        <tr>
-            <td class="sns-master-td"><b>Pitou</b></td>
-            <td class="sns-master-td"><b>pitou5175</b></td>
-        </tr>
-<tr><th class="sns-master-th" colspan="8">#2</th></tr> <!-- Entry for SnS MASTER #2 -->
-        <tr>
-            <td class="sns-master-td"><b>Sera</b></td>
-            <td class="sns-master-td"><b>sera9145</b></td>
-            <td class="full-td" rowspan="2"><iframe width="400" height="250" src="https://www.youtube.com/embed/XOYFrbQWsPk" title="[MHF-Z] Z4 Hunting Road Floor 100 (1 SnS, 1LBG, 2MS)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
-            <td class="full-td" rowspan="2" style="text-align: center;">
-                <a href="../images/sns-2nd.png" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to expand">
-                    <img src="../images/sns-2nd.png" style="width: 800px;">
-                </a>
-            </td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="2"><b>4 Players</b></td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="2"><b>4:23:44</b></td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="2"><b>April 22, 2024</b></td>
-        </tr>
-        <tr>
-            <td class="sns-master-td"><b>ZeroArcadia</b></td>
-            <td class="sns-master-td"><b>.whoknowsman</b></td>
-        </tr>
-        <tr><th class="sns-master-th" colspan="8">#3</th></tr> <!-- Entry for SnS MASTER #3 -->
-        <tr>
-            <td class="sns-master-td"><b>Mertnya</b></td>
-            <td class="sns-master-td"><b>mertna</b></td>
-            <td class="full-td" rowspan="3"><iframe width="400" height="250" src="https://www.youtube.com/embed/CWllnAcCUek" title="[MHF-Z] Z4 Hunting Road Floors 1-100 (4 SnS) #3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
-            <td class="full-td" rowspan="3" style="text-align: center;">
-                <a href="../images/sns-3rd.png" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to expand">
-                    <img src="../images/sns-3rd.png" style="width: 400px;">
-                </a>
-            </td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="3"><b>4 Players</b></td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="3"><b>4:36:46</b></td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="3"><b>April 26, 2024</b></td>
-        </tr>
-        <tr>
-            <td class="sns-master-td"><b>Flame</b></td>
-            <td class="sns-master-td"><b>flamebreeze</b></td>
-        </tr>
-        <tr>
-            <td class="sns-master-td"><b>Skillz</b></td>
-            <td class="sns-master-td"><b>lauserz</b></td>
-        </tr>
-        <tr><th class="sns-master-th" colspan="8">#4</th></tr> <!-- Entry for SnS MASTER #4 -->
-        <tr>
-            <td class="sns-master-td"><b>gan</b></td>
-            <td class="sns-master-td"><b>kotya1222</b></td>
-            <td class="full-td" rowspan="2"><iframe width="400" height="250" src="https://www.youtube.com/embed/videoseries?list=PLNBWCVcZQIskj4jeoktrZngIuAPmeQyJt" title="[MHF-Z] Z4 Hunting Road Floor 100 (1 SnS, 1LBG, 2MS)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
-            <td class="full-td" rowspan="2" style="text-align: center;">
-                <a href="../images/sns-4th.png" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to expand">
-                    <img src="../images/sns-4th.png" style="width: 400px;">
-                </a>
-            </td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="2"><b>4 Players</b></td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="2"><b>4:52:00</b></td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="2"><b>May 5, 2024</b></td>
-        </tr>
-        <tr>
-            <td class="sns-master-td"><b>levin</b></td>
-            <td class="sns-master-td"><b>levin0369</b></td>
-        </tr>
-        <tr><th class="sns-master-th" colspan="8">#5</th></tr> <!-- Entry for SnS MASTER #5 -->
-        <tr>
-            <td class="sns-master-td"><b>とも</b></td>
-            <td class="sns-master-td"><b>tomo5050</b></td>
-            <td class="full-td" rowspan="3"><iframe width="400" height="250" src="https://www.youtube.com/embed/videoseries?list=PLNBWCVcZQIsnXzzf7I7OVrgAPJjqqQijl" title="Z4Road SnS 2/2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
-            <td class="full-td" rowspan="3" style="text-align: center;">
-                <a href="../images/sns-5th.png" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to expand">
-                    <img src="../images/sns-5th.png" style="width: 400px;">
-                </a>
-            </td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="4"><b>4 Players</b></td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="4"><b>4:13:00</b></td>
-            <td class="sns-master-td" style="text-align: center;" rowspan="4"><b>May 18, 2024</b></td>
-        </tr>
-        <tr>
-            <td class="sns-master-td"><b>consom</b></td>
-            <td class="sns-master-td"><b>consomora</b></td>
-        </tr>
-        <tr>
-            <td class="sns-master-td"><b>凪</b></td>
-            <td class="sns-master-td"><b>kanademhw</b></td>
-        </tr>
-            </tfoot>
-    </table>
-    <style>
-    </style>
-<br><br><br><br>
-    </div>
     <div class="button-mode ">
         <input type="checkbox" class="checkbox" id="checkbox">
         <label for="checkbox" class="checkbox-label">
@@ -404,15 +470,12 @@
         </label>
       </div>
       
-      <style>
-        body.dark td {
-    color: #000000 !important;
-   }
-      </style>
+      
       
       <script>
        const checkbox = document.getElementById("checkbox");
       
+      // Load the user's dark mode preference from localStorage
       document.addEventListener("DOMContentLoaded", () => {
           const isDarkMode = localStorage.getItem("darkMode") === "true";
           document.body.classList.toggle("dark", isDarkMode);
@@ -424,10 +487,14 @@
           document.body.classList.toggle("dark", isDarkMode);
           localStorage.setItem("darkMode", isDarkMode);
       });
-      </script>
-  </body>
-  <script>
-    function switchImage(imagePath) {
-        document.getElementById('displayedImage').src = imagePath;
-    }
-</script>
+      </script>  
+      <script>
+        function switchImage(imagePath) {
+            document.getElementById('displayedImage').src = imagePath;
+        }
+    </script>   
+      <style>
+     
+      </style> 
+</body>
+</html>
