@@ -393,7 +393,7 @@
                     <tr><td>Achieved By</td><td>${item['Achieved By:'] || 'Unknown'}</td></tr>
                     <tr><td>Discord Username</td><td>${item['Discord Username'] || 'Unknown'}</td></tr>
                     <tr><td>Verified Run</td><td>${item['Verified Run'] || 'Unknown'}</td></tr>
-                    <tr><td>Photo Submission</td><td>${item['Photo Submission'] || 'No Photo'}</td></tr>
+                    <tr><td>Photo Submission</td><td>${item['Photo Submission'] ? `<a href="${item['Photo Submission']}" target="_blank">View Photo</a>` : 'No Photo'}</td></tr>
                     <tr><td>Group Size</td><td>${item['Group Size'] || 'Unknown'}</td></tr>
                 `;
 
