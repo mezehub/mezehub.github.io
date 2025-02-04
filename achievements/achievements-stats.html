@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Lone Wolf - MezeHub</title>
+    <title>Achievements Stats - MezeHub</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Mezehub">
@@ -12,6 +12,7 @@
     <link href="/css/style.css" rel="stylesheet">
     <link rel="icon" href="mezehub.png" type="image/gif">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
      <script src="/js/header.js" type="module"></script>
      <style>     
@@ -111,9 +112,219 @@
         .role-lbg { color: #9b59b6; }
         .role-hbg { color: #9b59b6; }
         .role-bow { color: #9b59b6; }
-        .role-z4roadlegend { color: #9b59b6; }
         #cogwheel {
         z-index: -1 !important; }
+        
+                
+        main {
+                        font-family: 'Rubik', sans-serif;
+                        height: auto;
+                        width: 100%;
+                        background-color: #ffffff;
+                        box-shadow: 0px 5px 15px 8px #a5a6a9;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        border-radius: 0.5rem;
+                        padding: 0.5rem;
+                        margin: 0.25rem;
+                    }
+
+                    h1 {
+                        font-size: 1.1rem;
+                        color: #141a39;
+                        text-transform: uppercase;
+                    }
+
+                    .table-container {
+                        width: 100%;
+                        overflow-x: auto;
+                        -webkit-overflow-scrolling: touch;
+                        margin: 15px 0;
+                        border-radius: 15px;
+                    }
+
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        text-align: left;
+                        color: #141a39;
+                    }
+
+                    th {
+                        font-family: 'MonsterHunterFrontier', sans-serif;
+                        background-color: #7030a0;
+                        color: white;
+                    }
+
+                    tr:nth-child(odd) {
+                        background-color: #f9f9f9;
+                    }
+
+                    td {
+                        height: 3rem;
+                        font-size: 0.875rem;
+                        padding: 0.5rem;
+                        text-align: center;
+                    }
+
+                    .number {
+                        font-size: 0.9rem;
+                        font-weight: bold;
+                    }
+
+                    .points {
+                        font-weight: bold;
+                        font-size: 0.9rem;
+                    }
+
+                    .btn-details {
+                        background-color: #7030a0;
+                        color: white;
+                        border: none;
+                        padding: 0.25rem 0.5rem;
+                        font-size: 0.75rem;
+                        cursor: pointer;
+                        border-radius: 5px;
+                    }
+
+                    .modal-dialog {
+                        margin: 0.25rem;
+                        max-width: 98%;
+                        width: auto;
+                    }
+
+                    .modal-content {
+                        padding: 0.5rem;
+                    }
+
+                    .modal-body,
+                    .modal-header {
+                        padding: 0.5rem;
+                    }
+
+                    .modal-title {
+                        font-size: 1rem;
+                    }
+
+                    th:first-child { border-top-left-radius: 15px; }
+                    th:last-child { border-top-right-radius: 15px; }
+                    tr:last-child td:first-child { border-bottom-left-radius: 15px; }
+                    tr:last-child td:last-child { border-bottom-right-radius: 15px; }
+
+                    body.dark .table {
+                        background-color: #1a1a1a;
+                        color: #f1f1f1;
+                        border: 2px solid #444;
+                    }
+
+                    body.dark .table th,
+                    body.dark td {
+                        background-color: #292929;
+                        color: #ffffff;
+                        border-color: white !important;
+                    }
+
+                    body.dark tr:nth-child(odd) th {
+                        background-color: #242424;
+                        border-color: white !important;
+                    }
+
+                    body.dark .table tr:nth-child(even) {
+                        background-color: #1a1a1a;
+                        border-color: white !important;
+                    }
+
+                    body.dark .table td {
+                        border: 1px solid #444;
+                    }
+
+                    body.dark main {
+                        background-color: #1a1a1a !important;
+                    }
+
+                    @media (min-width: 360px) {
+                        main {
+                            padding: 0.75rem;
+                        }
+
+                        h1 { font-size: 1.2rem; }
+                        td { 
+                            font-size: 0.9rem;
+                            padding: 0.6rem;
+                        }
+                        .number,
+                        .points { font-size: 1rem; }
+                        .btn-details {
+                            padding: 0.3rem 0.75rem;
+                            font-size: 0.8rem;
+                        }
+                        .modal-title { font-size: 1.1rem; }
+                    }
+
+                    @media (min-width: 480px) {
+                        main {
+                            width: 95%;
+                            padding: 1rem;
+                            margin: 0.5rem auto;
+                        }
+
+                        h1 { font-size: 1.3rem; }
+                        td { 
+                            font-size: 1rem;
+                            padding: 0.75rem;
+                        }
+                        .number,
+                        .points { font-size: 1.1rem; }
+                        .btn-details {
+                            padding: 0.4rem 1rem;
+                            font-size: 0.9rem;
+                        }
+                        .modal-dialog {
+                            margin: 0.5rem auto;
+                            max-width: 95%;
+                        }
+                        .modal-body,
+                        .modal-header { padding: 0.75rem; }
+                        .modal-title { font-size: 1.2rem; }
+                    }
+
+                    @media (min-width: 768px) {
+                    
+
+                        h1 { font-size: 1.5rem; }
+                        td { 
+                            font-size: 1.1rem;
+                            padding: 1rem;
+                        }
+                        .number,
+                        .points { font-size: 1.2rem; }
+                        .btn-details {
+                            padding: 0.5rem 1.25rem;
+                            font-size: 1rem;
+                        }
+                        .modal-dialog {
+                            margin: 1rem auto;
+                            max-width: 90%;
+                        }
+                        .modal-body,
+                        .modal-header { padding: 1rem; }
+                        .modal-title { font-size: 1.4rem; }
+                    }
+
+                    @media (min-width: 1024px) {
+                    
+
+                        h1 { font-size: 1.7rem; }
+                        td { font-size: 1.2rem; }
+                        .number { font-size: 1.5rem; }
+                        .points { font-size: 1.3rem; }
+                        .modal-dialog {
+                            max-width: 55%;
+                            margin: 1.75rem auto;
+                        }
+                    }
+                    
     </style>
 </head>
 <body>
@@ -165,7 +376,7 @@
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                        <ul class="navbar-nav">
+                               <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class ="nav-link role-z4roadlegend" href="/achievements/z4-road-legend.html">🎗️Z4 Road Legend</a>
                             </li>
@@ -310,221 +521,163 @@
                     </div>
                     <div class="overlay"></div>
                     <div class="logo3"></div>
-                    <div class="hero-text-achievement">Lone Wolf
                     </div>
+                    
                     
                 </div>
                 <div class="content-area">
-                    <div class="table-responsive">
-                        <table border="1">
+                </head>
+                <body>
+                    <main>
+                        <h1>Achievements Stats</h1>
+                        <div class="table-container">
+
+                        <table>
                             <thead>
                                 <tr>
-                                    <th colspan="4">Clear Z4 Road Floor 100 Solo (Video Proof Required!) Magnet Spike Allowed
-                                                      </th>
-                                </tr>
-                                <tr>
-                                    <th class="master-th">Achieved By:</th>
-                                    <th class="master-th">Discord Username</th>
-                                    <th class="master-th">Verified Run</th>
-                                    <th class="master-th">Role Status                </th>
-                                   
+                                    <th>Rank</th>
+                                    <th>Player Name</th>
+                                    <th>Total Achievements</th>
+                                    <th>Details</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                   <td class="master-td"></td>
-                                   <td class="master-td"></td>
-                                   <td class="master-td"></td>
-                                   <td class="master-td"></td>
-                                   </tr>
-                                   <tr>
-                                    <td class="master-td"></td>
-                                    <td class="master-td"></td>
-                                    <td class="master-td"></td>
-                                    <td class="master-td"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="master-td"></td>
-                                        <td class="master-td"></td>
-                                        <td class="master-td"></td>
-                                        <td class="master-td"></td>
-                                        </tr>
-                                </tfoot>
+                            <tbody id="leaderboard-body"></tbody>
                         </table>
-                     <!-- 
-                   <div class="table-responsive">
-                        <table border="1">
-                            <thead>
-                                <tr>
-                                    <th class="swaxe-master-th" style="text-align: center;" colspan="5">Clear Z4 Floor 100 Solo or with a Team (Video Proof Required!)</th>
-                                </tr>
-                                <tr>
-                                    <td colspan="5" style="padding: 0;">
-                                        <div style="background-color: #ffffff; padding: 20px; text-align: center;">
-                                            <h3 style="color: #7030a0;">Transmog Rewards</h3>
-                                            <div style="display: flex; justify-content: center; gap: 5px;">
-                                                <video width="50%" controls>
-                                                    <source src="../videos/Higakure C (Male).mp4" type="video/mp4">
-                                                    Your browser does not support the video tag.
-                                                </video>
-                                                <video width="50%" controls>
-                                                    <source src="../videos/Higakure C (Female).mp4" type="video/mp4">
-                                                    Your browser does not support the video tag.
-                                                </video>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
-                               </thead></table></div>
-                               -->
-                    <div class="container1" id="card-container">
-                      </div>
-                      
-                      <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="detailModalLabel">Details</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              <table id="detailTable" class="table table-bordered">
-                              </table>
-                            </div>
-                          </div>
                         </div>
-                      </div>
-                      
-                      <style>
-                    </style>
-        <script>
-            let data = [];
-            async function fetchCSVData() {
-                const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSSsH8sTSzsO51MwMfmMIlCQG00iRcDSJw7_NqJEPDi6H-Zu7dLfJFSt-_UhI48p8TGsfo24lSia3bD/pub?gid=730485398&single=true&output=csv');
-                const csvData = await response.text();
-
-                Papa.parse(csvData, {
-                    header: true, 
-                    skipEmptyLines: true,  
-                    complete: function(results) {
-                        data = results.data;  
-                        createCards(data);  
-                    },
-                    error: function(error) {
-                        console.error('Error parsing CSV:', error);
-                    }
-                });
-            }
-
-            function createCards(data) {
-                const container = document.getElementById('card-container');
-                container.innerHTML = '';  
-
-                data.forEach(item => {
-                    const dateCompleted = item['Date Completed'] || 'Unknown Date';
-                    const achievedBy = item['Achieved By:'] || 'Unknown';
-                    const discordUsername = item['Discord Username'] || 'Unknown';
-                    const verifiedRun = item['Verified Run'] || 'Unknown';
-                    const photoSubmission = item['Photo Submission'] || 'No Photo';
-
-                    const card = document.createElement('div');
-                    card.classList.add('card');
+                    </main>
                     
-                    card.innerHTML = `
-                        <div class="circle">
-                            <h2>${item.id}</h2>
+                    <div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitle" style="font-family: 'MonsterHunterFrontier', sans-serif; text-align: center;"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-bordered">
+                                        <tbody id="detailTable"></tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-                        <div class="content">
-                            <p><b>Achieved By:</b><br> ${achievedBy} </p>
-                            <a href="#" onclick="openModal(${item.id})">Details</a>
-                        </div>
-                    `;
-
-                    container.appendChild(card);
-                });
-            }
-
-            function openModal(id) {
-                const item = data.find(i => i.id === id.toString());
-
-                if (!item) {
-                    console.error('Data not found for ID:', id);
-                    return;
-                }
-
-                const detailTable = document.getElementById('detailTable');
-                detailTable.innerHTML = `
-                    <tr><td>Achieved By</td><td>${item['Achieved By:'] || 'Unknown'}</td></tr>
-                    <tr><td>Discord Username</td><td>${item['Discord Username'] || 'Unknown'}</td></tr>
-                    <tr><td>Verified Run</td><td>${item['Verified Run'] || 'Unknown'}</td></tr>
-                    <tr><td>Photo Submission</td><td>${item['Photo Submission'] || 'No Photo'}</td></tr>
-                    <tr><td>Group Size</td><td>${item['Group Size'] || 'Unknown'}</td></tr>
-                `;
-
-                const modal = new bootstrap.Modal(document.getElementById('detailModal'), {
-                focus: false 
-                });
+                    </div>
+                    
+                    <script>
+                        let data = [];
+                        async function fetchCSVData() {
+                            const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQbk8p81CxvJ60w3KiEUEZmWnDq7xGRnJaqNjjDy53v6z4DE7emNxtF9AuH-R468B50v5P3YmsqyDlv/pub?output=csv";
+                            const response = await fetch(csvUrl);
+                            const csvData = await response.text();
+                            
+                            Papa.parse(csvData, {
+                                header: true,
+                                skipEmptyLines: true,
+                                complete: function (results) {
+                                    data = results.data;
+                                    data.sort((a, b) => parseInt(b["Total Achievements"] || 0) - parseInt(a["Total Achievements"] || 0));
+                                    createLeaderboard(data);
+                                }
+                            });
+                        }
+                
+                        function createLeaderboard(data) {
+  const leaderboardBody = document.getElementById("leaderboard-body");
+  leaderboardBody.innerHTML = "";
+  
+  data.forEach((player, index) => {
+    const row = document.createElement("tr");
     
-             modal.show();
-            }
+    // Determine what to show in the number column
+    let position;
+    if (index === 0) position = "🥇";
+    else if (index === 1) position = "🥈";
+    else if (index === 2) position = "🥉";
+    else position = index + 1;
+    
+    row.innerHTML = `
+      <td class="number">${position}</td>
+      <td class="name" style="font-family: 'MonsterHunterFrontier', sans-serif;">${player["Player Name"]}</td>
+      <td class="points">${player["Total Achievements"]}</td>
+      <td><button class="btn-details" onclick="openModal(${index})">Details</button></td>
+    `;
+    leaderboardBody.appendChild(row);
+  });
+}
+                
+                        function openModal(index) {
+                            const player = data[index];
+                            if (!player) return;
+                            
+                            document.getElementById("modalTitle").innerText = `${player["Player Name"]}'s Achievements`;
+                            const detailTable = document.getElementById("detailTable");
+                            detailTable.innerHTML = Object.keys(player)
+                                .filter(key => key !== "Player Name" && key !== "Total Achievements" && player[key])
+                                .map(key => `<tr><td style="font-family: 'MonsterHunterFrontier', sans-serif;">${key}</td><td>${player[key]}</td></tr>`)
+                                .join("");
+                            
+                            const modal = new bootstrap.Modal(document.getElementById("detailModal"));
+                            modal.show();
+                        }
+                
+                        document.addEventListener("DOMContentLoaded", fetchCSVData);
+                                        </script>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const toggleButton = document.querySelector('.navbar-toggler');
+                                const sidebar = document.getElementById('sidebar');
 
-            async function initialize() {
-                await fetchCSVData(); 
-            }
+                                toggleButton.addEventListener('click', function() {
+                                    sidebar.classList.toggle('show');
+                                    toggleButton.classList.toggle('active');
+                                });
+                            });
+                            function wrapImagesInModal() {
+                        const modalBody = document.querySelector("#detailModal .modal-body");
+                        if (!modalBody) return;
 
-            initialize();
+                        modalBody.querySelectorAll("img").forEach(img => {
+                            if (!img.parentElement || img.parentElement.tagName !== "A") { 
+                                const anchor = document.createElement("a");
+                                anchor.href = img.src;
+                                anchor.target = "_blank";
+                                img.parentNode.insertBefore(anchor, img);
+                                anchor.appendChild(img);
+                            }
+                        });
+                    }
 
+                document.getElementById("detailModal").addEventListener("shown.bs.modal", wrapImagesInModal);
 
                     </script>
-
-    
-
-            
-        
-    </div>
-
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleButton = document.querySelector('.navbar-toggler');
-            const sidebar = document.getElementById('sidebar');
-
-            toggleButton.addEventListener('click', function() {
-                sidebar.classList.toggle('show');
-                toggleButton.classList.toggle('active');
-            });
-        });
-    </script>
-    <div class="button-mode ">
-        <input type="checkbox" class="checkbox" id="checkbox">
-        <label for="checkbox" class="checkbox-label">
-          <i class="fas fa-moon"></i>
-          <i class="fas fa-sun"></i>
-          <span class="ball"></span>
-        </label>
-      </div>
-      
-      
-      
-      <script>
-       const checkbox = document.getElementById("checkbox");
-      
-      // Load the user's dark mode preference from localStorage
-      document.addEventListener("DOMContentLoaded", () => {
-          const isDarkMode = localStorage.getItem("darkMode") === "true";
-          document.body.classList.toggle("dark", isDarkMode);
-          checkbox.checked = isDarkMode;
-      });
-      
-      checkbox.addEventListener("change", () => {
-          const isDarkMode = checkbox.checked;
-          document.body.classList.toggle("dark", isDarkMode);
-          localStorage.setItem("darkMode", isDarkMode);
-      });
-      </script>     
-      <style>
-     
-      </style> 
+                    <div class="button-mode ">
+                        <input type="checkbox" class="checkbox" id="checkbox">
+                        <label for="checkbox" class="checkbox-label">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                        <span class="ball"></span>
+                        </label>
+                    </div>
+                    
+                    
+                    
+                    <script>
+                    const checkbox = document.getElementById("checkbox");
+                    
+                    // Load the user's dark mode preference from localStorage
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const isDarkMode = localStorage.getItem("darkMode") === "true";
+                        document.body.classList.toggle("dark", isDarkMode);
+                        checkbox.checked = isDarkMode;
+                    });
+                    
+                    checkbox.addEventListener("change", () => {
+                        const isDarkMode = checkbox.checked;
+                        document.body.classList.toggle("dark", isDarkMode);
+                        localStorage.setItem("darkMode", isDarkMode);
+                    });
+                    </script>     
+                    <style>
+                    
+                    </style> 
 </body>
 </html>
