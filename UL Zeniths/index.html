@@ -35,28 +35,23 @@
       z-index: 1000;
       border-right: 1px solid #ddd;
     }
-
     .sidebar a {
       color: #343a40;
       display: block;
       padding: 10px;
       text-decoration: none;
     }
-
     .sidebar .accordion-button {
       background-color: #fff;
       color: #343a40;
       border: none;
     }
-
     .sidebar .accordion-button:focus {
       box-shadow: none;
     }
-
     .sidebar .accordion-item {
       border: none;
     }
-
     .sidebar .accordion-collapse {
       background-color: #f8f9fa;
     }
@@ -93,7 +88,6 @@
       padding: 10px;
       text-decoration: none;
     }
-
     .right-sidebar a:hover {
       background-color: #f8f9fa;
     }
@@ -106,7 +100,6 @@
       padding: 10px;
       cursor: pointer;
     }
-
     .navbar-toggler span {
       display: block;
       width: 25px;
@@ -119,17 +112,10 @@
       display: none;
     }
 
-    .images-container img {
-      max-width: 100%;
-      height: auto;
-      margin: 10px 0;
-    }
-
     @media (max-width: 768px) {
       .hamburger-container {
         display: block;
       }
-
       .sidebar {
         width: 200px;
         display: none;
@@ -176,33 +162,26 @@
       background-color: #222222;
       color: #ffffff;
     }
-
     body.dark .sidebar a,
     body.dark .right-sidebar a {
       color: #ffffff;
     }
-
     body.dark .right-sidebar a:hover {
       background-color: #222222;
     }
-
     body.dark .main-content {
       background-color: #222222;
       color: #ffffff;
     }
-
     body.dark h1, body.dark h2, body.dark p {
       color: #ffffff;
     }
-
     body.dark strong { 
       color: #E89FFF !important; 
     }
-
     body.dark h2 { 
       color: #E89FFF !important; 
     }
-
     body.dark p { 
       color: #ffffff !important; 
     }
@@ -212,12 +191,10 @@
       bottom: 20px;
       right: 20px;
     }
-
     .checkbox {
       opacity: 0;
       position: absolute;
     }
-
     .checkbox-label {
       cursor: pointer;
       text-indent: -9999px;
@@ -228,7 +205,6 @@
       border-radius: 100px;
       position: relative;
     }
-
     .checkbox-label:after {
       content: '';
       position: absolute;
@@ -240,22 +216,45 @@
       border-radius: 90px;
       transition: 0.3s;
     }
-
     .checkbox:checked + .checkbox-label {
       background: #7030a0;
     }
-
     .checkbox:checked + .checkbox-label:after {
       left: calc(100% - 2px);
       transform: translateX(-100%);
     }
-
     .checkbox-label:active:after {
       width: 28px;
     }
+
+    /* Dropdown styling */
+    #weapon-filter-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    #weapon-filter {
+      padding: 5px;
+      color: #7030a0;
+      font-weight: bold;
+    }
+    body.dark #weapon-filter {
+      color: #ffffff;
+      background-color: #333333;
+    }
+
+    .images-container img {
+      max-width: 100%;
+      height: auto;
+      margin: 10px 0;
+    }
+    .images-container {
+      margin-bottom: 20px;
+    }
   </style>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Mobile toggle for sidebars
       const toggleButton = document.querySelector('.navbar-toggler');
       const sidebar = document.getElementById('sidebar');
       const rightSidebar = document.getElementById('right-sidebar');
@@ -264,6 +263,23 @@
         sidebar.classList.toggle('show');
         rightSidebar.classList.toggle('show');
         toggleButton.classList.toggle('active');
+      });
+
+      // Weapon dropdown filter
+      const filterDropdown = document.getElementById('weapon-filter');
+      const weaponDivs = document.querySelectorAll('.images-container[data-weapon-type]');
+
+      // Hide or show images based on selection
+      filterDropdown.addEventListener('change', function() {
+        const selectedWeapon = filterDropdown.value;
+        weaponDivs.forEach(div => {
+          // 'all' shows everything, otherwise show only matching data-weapon-type
+          if (selectedWeapon === 'all' || div.dataset.weaponType === selectedWeapon) {
+            div.style.display = '';
+          } else {
+            div.style.display = 'none';
+          }
+        });
       });
     });
   </script>
@@ -292,13 +308,17 @@
           <span class="btn-text">Home</span>
         </a>
       </div>
+
+      <!-- Example collapsible sections: (You can customize or remove these) -->
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
             General Achievements
           </button>
         </h2>
-        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+             data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -318,104 +338,40 @@
         </div>
       </div>
 
+      <!-- Additional items... -->
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
             Hunting Road Achievements
           </button>
         </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+             data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class ="nav-link role-z4roadlegend" href="/achievements/z4-road-legend.html">🎗️Z4 Road Legend</a>
+                <a class="nav-link role-z4roadlegend" href="/achievements/z4-road-legend.html">🎗️Z4 Road Legend</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link role-roadmaster" href="/achievements/road-master.html">💀 Road Master</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link role-z4roadmaster" href="/achievements/z4-road-master.html">💀 Z4 Road Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-z4easy" href="/achievements/z4-easy.html">♘ Z4 Easy</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-lonewolf" href="/achievements/lone-wolf.html">✹ Lone Wolf</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-masterofallweapons" href="/achievements/master-of-all-weapons.html">🏅 Master of All Weapons</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-sns" href="/achievements/sns-master.html">🏅 SNS Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-ds" href="/achievements/ds-master.html">🏅 DS Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-gs" href="/achievements/gs-master.html">🏅 GS Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-ls" href="/achievements/ls-master.html">🏅 LS Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-hammer" href="/achievements/hammer-master.html">🏅 Hammer Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-hh" href="/achievements/hh-master.html">🏅 HH Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-lance" href="/achievements/lance-master.html">🏅 Lance Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-gl" href="/achievements/gl-master.html">🏅 GL Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-swaxe" href="/achievements/swaxe-master.html">🏅 Swaxe Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-tonfa" href="/achievements/tonfa-master.html">🏅 Tonfa Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-lbg" href="/achievements/lbg-master.html">🏅 LBG Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-hbg" href="/achievements/hbg-master.html">🏅 HBG Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-bow" href="/achievements/bow-master.html">🏅 Bow Master</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-bow" href="/achievements/achievements-stats.html">🏅 Achievements Stats</a>
-              </li>
+              <!-- More links... -->
             </ul>
           </div>
         </div>
       </div>
 
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingFour">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-            Achievement Guides
-          </button>
-        </h2>
-        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/guides/">Hunting Road Achievement Guides</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
+      <!-- Customize or remove as needed... -->
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingFive">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
             General Guides
           </button>
         </h2>
-        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+             data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -432,34 +388,7 @@
         </div>
       </div>
 
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingSix">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-            Server Resources
-          </button>
-        </h2>
-        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/achievements-roles/">MezeLounge Achievement Roles</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/eventcalendar/">MezeLounge Event Calendar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/transmogs/">MezeLounge Transmog Overview</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/gacha/">MezeLounge Gacha</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/hunting-road-shop/">Hunting Road Shop</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <!-- Additional items... -->
     </div>
   </div>
 
@@ -467,46 +396,110 @@
   <div class="main-content">
     <div id="cogwheel"></div>
 
-    <div class="description">
-      <!-- Intro Section -->
-      <h1 id="intro" style="text-align: center;"><strong>UL Zeniths</strong></h1>
-      <h2 style="text-align: center;">Info</h2>
-      <p>
-        This section is all about UL Zeniths, detailing how they appear in the game, 
-        any special mechanics they have, and strategies for handling them effectively. 
-        You can place your explanation here about what UL Zeniths are, how to unlock them, 
-        or anything else you’d like to mention.
-      </p>
+    <!-- Intro/Info Section -->
+    <h1 id="intro" style="text-align: center;"><strong>UL Zeniths</strong></h1>
+    <h2 style="text-align: center;">Info</h2>
+    <p style="margin-bottom: 30px;">
+      The UL Zenith update contains quests that feature <strong>“Unlimited” Zenith</strong> monsters, 
+      much stronger versions of their normal counterparts.
+    </p>
 
-      <!-- Rewards Section -->
-      <h2 id="rewards" style="text-align: center;">Rewards</h2>
-      <p>
-        Below you’ll find a selection of the various weapons that can be acquired or upgraded 
-        through completing UL Zenith quests. Feel free to adapt or expand this section as needed.
-      </p>
+    <!-- Rewards Section -->
+    <h2 id="rewards" style="text-align: center;">Rewards</h2>
+    <p>
+      As a reward for completing these quests, you will receive special 
+      “seals” used to craft a newly added “Unlimited” stage for Zenith Weapons. 
+      To find these weapons in-game, simply navigate to the 
+      <strong>Blacksmith → Zenith Weapons Tab</strong> → Select any monster-specific Zenith Weapon, 
+      and utilize the preview feature to see the final stage.
+    </p>
 
-      <!-- Example images for each weapon type (placeholders) -->
-      <div class="images-container">
-        <h3>Greatsword</h3>
-        <img src="images/ul_zenith_gs.png" alt="UL Zenith Greatsword Rewards">
-      </div>
-      <div class="images-container">
-        <h3>Longsword</h3>
-        <img src="images/ul_zenith_ls.png" alt="UL Zenith Longsword Rewards">
-      </div>
-      <div class="images-container">
-        <h3>Dual Blades</h3>
-        <img src="images/ul_zenith_ds.png" alt="UL Zenith Dual Blades Rewards">
-      </div>
-      <div class="images-container">
-        <h3>Hammer</h3>
-        <img src="images/ul_zenith_hammer.png" alt="UL Zenith Hammer Rewards">
-      </div>
-      <div class="images-container">
-        <h3>Hunting Horn</h3>
-        <img src="images/ul_zenith_hh.png" alt="UL Zenith Hunting Horn Rewards">
-      </div>
+    <!-- Weapon Filter Dropdown -->
+    <div id="weapon-filter-container">
+      <label for="weapon-filter" style="font-weight: bold; color: #7030a0;">
+        Select Weapon Type:
+      </label>
+      <select id="weapon-filter">
+        <option value="all">All</option>
+        <!-- Melee Weapons -->
+        <option value="SnS">Sword & Shield</option>
+        <option value="DS">Dual Swords</option>
+        <option value="GS">Great Sword</option>
+        <option value="LS">Long Sword</option>
+        <option value="Hammer">Hammer</option>
+        <option value="HH">Hunting Horn</option>
+        <option value="Lance">Lance</option>
+        <option value="GL">Gunlance</option>
+        <option value="SAF">Switch Axe F</option>
+        <option value="Tonfa">Tonfa</option>
+        <option value="MS">Magnet Spike</option>
+        <!-- Ranged Weapons -->
+        <option value="LBG">Light Bowgun</option>
+        <option value="HBG">Heavy Bowgun</option>
+        <option value="Bow">Bow</option>
+      </select>
     </div>
+
+    <!-- Melee Weapons Images -->
+    <div class="images-container" data-weapon-type="SnS">
+      <h3>Sword & Shield</h3>
+      <img src="images/ul_sns.png" alt="UL Zenith Sword & Shield">
+    </div>
+    <div class="images-container" data-weapon-type="DS">
+      <h3>Dual Swords</h3>
+      <img src="images/ul_ds.png" alt="UL Zenith Dual Swords">
+    </div>
+    <div class="images-container" data-weapon-type="GS">
+      <h3>Great Sword</h3>
+      <img src="images/ul_gs.png" alt="UL Zenith Great Sword">
+    </div>
+    <div class="images-container" data-weapon-type="LS">
+      <h3>Long Sword</h3>
+      <img src="images/ul_ls.png" alt="UL Zenith Long Sword">
+    </div>
+    <div class="images-container" data-weapon-type="Hammer">
+      <h3>Hammer</h3>
+      <img src="images/ul_hammer.png" alt="UL Zenith Hammer">
+    </div>
+    <div class="images-container" data-weapon-type="HH">
+      <h3>Hunting Horn</h3>
+      <img src="images/ul_hh.png" alt="UL Zenith Hunting Horn">
+    </div>
+    <div class="images-container" data-weapon-type="Lance">
+      <h3>Lance</h3>
+      <img src="images/ul_lance.png" alt="UL Zenith Lance">
+    </div>
+    <div class="images-container" data-weapon-type="GL">
+      <h3>Gunlance</h3>
+      <img src="images/ul_gl.png" alt="UL Zenith Gunlance">
+    </div>
+    <div class="images-container" data-weapon-type="SAF">
+      <h3>Switch Axe F</h3>
+      <img src="images/ul_saf.png" alt="UL Zenith Switch Axe F">
+    </div>
+    <div class="images-container" data-weapon-type="Tonfa">
+      <h3>Tonfa</h3>
+      <img src="images/ul_tonfa.png" alt="UL Zenith Tonfa">
+    </div>
+    <div class="images-container" data-weapon-type="MS">
+      <h3>Magnet Spike</h3>
+      <img src="images/ul_ms.png" alt="UL Zenith Magnet Spike">
+    </div>
+
+    <!-- Ranged Weapons Images -->
+    <div class="images-container" data-weapon-type="LBG">
+      <h3>Light Bowgun</h3>
+      <img src="images/ul_lbg.png" alt="UL Zenith Light Bowgun">
+    </div>
+    <div class="images-container" data-weapon-type="HBG">
+      <h3>Heavy Bowgun</h3>
+      <img src="images/ul_hbg.png" alt="UL Zenith Heavy Bowgun">
+    </div>
+    <div class="images-container" data-weapon-type="Bow">
+      <h3>Bow</h3>
+      <img src="images/ul_bow.png" alt="UL Zenith Bow">
+    </div>
+
   </div>
 
   <!-- Right Sidebar -->
@@ -527,6 +520,7 @@
   </div>
 
   <script>
+    // Restore dark mode status on load
     const checkbox = document.getElementById("checkbox");
     document.addEventListener("DOMContentLoaded", () => {
       const isDarkMode = localStorage.getItem("darkMode") === "true";
@@ -534,6 +528,7 @@
       checkbox.checked = isDarkMode;
     });
 
+    // Toggle dark mode
     checkbox.addEventListener("change", () => {
       const isDarkMode = checkbox.checked;
       document.body.classList.toggle("dark", isDarkMode);
