@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.25">
+  <meta property="og:title" content="UL Zeniths">
+  <meta property="og:description" content="Guide to UL Zeniths in MHFZ.">
+  <meta property="og:url" content="https://mezehub.github.io/ULZeniths">
+  <meta property="og:image" content="https://mezehub.github.io/images/mezehub.png">
+  <meta property="og:type" content="website">
+  <title>UL Zeniths</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="../images/mezehub.png" type="image/gif">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-color: #ffffff;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      color: #343a40;
+      height: 100vh;
+      padding-top: 20px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      overflow-y: auto;
+      z-index: 1000;
+      border-right: 1px solid #ddd;
+    }
+
+    .sidebar a {
+      color: #343a40;
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+    }
+
+    .sidebar .accordion-button {
+      background-color: #fff;
+      color: #343a40;
+      border: none;
+    }
+
+    .sidebar .accordion-button:focus {
+      box-shadow: none;
+    }
+
+    .sidebar .accordion-item {
+      border: none;
+    }
+
+    .sidebar .accordion-collapse {
+      background-color: #f8f9fa;
+    }
+
+    .main-content {
+      margin-left: 270px;
+      margin-right: 220px;
+      padding: 20px;
+      flex-grow: 1;
+      background-color: #ffffff;
+      color: #7030a0;
+    }
+
+    .right-sidebar {
+      width: 200px;
+      background-color: #fff;
+      color: #343a40;
+      height: 100vh;
+      padding: 10px;
+      position: fixed;
+      right: 0;
+      top: 0;
+      overflow-y: auto;
+      z-index: 1000;
+      border-left: 1px solid #ddd;
+    }
+    body.dark .right-sidebar a {
+      color: white !important;
+    }
+
+    .right-sidebar a {
+      color: #7030a0;
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+    }
+
+    .right-sidebar a:hover {
+      background-color: #f8f9fa;
+    }
+
+    .navbar-toggler {
+      display: inline-block;
+      border: none;
+      background: none;
+      outline: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .navbar-toggler span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #7030a0;
+      margin: 5px 0;
+    }
+
+    .hamburger-container {
+      display: none;
+    }
+
+    .images-container img {
+      max-width: 100%;
+      height: auto;
+      margin: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger-container {
+        display: block;
+      }
+
+      .sidebar {
+        width: 200px;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: 999;
+        background-color: #fff;
+        padding-top: 60px;
+      }
+      .sidebar.show {
+        display: block;
+      }
+
+      .right-sidebar {
+        width: 200px;
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        z-index: 999;
+        background-color: #fff;
+        padding-top: 60px;
+      }
+      .right-sidebar.show {
+        display: block;
+      }
+
+      .main-content {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 10px;
+      }
+
+      .navbar-toggler {
+        display: inline-block;
+      }
+    }
+
+    body.dark .sidebar,
+    body.dark .right-sidebar {
+      background-color: #222222;
+      color: #ffffff;
+    }
+
+    body.dark .sidebar a,
+    body.dark .right-sidebar a {
+      color: #ffffff;
+    }
+
+    body.dark .right-sidebar a:hover {
+      background-color: #222222;
+    }
+
+    body.dark .main-content {
+      background-color: #222222;
+      color: #ffffff;
+    }
+
+    body.dark h1, body.dark h2, body.dark p {
+      color: #ffffff;
+    }
+
+    body.dark strong { 
+      color: #E89FFF !important; 
+    }
+
+    body.dark h2 { 
+      color: #E89FFF !important; 
+    }
+
+    body.dark p { 
+      color: #ffffff !important; 
+    }
+
+    .button-mode {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .checkbox {
+      opacity: 0;
+      position: absolute;
+    }
+
+    .checkbox-label {
+      cursor: pointer;
+      text-indent: -9999px;
+      width: 50px;
+      height: 24px;
+      background: #ccc;
+      display: block;
+      border-radius: 100px;
+      position: relative;
+    }
+
+    .checkbox-label:after {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 90px;
+      transition: 0.3s;
+    }
+
+    .checkbox:checked + .checkbox-label {
+      background: #7030a0;
+    }
+
+    .checkbox:checked + .checkbox-label:after {
+      left: calc(100% - 2px);
+      transform: translateX(-100%);
+    }
+
+    .checkbox-label:active:after {
+      width: 28px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleButton = document.querySelector('.navbar-toggler');
+      const sidebar = document.getElementById('sidebar');
+      const rightSidebar = document.getElementById('right-sidebar');
+
+      toggleButton.addEventListener('click', function() {
+        sidebar.classList.toggle('show');
+        rightSidebar.classList.toggle('show');
+        toggleButton.classList.toggle('active');
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <!-- Mobile Hamburger Button -->
+  <div class="hamburger-container">
+    <button class="navbar-toggler" type="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Left Sidebar Navigation -->
+  <div id="sidebar" class="sidebar">
+    <a href="../index.html">
+      <img src="../images/mezehub.png" alt="Logo" class="logo" style="width: 200px;">
+    </a>
+    <div class="accordion" id="accordionExample">
+      <br>
+      <div class="accordion-item">
+        <a class="btn manual-download" href="/index.html">
+          <img class="btn-logo" src="/images/original.png" alt="Logo">
+          <span class="btn-text">Home</span>
+        </a>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            General Achievements
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link role-crown" href="/achievements/crown-hunter.html">🏆 Crown Hunter</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-master999" href="/achievements/master-of-999.html">⭐ Master of 999</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-prayergod" href="/achievements/prayer-god.html">⭐ Prayer God</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-monstiecollector" href="/achievements/monstie-collector.html">🏅 Wallpaper Enthusiast</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Hunting Road Achievements
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class ="nav-link role-z4roadlegend" href="/achievements/z4-road-legend.html">🎗️Z4 Road Legend</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-roadmaster" href="/achievements/road-master.html">💀 Road Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-z4roadmaster" href="/achievements/z4-road-master.html">💀 Z4 Road Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-z4easy" href="/achievements/z4-easy.html">♘ Z4 Easy</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-lonewolf" href="/achievements/lone-wolf.html">✹ Lone Wolf</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-masterofallweapons" href="/achievements/master-of-all-weapons.html">🏅 Master of All Weapons</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-sns" href="/achievements/sns-master.html">🏅 SNS Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-ds" href="/achievements/ds-master.html">🏅 DS Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-gs" href="/achievements/gs-master.html">🏅 GS Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-ls" href="/achievements/ls-master.html">🏅 LS Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-hammer" href="/achievements/hammer-master.html">🏅 Hammer Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-hh" href="/achievements/hh-master.html">🏅 HH Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-lance" href="/achievements/lance-master.html">🏅 Lance Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-gl" href="/achievements/gl-master.html">🏅 GL Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-swaxe" href="/achievements/swaxe-master.html">🏅 Swaxe Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-tonfa" href="/achievements/tonfa-master.html">🏅 Tonfa Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-lbg" href="/achievements/lbg-master.html">🏅 LBG Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-hbg" href="/achievements/hbg-master.html">🏅 HBG Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-bow" href="/achievements/bow-master.html">🏅 Bow Master</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link role-bow" href="/achievements/achievements-stats.html">🏅 Achievements Stats</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Achievement Guides
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/guides/">Hunting Road Achievement Guides</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            General Guides
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/Server-Essentials/">MezeLounge Server Essentials</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Refinement/">Decoration Refinement Guide</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Hiden/">Hiden Armor & Deco Guide</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSix">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            Server Resources
+          </button>
+        </h2>
+        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/achievements-roles/">MezeLounge Achievement Roles</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/eventcalendar/">MezeLounge Event Calendar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/transmogs/">MezeLounge Transmog Overview</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/gacha/">MezeLounge Gacha</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/hunting-road-shop/">Hunting Road Shop</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div id="cogwheel"></div>
+
+    <div class="description">
+      <!-- Intro Section -->
+      <h1 id="intro" style="text-align: center;"><strong>UL Zeniths</strong></h1>
+      <h2 style="text-align: center;">Info</h2>
+      <p>
+        This section is all about UL Zeniths, detailing how they appear in the game, 
+        any special mechanics they have, and strategies for handling them effectively. 
+        You can place your explanation here about what UL Zeniths are, how to unlock them, 
+        or anything else you’d like to mention.
+      </p>
+
+      <!-- Rewards Section -->
+      <h2 id="rewards" style="text-align: center;">Rewards</h2>
+      <p>
+        Below you’ll find a selection of the various weapons that can be acquired or upgraded 
+        through completing UL Zenith quests. Feel free to adapt or expand this section as needed.
+      </p>
+
+      <!-- Example images for each weapon type (placeholders) -->
+      <div class="images-container">
+        <h3>Greatsword</h3>
+        <img src="images/ul_zenith_gs.png" alt="UL Zenith Greatsword Rewards">
+      </div>
+      <div class="images-container">
+        <h3>Longsword</h3>
+        <img src="images/ul_zenith_ls.png" alt="UL Zenith Longsword Rewards">
+      </div>
+      <div class="images-container">
+        <h3>Dual Blades</h3>
+        <img src="images/ul_zenith_ds.png" alt="UL Zenith Dual Blades Rewards">
+      </div>
+      <div class="images-container">
+        <h3>Hammer</h3>
+        <img src="images/ul_zenith_hammer.png" alt="UL Zenith Hammer Rewards">
+      </div>
+      <div class="images-container">
+        <h3>Hunting Horn</h3>
+        <img src="images/ul_zenith_hh.png" alt="UL Zenith Hunting Horn Rewards">
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Sidebar -->
+  <div id="right-sidebar" class="right-sidebar">
+    <h4 style="color: #7030a0;"><strong>Navigation</strong></h4>
+    <a href="#intro" style="color: #7030a0;">Info</a>
+    <a href="#rewards" style="color: #7030a0;">Rewards</a>
+  </div>
+
+  <!-- Dark Mode Toggle -->
+  <div class="button-mode">
+    <input type="checkbox" class="checkbox" id="checkbox">
+    <label for="checkbox" class="checkbox-label">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+      <span class="ball"></span>
+    </label>
+  </div>
+
+  <script>
+    const checkbox = document.getElementById("checkbox");
+    document.addEventListener("DOMContentLoaded", () => {
+      const isDarkMode = localStorage.getItem("darkMode") === "true";
+      document.body.classList.toggle("dark", isDarkMode);
+      checkbox.checked = isDarkMode;
+    });
+
+    checkbox.addEventListener("change", () => {
+      const isDarkMode = checkbox.checked;
+      document.body.classList.toggle("dark", isDarkMode);
+      localStorage.setItem("darkMode", isDarkMode);
+    });
+  </script>
+</body>
+</html>
