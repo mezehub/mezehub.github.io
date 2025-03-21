@@ -280,6 +280,28 @@
       display: block;
       margin: 0 auto;
     }
+
+
+    .quest-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px; /* optional negative margin for spacing */
+}
+
+/* Each image+caption block: 3 items per row */
+.quest-entry {
+  width: calc(33.333% - 20px);
+  margin: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.quest-entry img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
   </style>
 </head>
 <body>
@@ -296,202 +318,984 @@
   <!-- Left Sidebar -->
   <div id="sidebar" class="sidebar">
     <a href="../index.html">
-      <img src="../images/mezehub.png" alt="Logo" class="logo" style="width: 200px;" />
-    </a>
-    <div class="accordion" id="accordionExample">
-      <br />
-      <div class="accordion-item">
-        <a class="btn manual-download" href="/index.html">
-          <img class="btn-logo" src="/images/original.png" alt="Logo" />
-          <span class="btn-text">Home</span>
-        </a>
-      </div>
+        <img src="../images/mezehub.png" alt="Logo" class="logo" style="width: 200px;"></a>
+                <div class="accordion" id="accordionExample">
+                    <br>  
+                    <div class="accordion-item">
+                                <a class="btn manual-download" href="/index.html">
+                                        <img class="btn-logo" src="/images/original.png" alt="Logo">
+                                        <span class="btn-text">Home</span>
+                                    </a>
+                    </div>            
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
 
-      <!-- Add or remove your sidebar content as needed -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseOne"
-            aria-expanded="false"
-            aria-controls="collapseOne"
-          >
-            General Achievements
-          </button>
-        </h2>
-        <div
-          id="collapseOne"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingOne"
-          data-bs-parent="#accordionExample"
-        >
-          <div class="accordion-body">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link role-crown" href="/achievements/crown-hunter.html"
-                  >🏆 Crown Hunter</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link role-master999" href="/achievements/master-of-999.html"
-                  >⭐ Master of 999</a
-                >
-              </li>
-              <!-- ...additional links... -->
-            </ul>
-          </div>
+                    General Achievements
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+
+                <div class="accordion-body">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link role-crown" href="/achievements/crown-hunter.html">🏆 Crown Hunter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-master999" href="/achievements/master-of-999.html">⭐ Master of 999</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-prayergod" href="/achievements/prayer-god.html">⭐ Prayer God</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-monstiecollector" href="/achievements/monstie-collector.html">🏅 Wallpaper Enthusiast</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    Hunting Road Achievements
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+
+                <div class="accordion-body">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class ="nav-link role-z4roadlegend" href="/achievements/z4-road-legend.html">🎗️Z4 Road Legend</a>
+                        </li>
+                       <li class="nav-item">
+                            <a class="nav-link role-roadmaster" href="/achievements/road-master.html">💀 Road Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-z4roadmaster" href="/achievements/z4-road-master.html">💀 Z4 Road Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-z4easy" href="/achievements/z4-easy.html">♘ Z4 Easy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-lonewolf" href="/achievements/lone-wolf.html">✹ Lone Wolf</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-masterofallweapons" href="/achievements/master-of-all-weapons.html">🏅 Master of All Weapons</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-sns" href="/achievements/sns-master.html">🏅 SNS Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-ds" href="/achievements/ds-master.html">🏅 DS Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-gs" href="/achievements/gs-master.html">🏅 GS Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-ls" href="/achievements/ls-master.html">🏅 LS Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-hammer" href="/achievements/hammer-master.html">🏅 Hammer Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-hh" href="/achievements/hh-master.html">🏅 HH Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-lance" href="/achievements/lance-master.html">🏅 Lance Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-gl" href="/achievements/gl-master.html">🏅 GL Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-swaxe" href="/achievements/swaxe-master.html">🏅 Swaxe Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-tonfa" href="/achievements/tonfa-master.html">🏅 Tonfa Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-lbg" href="/achievements/lbg-master.html">🏅 LBG Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-hbg" href="/achievements/hbg-master.html">🏅 HBG Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-bow" href="/achievements/bow-master.html">🏅 Bow Master</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link role-bow" href="/achievements/achievements-stats.html">🏅 Achievements Stats</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Achievement Guides
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/guides/">Hunting Road Achievement Guides</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    General Guides
+                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
 
-      <!-- additional collapsible items if needed -->
+                <div class="accordion-body">
+                    <ul class="navbar-nav">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Server-Essentials/">MezeLounge Server Essentials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Refinement/">Decoration Refinement Guide</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Hiden/">Hiden Armor & Deco Guide</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    Server Resources
+                </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/achievements-roles/">MezeLounge Achievement Roles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/eventcalendar/">MezeLounge Event Calendar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/transmogs/">MezeLounge Transmog Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/gacha/">MezeLounge Gacha</a>
+                        </li>
+                        <li class="nav-item"></li>
+                        <a class="nav-link" href="/hunting-road-shop/">Hunting Road Shop</a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
+</div>
   <!-- Main Content -->
   <div class="main-content">
     <h1 id="intro" style="text-align: center;">
-      <strong>UL Zeniths</strong>
+      <strong>UL Zenith Update</strong>
     </h1>
 
-    <h2 style="text-align: center;">Info</h2>
+    <h2 style="text-align: center;">General Details</h2>
     <p style="margin-bottom: 30px;">
       The UL Zenith update contains quests that feature
       <strong>“Unlimited” Zenith</strong> monsters, much stronger versions of
       their normal counterparts.
     </p>
 
-    <h2 id="rewards" style="text-align: center;">Rewards</h2>
+    
+    <h2 style="text-align: center;">UL Quests</h2>
+<p style="margin-bottom: 30px;">
+  The UL Zenith quests can be found at the G Quest Counter when selecting the <strong>Zenith Quests</strong> option. 
+  Navigate to your Zenith of choice and search for quest titles tagged "<strong>Zenith Unlimited</strong>".
+</p>
+<!-- Three example quest images -->
+<div class="quest-grid">
+  <div class="quest-entry">
+    <img src="images/ul_quest_example1.png" alt="Example Quest 1" />
+    <p style="text-align: center;">Example Quest 1</p>
+  </div>
+  <div class="quest-entry">
+    <img src="images/ul_quest_example2.png" alt="Example Quest 2" />
+    <p style="text-align: center;">Example Quest 2</p>
+  </div>
+  <div class="quest-entry">
+    <img src="images/ul_quest_example3.png" alt="Example Quest 3" />
+    <p style="text-align: center;">Example Quest 3</p>
+  </div>
+</div>
+
+
+    <h2 id="rewards" style="text-align: center;">UL Zenith Weapons</h2>
     <p>
       As a reward for completing these quests, you will receive special
       “seals” used to craft a newly added “Unlimited” stage for Zenith Weapons.
       To find these weapons in-game, simply navigate to the
       <strong>Blacksmith → Zenith Weapons Tab</strong> → Select any
-      monster-specific Zenith Weapon, and utilize the preview feature to see
-      the final stage.
+      monster-specific Zenith Weapon, and utilize the preview feature (kick-button on controller) to navigate and see
+      the final stage.</p>
+      <strong>✽You must upgrade the weapon from the base Z stage (from Z1, to Z4) to craft the "Unlimited" stage. </strong>
+
     </p>
+    <strong>Note:</strong> Weapon Stats are subject to change/rebalancing as the update is rolled out.
+    <p>Below is a simple-view of all the <strong>UL Zenith Weapons.</strong> You can use the filter to view them by weapon type, or all at once.</p>
+  
 
     <!-- Dropdown Filter -->
-    <div id="weapon-filter-container">
-      <label for="weapon-filter" style="font-weight: bold; color: #7030a0;"
-        >Select Weapon Type:</label
-      >
-      <select id="weapon-filter">
-        <option value="all">All</option>
-        <!-- Melee Weapons -->
-        <option value="SnS">Sword & Shield</option>
-        <option value="DS">Dual Swords</option>
-        <option value="GS">Great Sword</option>
-        <option value="LS">Long Sword</option>
-        <option value="Hammer">Hammer</option>
-        <option value="HH">Hunting Horn</option>
-        <option value="Lance">Lance</option>
-        <option value="GL">Gunlance</option>
-        <option value="SAF">Switch Axe F</option>
-        <option value="Tonfa">Tonfa</option>
-        <option value="MS">Magnet Spike</option>
-        <!-- Ranged Weapons -->
-        <option value="LBG">Light Bowgun</option>
-        <option value="HBG">Heavy Bowgun</option>
-        <option value="Bow">Bow</option>
-      </select>
+<div id="weapon-filter-container">
+  <label for="weapon-filter" style="font-weight: bold; color: #7030a0;">
+    Select Weapon Type:
+  </label>
+  <select id="weapon-filter">
+    <option value="all">All</option>
+    <!-- Melee Weapons -->
+    <option value="SnS">Sword & Shield</option>
+    <option value="DS">Dual Swords</option>
+    <option value="GS">Great Sword</option>
+    <option value="LS">Long Sword</option>
+    <option value="Hammer">Hammer</option>
+    <option value="HH">Hunting Horn</option>
+    <option value="Lance">Lance</option>
+    <option value="GL">Gunlance</option>
+    <option value="SAF">Switch Axe F</option>
+    <option value="Tonfa">Tonfa</option>
+    <option value="MS">Magnet Spike</option>
+    <!-- Ranged Weapons -->
+    <option value="LBG">Light Bowgun</option>
+    <option value="HBG">Heavy Bowgun</option>
+    <option value="Bow">Bow</option>
+  </select>
+</div>
+
+<!-- SWORD & SHIELD -->
+<div class="images-container" data-weapon-type="SnS">
+  <h3>
+    <img class="weapon-icon" src="images/sns.png" alt="SnS Icon" />
+    Sword & Shield
+  </h3>
+  <div class="weapon-grid">
+    <div class="weapon-entry">
+      <img src="images/espi-sns.png" alt="Espi Sword & Shield" />
+      <p>UL Espinas</p>
     </div>
-
-    <!-- Example: SnS Container -->
-    <div class="images-container" data-weapon-type="SnS">
-      <h3>
-        <img class="weapon-icon" src="images/sns.png" alt="SnS Icon" />
-        Sword & Shield
-      </h3>
-      <div class="weapon-grid">
-        <!-- Each .weapon-entry is 1 of 3 columns -->
-        <div class="weapon-entry">
-          <img src="images/hypno-sns.png" alt="Hypno Sword & Shield" />
-          <p>hypno-sns</p>
-        </div>
-        <div class="weapon-entry">
-          <img src="images/espi-sns.png" alt="Espi Sword & Shield" />
-          <p>espi-sns</p>
-        </div>
-        <div class="weapon-entry">
-          <img src="images/harudo-sns.png" alt="Harudo Sword & Shield" />
-          <p>harudo-sns</p>
-        </div>
-        <div class="weapon-entry">
-          <img src="images/gravios-sns.png" alt="Gravios Sword & Shield" />
-          <p>gravios-sns</p>
-        </div>
-        <div class="weapon-entry">
-          <img src="images/dora-sns.png" alt="Dora Sword & Shield" />
-          <p>dora-sns</p>
-        </div>
-        <div class="weapon-entry">
-          <img src="images/torid-sns.png" alt="Torid Sword & Shield" />
-          <p>torid-sns</p>
-        </div>
-        <div class="weapon-entry">
-          <img src="images/plesioth-sns.png" alt="Plesioth Sword & Shield" />
-          <p>plesioth-sns</p>
-        </div>
-        <div class="weapon-entry">
-          <img src="images/giao-sns.png" alt="Giao Sword & Shield" />
-          <p>giao-sns</p>
-        </div>
-        <div class="weapon-entry">
-          <img src="images/vashimu-sns.png" alt="Vashimu Sword & Shield" />
-          <p>vashimu-sns</p>
-        </div>
-      </div>
+    <div class="weapon-entry">
+      <img src="images/hypno-sns.png" alt="Hypno Sword & Shield" />
+      <p>UL Hypnoc</p>
     </div>
-
-    <!-- Repeat similar sections for DS, GS, LS, etc. with .weapon-grid inside -->
-    <div class="images-container" data-weapon-type="DS">
-      <h3>
-        <img class="weapon-icon" src="images/ds.png" alt="Dual Swords Icon" />
-        Dual Swords
-      </h3>
-      <div class="weapon-grid">
-        <div class="weapon-entry">
-          <img src="images/sample-ds1.png" alt="Sample DS 1" />
-          <p>sample-ds1</p>
-        </div>
-        <div class="weapon-entry">
-          <img src="images/sample-ds2.png" alt="Sample DS 2" />
-          <p>sample-ds2</p>
-        </div>
-        <!-- More DS images here... -->
-      </div>
+    <div class="weapon-entry">
+      <img src="images/harudo-sns.png" alt="Harudo Sword & Shield" />
+      <p>UL Harudomerugu</p>
     </div>
-
-    <!-- Just an example for Great Sword -->
-    <div class="images-container" data-weapon-type="GS">
-      <h3>
-        <img class="weapon-icon" src="images/gs.png" alt="Great Sword Icon" />
-        Great Sword
-      </h3>
-      <div class="weapon-grid">
-        <div class="weapon-entry">
-          <img src="images/sample-gs1.png" alt="Sample GS 1" />
-          <p>sample-gs1</p>
-        </div>
-        <div class="weapon-entry">
-          <img src="images/sample-gs2.png" alt="Sample GS 2" />
-          <p>sample-gs2</p>
-        </div>
-        <!-- More GS images here... -->
-      </div>
+    <div class="weapon-entry">
+      <img src="images/gravios-sns.png" alt="Gravios Sword & Shield" />
+      <p>UL Gravios</p>
     </div>
-
-    <!-- Continue for LS, Hammer, HH, Lance, GL, SAF, Tonfa, MS, LBG, HBG, Bow... -->
-
+    <div class="weapon-entry">
+      <img src="images/dora-sns.png" alt="Dora Sword & Shield" />
+      <p>UL Dora</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/torid-sns.png" alt="Torid Sword & Shield" />
+      <p>UL Toridcless</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/plesioth-sns.png" alt="Plesioth Sword & Shield" />
+      <p>UL Plesioth</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/giao-sns.png" alt="Giao Sword & Shield" />
+      <p>UL Giaorugu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/vashimu-sns.png" alt="Vashimu Sword & Shield" />
+      <p>UL Akura Vashimu</p>
+    </div>
   </div>
+</div>
+
+<!-- DUAL SWORDS -->
+<div class="images-container" data-weapon-type="DS">
+  <h3>
+    <img class="weapon-icon" src="images/ds.png" alt="Dual Swords Icon" />
+    Dual Swords
+  </h3>
+  <div class="weapon-grid">
+    <div class="weapon-entry">
+      <img src="images/anoru-ds.png" alt="UL Anorupatisu" />
+      <p>UL Anorupatisu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/boga-ds.png" alt="UL Bogabadorumu" />
+      <p>UL Bogabadorumu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/daimyo-ds.png" alt="UL Daimyo Hermitaur" />
+      <p>UL Daimyo Hermitaur</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/espi-ds.png" alt="UL Espinas" />
+      <p>UL Espinas</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/giao-ds.png" alt="UL Giaorugu" />
+      <p>UL Giaorugu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/gravi-ds.png" alt="UL Gravios" />
+      <p>UL Gravios</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/harudo-ds.png" alt="UL Harudomerugu" />
+      <p>UL Harudomerugu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hyuji-ds.png" alt="UL Hyujikiki" />
+      <p>UL Hyujikiki</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/inagami-ds.png" alt="UL Inagami" />
+      <p>UL Inagami</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/khezu-ds.png" alt="UL Khezu" />
+      <p>UL Khezu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/rathalos-ds.png" alt="UL Rathalos" />
+      <p>UL Rathalos</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/ruko-ds.png" alt="UL Rukodiora" />
+      <p>UL Rukodiora</p>
+    </div>
+  </div>
+</div>
+
+<!-- GREAT SWORD -->
+<div class="images-container" data-weapon-type="GS">
+  <h3>
+    <img class="weapon-icon" src="images/gs.png" alt="Great Sword Icon" />
+    Great Sword
+  </h3>
+  <div class="weapon-grid">
+    <div class="weapon-entry">
+      <img src="images/baru-gs.png" alt="UL Baruragaru" />
+      <p>UL Baruragaru</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/blango-gs.png" alt="UL Blangonga" />
+      <p>UL Blangonga</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/gasu-gs.png" alt="UL Gasurabazura" />
+      <p>UL Gasurabazura</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/harudo-gs.png" alt="UL Harudomerugu" />
+      <p>UL Harudomerugu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hypno-gs.png" alt="UL Hypnoc" />
+      <p>UL Hypnoc</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hyuji-gs.png" alt="UL Hyujikiki" />
+      <p>UL Hyujikiki</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/mido-gs.png" alt="UL Midogaron" />
+      <p>UL Midogaron</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/plesi-gs.png" alt="UL Plesioth" />
+      <p>UL Plesioth</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/torid-gs.png" alt="UL Toridcless" />
+      <p>UL Toridcless</p>
+    </div>
+  </div>
+</div>
+
+<!-- LONG SWORD -->
+<div class="images-container" data-weapon-type="LS">
+  <h3>
+    <img class="weapon-icon" src="images/ls.png" alt="Longsword Icon" />
+    Longsword
+  </h3>
+  <div class="weapon-grid">
+    <div class="weapon-entry">
+      <img src="images/vashimu-ls.png" alt="UL Vashimu" />
+      <p>UL Vashimu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/anoru-ls.png" alt="UL Anorupatisu" />
+      <p>UL Anorupatisu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/dora-ls.png" alt="UL Dora" />
+      <p>UL Dora</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/espi-ls.png" alt="UL Espinas" />
+      <p>UL Espinas</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/gravios-ls.png" alt="UL Gravios" />
+      <p>UL Gravios</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/inagami-ls.png" alt="UL Inagami" />
+      <p>UL Inagami</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/khezu-ls.png" alt="UL Khezu" />
+      <p>UL Khezu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/mido-ls.png" alt="UL Midogaron" />
+      <p>UL Midogaron</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/plesi-ls.png" alt="UL Plesioth" />
+      <p>UL Plesioth</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/taikun-ls.png" alt="UL Taikun" />
+      <p>UL Taikun</p>
+    </div>
+  </div>
+</div>
+
+<!-- HAMMER -->
+<div class="images-container" data-weapon-type="Hammer">
+  <h3>
+    <img class="weapon-icon" src="images/hammer.png" alt="Hammer Icon" />
+    Hammer
+  </h3>
+  <div class="weapon-grid">
+    <div class="weapon-entry">
+      <img src="images/baru-hammer.png" alt="UL Baruragaru" />
+      <p>UL Baruragaru</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/dora-hammer.png" alt="UL Dora" />
+      <p>UL Dora</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/gasu-hammer.png" alt="UL Gasurabazura" />
+      <p>UL Gasurabazura</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/giao-hammer.png" alt="UL Giaorugu" />
+      <p>UL Giaorugu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hypno-hammer.png" alt="UL Hypnoc" />
+      <p>UL Hypnoc</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hyuji-hammer.png" alt="UL Hyujikiki" />
+      <p>UL Hyujikiki</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/plesi-hammer.png" alt="UL Plesioth" />
+      <p>UL Plesioth</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/rath-hammer.png" alt="UL Rathalos" />
+      <p>UL Rathalos</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/taikun-hammer.png" alt="UL Taikun" />
+      <p>UL Taikun</p>
+    </div>
+  </div>
+</div>
+
+<!-- HUNTING HORN -->
+<div class="images-container" data-weapon-type="HH">
+  <h3>
+    <img class="weapon-icon" src="images/hh.png" alt="HH Icon" />
+    Hunting Horn
+  </h3>
+  <div class="weapon-grid">
+    <div class="weapon-entry">
+      <img src="images/vashimu-hh.png" alt="UL Vashimu" />
+      <p>UL Vashimu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/anoru-hh.png" alt="UL Anorupatisu" />
+      <p>UL Anorupatisu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/boga-hh.png" alt="UL Bogabadorumu" />
+      <p>UL Bogabadorumu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/daimyo-hh.png" alt="UL Daimyo Hermitaur" />
+      <p>UL Daimyo Hermitaur</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/espi-hh.png" alt="UL Espinas" />
+      <p>UL Espinas</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/harudo-hh.png" alt="UL Harudomerugu" />
+      <p>UL Harudomerugu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hypno-hh.png" alt="UL Hypnoc" />
+      <p>UL Hypnoc</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/mido-hh.png" alt="UL Midogaron" />
+      <p>UL Midogaron</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/ruko-hh.png" alt="UL Rukodiora" />
+      <p>UL Rukodiora</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/torid-hh.png" alt="UL Toridcless" />
+      <p>UL Toridcless</p>
+    </div>
+  </div>
+</div>
+
+<!-- LANCE -->
+<div class="images-container" data-weapon-type="Lance">
+  <h3>
+    <img class="weapon-icon" src="images/lance.png" alt="Lance Icon" />
+    Lance
+  </h3>
+  <div class="weapon-grid">
+    <div class="weapon-entry">
+      <img src="images/vashimu-lance.png" alt="UL Vashimu" />
+      <p>UL Vashimu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/anoru-lance.png" alt="UL Anorupatisu" />
+      <p>UL Anorupatisu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/boga-lance.png" alt="UL Bogabadorumu" />
+      <p>UL Bogabadorumu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/espi-lance.png" alt="UL Espinas" />
+      <p>UL Espinas</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/giao-lance.png" alt="UL Giaorugu" />
+      <p>UL Giaorugu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/gravi-lance.png" alt="UL Gravios" />
+      <p>UL Gravios</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/harudo-lance.png" alt="UL Harudomerugu" />
+      <p>UL Harudomerugu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/inagami-lance.png" alt="UL Inagami" />
+      <p>UL Inagami</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/mido-lance.png" alt="UL Midogaron" />
+      <p>UL Midogaron</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/plesi-lance.png" alt="UL Plesioth" />
+      <p>UL Plesioth</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/torid-lance.png" alt="UL Toridcless" />
+      <p>UL Toridcless</p>
+    </div>
+  </div>
+</div>
+<!-- Gunlance Start-->
+<div class="images-container" data-weapon-type="GL">
+  <h3>
+    <img class="weapon-icon" src="images/gl.png" alt="Gunlance Icon" />
+    Gunlance
+  </h3>
+  <div class="weapon-grid">
+    <div class="weapon-entry">
+      <img src="images/vashimu-gl.png" alt="Vashimu Gunlance" />
+      <p>UL Vashimu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/anoru-gl.png" alt="Anorupatisu Gunlance" />
+      <p>UL Anorupatisu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/boga-gl.png" alt="Bogabadorumu Gunlance" />
+      <p>UL Bogabadorumu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/dora-gl.png" alt="Dora Gunlance" />
+      <p>UL Dora</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/espi-gl.png" alt="Espinas Gunlance" />
+      <p>UL Espinas</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/giao-gl.png" alt="Giaorugu Gunlance" />
+      <p>UL Giaorugu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/gravi-gl.png" alt="Gravios Gunlance" />
+      <p>UL Gravios</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/harudo-gl.png" alt="Harudomerugu Gunlance" />
+      <p>UL Harudomerugu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hypno-gl.png" alt="Hypnoc Gunlance" />
+      <p>UL Hypnoc</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/plesi-gl.png" alt="Plesioth Gunlance" />
+      <p>UL Plesioth</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/rath-gl.png" alt="Rath Gunlance" />
+      <p>UL Rathalos</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/torid-gl.png" alt="Toridcless Gunlance" />
+      <p>UL Toridcless</p>
+    </div>
+  </div>
+</div>
+<!--Switch Axe F Start-->
+<div class="images-container" data-weapon-type="SAF">
+  <h3>
+    <img class="weapon-icon" src="images/swaxe.png" alt="Switch Axe F Icon" />
+    Switch Axe F
+  </h3>
+  <div class="weapon-grid">
+    <div class="weapon-entry">
+      <img src="images/vashim-swaxe.png" alt="Vashim Switch Axe" />
+      <p>UL Vashimu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/baru-swaxe.png" alt="Baru Switch Axe" />
+      <p>UL Baruragaru</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/blango-swaxe.png" alt="Blango Switch Axe" />
+      <p>UL Blangonga</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/daimyo-swaxe.png" alt="Daimyo Switch Axe" />
+      <p>UL Daimyo Hermitaur</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/dora-swaxe.png" alt="Dora Switch Axe" />
+      <p>UL Dora</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/gasu-swaxe.png" alt="Gasu Switch Axe" />
+      <p>UL Gasurabazura</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/gravi-swaxe.png" alt="Gravi Switch Axe" />
+      <p>UL Gravios</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hypno-swaxe.png" alt="Hypno Switch Axe" />
+      <p>UL Hypnoc</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hyuji-swaxe.png" alt="Hyuji Switch Axe" />
+      <p>UL Hyujikiki</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/ruko-swaxe.png" alt="Ruko Switch Axe" />
+      <p>UL Rukodiora</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/taikun-swaxe.png" alt="Taikun Switch Axe" />
+      <p>UL Taikun</p>
+    </div>
+  </div>
+</div>
+<!--Tonfa Start-->
+<div class="images-container" data-weapon-type="Tonfa">
+  <h3>
+    <img class="weapon-icon" src="images/tonfa.png" alt="Tonfa Icon" />
+    Tonfa
+  </h3>
+  <div class="weapon-grid">
+
+    <div class="weapon-entry">
+      <img src="images/anoru-tonfa.png" alt="Anorupatisu Tonfa" />
+      <p>UL Anorupatisu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/baru-tonfa.png" alt="Baruragaru Tonfa" />
+      <p>UL Baruragaru</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/blango-tonfa.png" alt="Blangonga Tonfa" />
+      <p>UL Blangonga</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/boga-tonfa.png" alt="Bogabadorumu Tonfa" />
+      <p>UL Bogabadorumu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/gasu-tonfa.png" alt="Gasurabazura Tonfa" />
+      <p>UL Gasurabazura</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/giao-tonfa.png" alt="Giaorugu Tonfa" />
+      <p>UL Giaorugu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/inagami-tonfa.png" alt="Inagami Tonfa" />
+      <p>UL Inagami</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/khezu-tonfa.png" alt="Khezu Tonfa" />
+      <p>UL Khezu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/mido-tonfa.png" alt="Midogaron Tonfa" />
+      <p>UL Midogaron</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/ruko-tonfa.png" alt="Rukodiora Tonfa" />
+      <p>UL Rukodiora</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/taikun-tonfa.png" alt="Taikun Tonfa" />
+      <p>UL Taikun</p>
+    </div>
+  </div>
+</div>
+<!-- Magnet Spike-->
+<div class="images-container" data-weapon-type="MS">
+  <h3>
+    <img class="weapon-icon" src="images/ms.png" alt="Magnet Spike Icon" />
+    Magnet Spike
+  </h3>
+  <div class="weapon-grid">
+    <div class="weapon-entry">
+      <img src="images/anoru-ms.png" alt="Anoru Magnet Spike" />
+      <p>UL Anorupatisu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/harudo-ms.png" alt="Harudo Magnet Spike" />
+      <p>UL Harudomerugu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/inagami-ms.png" alt="Inagami Magnet Spike" />
+      <p>UL Inagami</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/mido-ms.png" alt="Midogaron Magnet Spike" />
+      <p>UL Midogaron</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/ruko-ms.png" alt="Rukodiora Magnet Spike" />
+      <p>UL Rukodiora</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/taikun-ms.png" alt="Taikun Magnet Spike" />
+      <p>UL Taikun</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/torid-ms.png" alt="Toridcless Magnet Spike" />
+      <p>UL Toridcless</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/espi-ms.png" alt="Espinas Magnet Spike" />
+      <p>UL Espinas</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hyuji-ms.png" alt="Hyujikiki Magnet Spike" />
+      <p>UL Hyujikiki</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/giao-ms.png" alt="Giaorugu Magnet Spike" />
+      <p>UL Giaorugu</p>
+    </div>
+  </div>
+</div>
+
+<!-- Light Bowgun Start-->
+<div class="images-container" data-weapon-type="LBG">
+  <h3>
+    <img class="weapon-icon" src="images/lbg.png" alt="Light Bowgun Icon" />
+    Light Bowgun
+  </h3>
+  <div class="weapon-grid">
+
+    <div class="weapon-entry">
+      <img src="images/blango-lbg.png" alt="Blangonga Light Bowgun" />
+      <p>UL Blangonga</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/daimyo-lbg.png" alt="Daimyo Hermitaur Light Bowgun" />
+      <p>UL Daimyo Hermitaur</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/dora-lbg.png" alt="Dora Light Bowgun" />
+      <p>UL Dora</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/inagami-lbg.png" alt="Inagami Light Bowgun" />
+      <p>UL Inagami</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/khezu-lbg.png" alt="Khezu Light Bowgun" />
+      <p>UL Khezu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/mido-lbg.png" alt="Midogaron Light Bowgun" />
+      <p>UL Midogaron</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/rath-lbg.png" alt="Rathalos Light Bowgun" />
+      <p>UL Rathalos</p>
+    </div>
+  </div>
+</div>
+<!-- Heavy Bowgun-->
+<div class="images-container" data-weapon-type="HBG">
+  <h3>
+    <img class="weapon-icon" src="images/hbg.png" alt="Heavy Bowgun Icon" />
+    Heavy Bowgun
+  </h3>
+  <div class="weapon-grid">
+    <div class="weapon-entry">
+      <img src="images/blango-hbg.png" alt="Blangonga Heavy Bowgun" />
+      <p>UL Blangonga</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/daimyo-hbg.png" alt="Daimyo Hermitaur Heavy Bowgun" />
+      <p>UL Daimyo Hermitaur</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/gasu-hbg.png" alt="Gasurabazura Heavy Bowgun" />
+      <p>UL Gasurabazura</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hyuji-hbg.png" alt="Hyujikiki Heavy Bowgun" />
+      <p>UL Hyujikiki</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/inagami-hbg.png" alt="Inagami Heavy Bowgun" />
+      <p>UL Inagami</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/khezu-hbg.png" alt="Khezu Heavy Bowgun" />
+      <p>UL Khezu</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/rath-hbg.png" alt="Rathalos Heavy Bowgun" />
+      <p>UL Rathalos</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/ruko-hbg.png" alt="Rukodiora Heavy Bowgun" />
+      <p>UL Rukodiora</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/taikun-hbg.png" alt="Taikun Heavy Bowgun" />
+      <p>UL Taikun</p>
+    </div>
+  </div>
+</div>
+<!-- Bow Start-->
+<div class="images-container" data-weapon-type="Bow">
+  <h3>
+    <img class="weapon-icon" src="images/bow.png" alt="Bow Icon" />
+    Bow
+  </h3>
+  <div class="weapon-grid">
+
+    <div class="weapon-entry">
+      <img src="images/blango-bow.png" alt="Blangonga Bow" />
+      <p>Coatings: [Power, Poison (Up+2), Para (Up+2), Sleep (Up+2)]</p>
+      <p>Shot Type: [Charge Level 3 - SPR 4]-[Charge Level 4 - PRC 4]</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/boga-bow.png" alt="Bogabadorumu Bow" />
+      <p>Coatings: [Power, Poison, Para, Sleep, Impact]</p>
+      <p>Shot Type: [Charge Level 3 - RPD 4]-[Charge Level 4 - SPR 4]</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/daimyo-bow.png" alt="Daimyo Hermitaur Bow" />
+      <p>Coatings: [Power, Poison, Para, Sleep, Impact]</p>
+      <p>Shot Type: [Charge Level 3 - PRC 4]-[Charge Level 4 - SPR 4]</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/gasu-bow.png" alt="Gasurabazura Bow" />
+      <p>Coatings: [Power, Poison, Para, Sleep, Impact]</p>
+      <p>Shot Type: [Charge Level 3 - RPD 4]-[Charge Level 4 - SPR 4]</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hypno-bow.png" alt="Hypnoc Bow" />
+      <p>Coatings: [Power, Poison, Para, Sleep, Impact]</p>
+      <p>Shot Type: [Charge Level 3 - RPD 4]-[Charge Level 4 - SPR 4]</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/hyuji-bow.png" alt="Hyujikiki Bow" />
+      <p>Coatings: [Power, Poison (Up+2), Para (Up+2), Sleep (Up+2)]</p>
+      <p>Shot Type: [Charge Level 3 - SPR 4]-[Charge Level 4 - Prc 4]</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/khezu-bow.png" alt="Khezu Bow" />
+      <p>Coatings: [Power, Poison, Para, Sleep, Impact]</p>
+      <p>Shot Type: [Charge Level 3 - RPD 4]-[Charge Level 4 - SPR 4]</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/rath-bow.png" alt="Rathalos Bow" />
+      <p>Coatings: [Power, Poison (Up+2), Para (Up+2), Sleep (Up+2)]</p>
+      <p>Shot Type: [Charge Level 3 - RPD 4]-[Charge Level 4 - SPR 4]</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/ruko-bow.png" alt="Rukodiora Bow" />
+      <p>Coatings: [Power, Poison, Para, Sleep, Impact]</p>
+      <p>Shot Type: [Charge Level 3 - RPD 4]-[Charge Level 4 - SPR 4]</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/taikun-bow.png" alt="Taikun Bow" />
+      <p>Coatings: [Power, Poison (Up+2), Para (Up+2), Sleep (Up+2)]</p>
+      <p>Shot Type: [Charge Level 3 - SPR 4]-[Charge Level 4 - Prc 4]</p>
+    </div>
+    <div class="weapon-entry">
+      <img src="images/torid-bow.png" alt="Toridcless Bow" />
+      <p>Coatings: [Power, Poison (Up+2), Para (Up+2), Sleep (Up+2)]</p>
+      <p>Shot Type: [Charge Level 3 - PRC 4]-[Charge Level 4 - SPR 4]</p>
+    </div>
+  </div>
+</div>
+<!-- Bow End-->
+
+  <!-- End --> </div>
 
   <!-- Right Sidebar -->
+   
   <div id="right-sidebar" class="right-sidebar">
     <h4 style="color: #7030a0;"><strong>Navigation</strong></h4>
-    <a href="#intro" style="color: #7030a0;">Info</a>
-    <a href="#rewards" style="color: #7030a0;">Rewards</a>
+    <a href="#intro" style="color: #7030a0;">General Details</a>
+    <a href="#rewards" style="color: #7030a0;">UL Zenith Weapons</a>
   </div>
 
   <!-- Dark Mode Toggle -->
