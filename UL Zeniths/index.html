@@ -1342,50 +1342,57 @@
       });
     });
   </script>
+ <div id="google_translate_element" style="position:absolute; left:-9999px;"></div>
 
-  <!-- Google Translate widget container (hidden off-screen) -->
-  <div id="google_translate_element" style="position: absolute; left: -9999px;"></div>
-  <!-- Google Translate initialization -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'ja',
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ <!-- 2) Google Translate init -->
+ <script>
+   function googleTranslateElementInit() {
+     new google.translate.TranslateElement({
+       pageLanguage: 'en',
+       includedLanguages: 'ja',
+       autoDisplay: false
+     }, 'google_translate_element');
+   }
+ </script>
 
-  <script>
-    // Tracks whether we are currently translated or not
-    var translationToggled = false;
-  
-    function changeLanguage(lang) {
-      var selectField = document.querySelector("select.goog-te-combo");
-      if (selectField) {
-        selectField.value = lang;
-        selectField.dispatchEvent(new Event('change'));
-      }
-    }
-  
-    document.getElementById('translate-toggle').addEventListener('click', function() {
-      if (!translationToggled) {
-        // Switch to Japanese
-        changeLanguage('ja');
-        translationToggled = true;
-        // Button now reads "English" so user can revert
-        this.innerText = "English";
-      } else {
-        // Switch back to English
-        changeLanguage('en');
-        translationToggled = false;
-        // Button now reads "Japanese" so user can translate again
-        this.innerText = "Japanese";
-      }
-    });
-  </script>
-  
+ 
+ <!-- IMPORTANT: Must use https:// so it works in most browsers -->
+ <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+ <!-- 3) Toggle logic with forced reload -->
+ <script>
+   var translationToggled = false;
+
+   // Wait for the Google dropdown to appear, then set language
+   function changeLanguage(lang) {
+     var interval = setInterval(function() {
+       var selectField = document.querySelector("select.goog-te-combo");
+       if (selectField) {
+         selectField.value = lang;
+         selectField.dispatchEvent(new Event('change'));
+         clearInterval(interval);
+       }
+     }, 300);
+   }
+
+   document.getElementById('translate-toggle').addEventListener('click', function() {
+     if (!translationToggled) {
+       // First click -> Translate to Japanese
+       changeLanguage('ja');
+       translationToggled = true;
+       this.innerText = "English";
+     } else {
+       // Second click -> Attempt to revert to English
+       changeLanguage('en');
+       translationToggled = false;
+       // Force reload after a short delay to ensure full revert
+       setTimeout(function() {
+         location.reload();
+       }, 1000);
+     }
+   });
+ </script>
+
 
 </body>
 </html>
