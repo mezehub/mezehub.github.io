@@ -1,0 +1,2689 @@
+
+<html>
+<head>
+    <title>Monster Weapon Reward Combinations</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .table { border-collapse: collapse; width: 100%; font-size: 13px; }
+        .table th, .table td { border: 1px solid #ccc; padding: 6px; }
+        .table th { background-color: #f9f9f9; }
+        select { margin: 10px 10px 20px 0; padding: 4px; }
+        ul { padding-left: 18px; }
+        li { margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+    
+<h2>Quest Builder</h2>
+<p>Select a valid monster combination and map to generate a quest preview:</p>
+<select id="comboSelect" onchange="buildQuest()">
+    <option value="">-- Select Monster Combo --</option>
+    <option value="Akura Vashimu|Anorupatisu">Akura Vashimu + Anorupatisu</option><option value="Akura Vashimu|Baruragaru">Akura Vashimu + Baruragaru</option><option value="Akura Vashimu|Blangonga">Akura Vashimu + Blangonga</option><option value="Akura Vashimu|Daimyo Hermitaur">Akura Vashimu + Daimyo Hermitaur</option><option value="Akura Vashimu|Doragyurosu">Akura Vashimu + Doragyurosu</option><option value="Akura Vashimu|Giaorugu">Akura Vashimu + Giaorugu</option><option value="Akura Vashimu|Gravios">Akura Vashimu + Gravios</option><option value="Akura Vashimu|Khezu">Akura Vashimu + Khezu</option><option value="Akura Vashimu|Midogaron">Akura Vashimu + Midogaron</option><option value="Akura Vashimu|Plesioth">Akura Vashimu + Plesioth</option><option value="Akura Vashimu|Rathalos">Akura Vashimu + Rathalos</option><option value="Akura Vashimu|Rukodiora">Akura Vashimu + Rukodiora</option><option value="Akura Vashimu|Taikun Zamuza">Akura Vashimu + Taikun Zamuza</option><option value="Akura Vashimu|Toridcless">Akura Vashimu + Toridcless</option><option value="Anorupatisu|Baruragaru">Anorupatisu + Baruragaru</option><option value="Anorupatisu|Blangonga">Anorupatisu + Blangonga</option><option value="Anorupatisu|Bogabadorumu">Anorupatisu + Bogabadorumu</option><option value="Anorupatisu|Daimyo Hermitaur">Anorupatisu + Daimyo Hermitaur</option><option value="Anorupatisu|Doragyurosu">Anorupatisu + Doragyurosu</option><option value="Anorupatisu|Espinas">Anorupatisu + Espinas</option><option value="Anorupatisu|Gasurabazura">Anorupatisu + Gasurabazura</option><option value="Anorupatisu|Giaorugu">Anorupatisu + Giaorugu</option><option value="Anorupatisu|Gravios">Anorupatisu + Gravios</option><option value="Anorupatisu|Harudomerugu">Anorupatisu + Harudomerugu</option><option value="Anorupatisu|Hypnocatrice">Anorupatisu + Hypnocatrice</option><option value="Anorupatisu|Hyujikiki">Anorupatisu + Hyujikiki</option><option value="Anorupatisu|Inagami">Anorupatisu + Inagami</option><option value="Anorupatisu|Khezu">Anorupatisu + Khezu</option><option value="Anorupatisu|Midogaron">Anorupatisu + Midogaron</option><option value="Anorupatisu|Plesioth">Anorupatisu + Plesioth</option><option value="Anorupatisu|Rathalos">Anorupatisu + Rathalos</option><option value="Anorupatisu|Rukodiora">Anorupatisu + Rukodiora</option><option value="Anorupatisu|Taikun Zamuza">Anorupatisu + Taikun Zamuza</option><option value="Anorupatisu|Toridcless">Anorupatisu + Toridcless</option><option value="Baruragaru|Blangonga">Baruragaru + Blangonga</option><option value="Baruragaru|Bogabadorumu">Baruragaru + Bogabadorumu</option><option value="Baruragaru|Daimyo Hermitaur">Baruragaru + Daimyo Hermitaur</option><option value="Baruragaru|Doragyurosu">Baruragaru + Doragyurosu</option><option value="Baruragaru|Espinas">Baruragaru + Espinas</option><option value="Baruragaru|Gasurabazura">Baruragaru + Gasurabazura</option><option value="Baruragaru|Giaorugu">Baruragaru + Giaorugu</option><option value="Baruragaru|Harudomerugu">Baruragaru + Harudomerugu</option><option value="Baruragaru|Hypnocatrice">Baruragaru + Hypnocatrice</option><option value="Baruragaru|Hyujikiki">Baruragaru + Hyujikiki</option><option value="Baruragaru|Inagami">Baruragaru + Inagami</option><option value="Baruragaru|Plesioth">Baruragaru + Plesioth</option><option value="Baruragaru|Rukodiora">Baruragaru + Rukodiora</option><option value="Blangonga|Bogabadorumu">Blangonga + Bogabadorumu</option><option value="Blangonga|Daimyo Hermitaur">Blangonga + Daimyo Hermitaur</option><option value="Blangonga|Doragyurosu">Blangonga + Doragyurosu</option><option value="Blangonga|Espinas">Blangonga + Espinas</option><option value="Blangonga|Gasurabazura">Blangonga + Gasurabazura</option><option value="Blangonga|Giaorugu">Blangonga + Giaorugu</option><option value="Blangonga|Gravios">Blangonga + Gravios</option><option value="Blangonga|Harudomerugu">Blangonga + Harudomerugu</option><option value="Blangonga|Hypnocatrice">Blangonga + Hypnocatrice</option><option value="Blangonga|Hyujikiki">Blangonga + Hyujikiki</option><option value="Blangonga|Inagami">Blangonga + Inagami</option><option value="Blangonga|Khezu">Blangonga + Khezu</option><option value="Blangonga|Midogaron">Blangonga + Midogaron</option><option value="Blangonga|Plesioth">Blangonga + Plesioth</option><option value="Blangonga|Rathalos">Blangonga + Rathalos</option><option value="Blangonga|Rukodiora">Blangonga + Rukodiora</option><option value="Blangonga|Taikun Zamuza">Blangonga + Taikun Zamuza</option><option value="Blangonga|Toridcless">Blangonga + Toridcless</option><option value="Bogabadorumu|Daimyo Hermitaur">Bogabadorumu + Daimyo Hermitaur</option><option value="Bogabadorumu|Doragyurosu">Bogabadorumu + Doragyurosu</option><option value="Bogabadorumu|Giaorugu">Bogabadorumu + Giaorugu</option><option value="Bogabadorumu|Gravios">Bogabadorumu + Gravios</option><option value="Bogabadorumu|Khezu">Bogabadorumu + Khezu</option><option value="Bogabadorumu|Midogaron">Bogabadorumu + Midogaron</option><option value="Bogabadorumu|Plesioth">Bogabadorumu + Plesioth</option><option value="Bogabadorumu|Rathalos">Bogabadorumu + Rathalos</option><option value="Bogabadorumu|Rukodiora">Bogabadorumu + Rukodiora</option><option value="Bogabadorumu|Taikun Zamuza">Bogabadorumu + Taikun Zamuza</option><option value="Bogabadorumu|Toridcless">Bogabadorumu + Toridcless</option><option value="Daimyo Hermitaur|Doragyurosu">Daimyo Hermitaur + Doragyurosu</option><option value="Daimyo Hermitaur|Espinas">Daimyo Hermitaur + Espinas</option><option value="Daimyo Hermitaur|Gasurabazura">Daimyo Hermitaur + Gasurabazura</option><option value="Daimyo Hermitaur|Giaorugu">Daimyo Hermitaur + Giaorugu</option><option value="Daimyo Hermitaur|Harudomerugu">Daimyo Hermitaur + Harudomerugu</option><option value="Daimyo Hermitaur|Hypnocatrice">Daimyo Hermitaur + Hypnocatrice</option><option value="Daimyo Hermitaur|Hyujikiki">Daimyo Hermitaur + Hyujikiki</option><option value="Daimyo Hermitaur|Inagami">Daimyo Hermitaur + Inagami</option><option value="Daimyo Hermitaur|Plesioth">Daimyo Hermitaur + Plesioth</option><option value="Daimyo Hermitaur|Rukodiora">Daimyo Hermitaur + Rukodiora</option><option value="Doragyurosu|Espinas">Doragyurosu + Espinas</option><option value="Doragyurosu|Gasurabazura">Doragyurosu + Gasurabazura</option><option value="Doragyurosu|Giaorugu">Doragyurosu + Giaorugu</option><option value="Doragyurosu|Gravios">Doragyurosu + Gravios</option><option value="Doragyurosu|Harudomerugu">Doragyurosu + Harudomerugu</option><option value="Doragyurosu|Hypnocatrice">Doragyurosu + Hypnocatrice</option><option value="Doragyurosu|Hyujikiki">Doragyurosu + Hyujikiki</option><option value="Doragyurosu|Inagami">Doragyurosu + Inagami</option><option value="Doragyurosu|Khezu">Doragyurosu + Khezu</option><option value="Doragyurosu|Midogaron">Doragyurosu + Midogaron</option><option value="Doragyurosu|Plesioth">Doragyurosu + Plesioth</option><option value="Doragyurosu|Rathalos">Doragyurosu + Rathalos</option><option value="Doragyurosu|Rukodiora">Doragyurosu + Rukodiora</option><option value="Doragyurosu|Taikun Zamuza">Doragyurosu + Taikun Zamuza</option><option value="Doragyurosu|Toridcless">Doragyurosu + Toridcless</option><option value="Espinas|Giaorugu">Espinas + Giaorugu</option><option value="Espinas|Gravios">Espinas + Gravios</option><option value="Espinas|Khezu">Espinas + Khezu</option><option value="Espinas|Midogaron">Espinas + Midogaron</option><option value="Espinas|Plesioth">Espinas + Plesioth</option><option value="Espinas|Rathalos">Espinas + Rathalos</option><option value="Espinas|Rukodiora">Espinas + Rukodiora</option><option value="Espinas|Taikun Zamuza">Espinas + Taikun Zamuza</option><option value="Espinas|Toridcless">Espinas + Toridcless</option><option value="Gasurabazura|Giaorugu">Gasurabazura + Giaorugu</option><option value="Gasurabazura|Gravios">Gasurabazura + Gravios</option><option value="Gasurabazura|Khezu">Gasurabazura + Khezu</option><option value="Gasurabazura|Midogaron">Gasurabazura + Midogaron</option><option value="Gasurabazura|Plesioth">Gasurabazura + Plesioth</option><option value="Gasurabazura|Rathalos">Gasurabazura + Rathalos</option><option value="Gasurabazura|Rukodiora">Gasurabazura + Rukodiora</option><option value="Gasurabazura|Taikun Zamuza">Gasurabazura + Taikun Zamuza</option><option value="Gasurabazura|Toridcless">Gasurabazura + Toridcless</option><option value="Giaorugu|Gravios">Giaorugu + Gravios</option><option value="Giaorugu|Harudomerugu">Giaorugu + Harudomerugu</option><option value="Giaorugu|Hypnocatrice">Giaorugu + Hypnocatrice</option><option value="Giaorugu|Hyujikiki">Giaorugu + Hyujikiki</option><option value="Giaorugu|Inagami">Giaorugu + Inagami</option><option value="Giaorugu|Khezu">Giaorugu + Khezu</option><option value="Giaorugu|Midogaron">Giaorugu + Midogaron</option><option value="Giaorugu|Plesioth">Giaorugu + Plesioth</option><option value="Giaorugu|Rathalos">Giaorugu + Rathalos</option><option value="Giaorugu|Rukodiora">Giaorugu + Rukodiora</option><option value="Giaorugu|Taikun Zamuza">Giaorugu + Taikun Zamuza</option><option value="Giaorugu|Toridcless">Giaorugu + Toridcless</option><option value="Gravios|Harudomerugu">Gravios + Harudomerugu</option><option value="Gravios|Hypnocatrice">Gravios + Hypnocatrice</option><option value="Gravios|Hyujikiki">Gravios + Hyujikiki</option><option value="Gravios|Inagami">Gravios + Inagami</option><option value="Gravios|Khezu">Gravios + Khezu</option><option value="Gravios|Midogaron">Gravios + Midogaron</option><option value="Gravios|Rathalos">Gravios + Rathalos</option><option value="Gravios|Rukodiora">Gravios + Rukodiora</option><option value="Gravios|Taikun Zamuza">Gravios + Taikun Zamuza</option><option value="Gravios|Toridcless">Gravios + Toridcless</option><option value="Harudomerugu|Khezu">Harudomerugu + Khezu</option><option value="Harudomerugu|Midogaron">Harudomerugu + Midogaron</option><option value="Harudomerugu|Plesioth">Harudomerugu + Plesioth</option><option value="Harudomerugu|Rathalos">Harudomerugu + Rathalos</option><option value="Harudomerugu|Rukodiora">Harudomerugu + Rukodiora</option><option value="Harudomerugu|Taikun Zamuza">Harudomerugu + Taikun Zamuza</option><option value="Harudomerugu|Toridcless">Harudomerugu + Toridcless</option><option value="Hypnocatrice|Khezu">Hypnocatrice + Khezu</option><option value="Hypnocatrice|Midogaron">Hypnocatrice + Midogaron</option><option value="Hypnocatrice|Plesioth">Hypnocatrice + Plesioth</option><option value="Hypnocatrice|Rathalos">Hypnocatrice + Rathalos</option><option value="Hypnocatrice|Rukodiora">Hypnocatrice + Rukodiora</option><option value="Hypnocatrice|Taikun Zamuza">Hypnocatrice + Taikun Zamuza</option><option value="Hypnocatrice|Toridcless">Hypnocatrice + Toridcless</option><option value="Hyujikiki|Khezu">Hyujikiki + Khezu</option><option value="Hyujikiki|Midogaron">Hyujikiki + Midogaron</option><option value="Hyujikiki|Plesioth">Hyujikiki + Plesioth</option><option value="Hyujikiki|Rathalos">Hyujikiki + Rathalos</option><option value="Hyujikiki|Rukodiora">Hyujikiki + Rukodiora</option><option value="Hyujikiki|Taikun Zamuza">Hyujikiki + Taikun Zamuza</option><option value="Hyujikiki|Toridcless">Hyujikiki + Toridcless</option><option value="Inagami|Khezu">Inagami + Khezu</option><option value="Inagami|Midogaron">Inagami + Midogaron</option><option value="Inagami|Plesioth">Inagami + Plesioth</option><option value="Inagami|Rathalos">Inagami + Rathalos</option><option value="Inagami|Rukodiora">Inagami + Rukodiora</option><option value="Inagami|Taikun Zamuza">Inagami + Taikun Zamuza</option><option value="Inagami|Toridcless">Inagami + Toridcless</option><option value="Khezu|Midogaron">Khezu + Midogaron</option><option value="Khezu|Rathalos">Khezu + Rathalos</option><option value="Khezu|Rukodiora">Khezu + Rukodiora</option><option value="Khezu|Taikun Zamuza">Khezu + Taikun Zamuza</option><option value="Khezu|Toridcless">Khezu + Toridcless</option><option value="Midogaron|Rathalos">Midogaron + Rathalos</option><option value="Midogaron|Rukodiora">Midogaron + Rukodiora</option><option value="Midogaron|Taikun Zamuza">Midogaron + Taikun Zamuza</option><option value="Midogaron|Toridcless">Midogaron + Toridcless</option><option value="Plesioth|Rukodiora">Plesioth + Rukodiora</option><option value="Rathalos|Rukodiora">Rathalos + Rukodiora</option><option value="Rathalos|Taikun Zamuza">Rathalos + Taikun Zamuza</option><option value="Rathalos|Toridcless">Rathalos + Toridcless</option><option value="Rukodiora|Taikun Zamuza">Rukodiora + Taikun Zamuza</option><option value="Rukodiora|Toridcless">Rukodiora + Toridcless</option><option value="Taikun Zamuza|Toridcless">Taikun Zamuza + Toridcless</option><option value="Anorupatisu|Doragyurosu|Gravios">Anorupatisu + Doragyurosu + Gravios</option><option value="Anorupatisu|Doragyurosu|Midogaron">Anorupatisu + Doragyurosu + Midogaron</option><option value="Anorupatisu|Doragyurosu|Rathalos">Anorupatisu + Doragyurosu + Rathalos</option><option value="Anorupatisu|Gravios|Rukodiora">Anorupatisu + Gravios + Rukodiora</option><option value="Anorupatisu|Midogaron|Rukodiora">Anorupatisu + Midogaron + Rukodiora</option><option value="Anorupatisu|Rathalos|Rukodiora">Anorupatisu + Rathalos + Rukodiora</option><option value="Baruragaru|Gravios|Khezu">Baruragaru + Gravios + Khezu</option><option value="Baruragaru|Gravios|Taikun Zamuza">Baruragaru + Gravios + Taikun Zamuza</option><option value="Baruragaru|Gravios|Toridcless">Baruragaru + Gravios + Toridcless</option><option value="Baruragaru|Khezu|Midogaron">Baruragaru + Khezu + Midogaron</option><option value="Baruragaru|Khezu|Rathalos">Baruragaru + Khezu + Rathalos</option><option value="Baruragaru|Midogaron|Taikun Zamuza">Baruragaru + Midogaron + Taikun Zamuza</option><option value="Baruragaru|Midogaron|Toridcless">Baruragaru + Midogaron + Toridcless</option><option value="Baruragaru|Rathalos|Taikun Zamuza">Baruragaru + Rathalos + Taikun Zamuza</option><option value="Baruragaru|Rathalos|Toridcless">Baruragaru + Rathalos + Toridcless</option><option value="Blangonga|Doragyurosu|Gravios">Blangonga + Doragyurosu + Gravios</option><option value="Blangonga|Doragyurosu|Midogaron">Blangonga + Doragyurosu + Midogaron</option><option value="Blangonga|Doragyurosu|Rathalos">Blangonga + Doragyurosu + Rathalos</option><option value="Blangonga|Gravios|Rukodiora">Blangonga + Gravios + Rukodiora</option><option value="Blangonga|Midogaron|Rukodiora">Blangonga + Midogaron + Rukodiora</option><option value="Blangonga|Rathalos|Rukodiora">Blangonga + Rathalos + Rukodiora</option><option value="Daimyo Hermitaur|Gravios|Khezu">Daimyo Hermitaur + Gravios + Khezu</option><option value="Daimyo Hermitaur|Gravios|Taikun Zamuza">Daimyo Hermitaur + Gravios + Taikun Zamuza</option><option value="Daimyo Hermitaur|Gravios|Toridcless">Daimyo Hermitaur + Gravios + Toridcless</option><option value="Daimyo Hermitaur|Khezu|Midogaron">Daimyo Hermitaur + Khezu + Midogaron</option><option value="Daimyo Hermitaur|Khezu|Rathalos">Daimyo Hermitaur + Khezu + Rathalos</option><option value="Daimyo Hermitaur|Midogaron|Taikun Zamuza">Daimyo Hermitaur + Midogaron + Taikun Zamuza</option><option value="Daimyo Hermitaur|Midogaron|Toridcless">Daimyo Hermitaur + Midogaron + Toridcless</option><option value="Daimyo Hermitaur|Rathalos|Taikun Zamuza">Daimyo Hermitaur + Rathalos + Taikun Zamuza</option><option value="Daimyo Hermitaur|Rathalos|Toridcless">Daimyo Hermitaur + Rathalos + Toridcless</option><option value="Doragyurosu|Giaorugu|Gravios">Doragyurosu + Giaorugu + Gravios</option><option value="Doragyurosu|Giaorugu|Midogaron">Doragyurosu + Giaorugu + Midogaron</option><option value="Doragyurosu|Giaorugu|Rathalos">Doragyurosu + Giaorugu + Rathalos</option><option value="Giaorugu|Gravios|Rukodiora">Giaorugu + Gravios + Rukodiora</option><option value="Giaorugu|Midogaron|Rukodiora">Giaorugu + Midogaron + Rukodiora</option><option value="Giaorugu|Rathalos|Rukodiora">Giaorugu + Rathalos + Rukodiora</option><option value="Gravios|Khezu|Plesioth">Gravios + Khezu + Plesioth</option><option value="Gravios|Plesioth|Taikun Zamuza">Gravios + Plesioth + Taikun Zamuza</option><option value="Gravios|Plesioth|Toridcless">Gravios + Plesioth + Toridcless</option><option value="Khezu|Midogaron|Plesioth">Khezu + Midogaron + Plesioth</option><option value="Khezu|Plesioth|Rathalos">Khezu + Plesioth + Rathalos</option><option value="Midogaron|Plesioth|Taikun Zamuza">Midogaron + Plesioth + Taikun Zamuza</option><option value="Midogaron|Plesioth|Toridcless">Midogaron + Plesioth + Toridcless</option><option value="Plesioth|Rathalos|Taikun Zamuza">Plesioth + Rathalos + Taikun Zamuza</option><option value="Plesioth|Rathalos|Toridcless">Plesioth + Rathalos + Toridcless</option>
+</select>
+
+<label for="mapSelect">Select Map:</label>
+<select id="mapSelect" onchange="buildQuest()">
+    <option value="">-- Select Map --</option>
+    <option value="Sanctuary">Sanctuary</option><option value="Fortress">Fortress</option><option value="Sacred Pinnacle">Sacred Pinnacle</option><option value="Arena">Arena</option><option value="Highlands">Highlands</option><option value="Bamboo Forest">Bamboo Forest</option><option value="Historical Site">Historical Site</option><option value="Jungle">Jungle</option><option value="Town">Town</option><option value="Deep Crater">Deep Crater</option><option value="Snowy Mountains">Snowy Mountains</option><option value="White Lake">White Lake</option><option value="Top of Great Forest">Top of Great Forest</option><option value="Solitude Island">Solitude Island</option><option value="Exploration Ship">Exploration Ship</option><option value="Castle Schrade">Castle Schrade</option>
+</select>
+
+
+<div id="questResult" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; display: none;">
+    <strong>Monsters:</strong> <span id="monstersDisplay"></span><br>
+    <strong>Map:</strong> <span id="mapDisplay"></span><br>
+    <strong>Element Source(s):</strong> <span id="elementSourcesDisplay"></span><br>
+    <strong>Status Source(s):</strong> <span id="statusSourcesDisplay"></span><br>
+    <strong>Resulting Weapon:</strong> <span id="resultDisplay"></span><br><br>
+    <strong>Quest Description:</strong>
+    <div id="questDescription" style="margin-top: 8px; font-style: italic;"></div>
+</div>
+
+<script>
+    const rewardData = [{'Monster 1': 'Akura Vashimu', 'Monster 2': 'Anorupatisu', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Paralysis', 'Result': 'Ice / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the magnetic ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Baruragaru', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Paralysis', 'Result': 'Water / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Blangonga', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Paralysis', 'Result': 'Ice / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Daimyo Hermitaur', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Water / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Daimyo Hermitaur', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Water / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the shock zone, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Doragyurosu', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis', 'Result': 'Dragon / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the mystic altar, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Giaorugu', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Paralysis', 'Result': 'Ice / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Gravios', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Fire / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volatile ground, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Gravios', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Fire / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the shock zone, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Thunder / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Paralysis', 'Result': 'Fire / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the scorched battlefield, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Paralysis', 'Result': 'Water / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the flooded ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Paralysis', 'Result': 'Fire / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the raging inferno, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis', 'Result': 'Dragon / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the shock zone, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Thunder / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Akura Vashimu', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Thunder / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Baruragaru', 'Monster 3': '', 'Element Source(s)': 'Ice, Water', 'Status Source(s)': 'None', 'Result': 'Music (奏) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the frozen tundra, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Blangonga', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'None', 'Result': 'Ice / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the frozen tundra, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Bogabadorumu', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Blast', 'Result': 'Ice / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the glacial cliffs, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Daimyo Hermitaur', 'Monster 3': '', 'Element Source(s)': 'Ice, Water', 'Status Source(s)': 'Blast', 'Result': 'Music (奏) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Doragyurosu', 'Monster 3': '', 'Element Source(s)': 'Dragon, Ice', 'Status Source(s)': 'None', 'Result': 'Dark (闇) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the glacial cliffs, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Doragyurosu', 'Monster 3': 'Gravios', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'Blast', 'Result': 'Okiko (微熱) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the raging inferno, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Doragyurosu', 'Monster 3': 'Midogaron', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'None', 'Result': 'Okiko (微熱) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the glacial cliffs, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Doragyurosu', 'Monster 3': 'Rathalos', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'None', 'Result': 'Okiko (微熱) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ancient seal, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Espinas', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Poison', 'Result': 'Ice / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the frozen tundra, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Gasurabazura', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Poison', 'Result': 'Ice / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the blighted grove, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Giaorugu', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'None', 'Result': 'Ice / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the frozen tundra, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Gravios', 'Monster 3': '', 'Element Source(s)': 'Fire, Ice', 'Status Source(s)': 'Blast', 'Result': 'Burning Zero (灼零) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the explosive field, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Gravios', 'Monster 3': 'Rukodiora', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Okiko (微熱) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Harudomerugu', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'None', 'Result': 'Ice / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Hypnocatrice', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Sleep', 'Result': 'Ice / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the enchanted mist, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Hyujikiki', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'None', 'Result': 'Ice / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the glacial cliffs, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Inagami', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Sleep', 'Result': 'Ice / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Ice, Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Wind (風) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the frozen tundra, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire, Ice', 'Status Source(s)': 'None', 'Result': 'Burning Zero (灼零) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the scorched battlefield, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Midogaron', 'Monster 3': 'Rukodiora', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'Paralysis', 'Result': 'Okiko (微熱) / Paralysis', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the glacial cliffs, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Ice, Water', 'Status Source(s)': 'None', 'Result': 'Music (奏) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the stormy shoreline, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire, Ice', 'Status Source(s)': 'None', 'Result': 'Burning Zero (灼零) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Rathalos', 'Monster 3': 'Rukodiora', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'Paralysis', 'Result': 'Okiko (微熱) / Paralysis', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the raging inferno, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon, Ice', 'Status Source(s)': 'Paralysis', 'Result': 'Dark (闇) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the frozen tundra, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Ice, Thunder', 'Status Source(s)': 'None', 'Result': 'Wind (風) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Anorupatisu', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Ice, Thunder', 'Status Source(s)': 'None', 'Result': 'Wind (風) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the glacial cliffs, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Blangonga', 'Monster 3': '', 'Element Source(s)': 'Ice, Water', 'Status Source(s)': 'None', 'Result': 'Music (奏) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Bogabadorumu', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast', 'Result': 'Water / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volatile ground, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Daimyo Hermitaur', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast', 'Result': 'Water / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the unstable cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Doragyurosu', 'Monster 3': '', 'Element Source(s)': 'Dragon, Water', 'Status Source(s)': 'None', 'Result': 'Sound (鳴) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Espinas', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Poison', 'Result': 'Water / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the blighted grove, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Gasurabazura', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Poison', 'Result': 'Water / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the flooded ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Giaorugu', 'Monster 3': '', 'Element Source(s)': 'Ice, Water', 'Status Source(s)': 'None', 'Result': 'Music (奏) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the frozen tundra, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Gravios', 'Monster 3': 'Khezu', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Gravios', 'Monster 3': 'Taikun Zamuza', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Gravios', 'Monster 3': 'Toridcless', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the unstable cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Harudomerugu', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'None', 'Result': 'Water / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the stormy shoreline, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Hypnocatrice', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Sleep', 'Result': 'Water / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the dreamlands, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Hyujikiki', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'None', 'Result': 'Water / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Inagami', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Sleep', 'Result': 'Water / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Khezu', 'Monster 3': 'Midogaron', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Paralysis', 'Result': 'Tenshou (天翔) / Paralysis', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Khezu', 'Monster 3': 'Rathalos', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Paralysis', 'Result': 'Tenshou (天翔) / Paralysis', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the stormy shoreline, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Midogaron', 'Monster 3': 'Taikun Zamuza', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'None', 'Result': 'Tenshou (天翔) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the flooded ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Midogaron', 'Monster 3': 'Toridcless', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'None', 'Result': 'Tenshou (天翔) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the stormy shoreline, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'None', 'Result': 'Water / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Rathalos', 'Monster 3': 'Taikun Zamuza', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'None', 'Result': 'Tenshou (天翔) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the stormy shoreline, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Rathalos', 'Monster 3': 'Toridcless', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'None', 'Result': 'Tenshou (天翔) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Baruragaru', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon, Water', 'Status Source(s)': 'Paralysis', 'Result': 'Sound (鳴) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the mystic altar, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Bogabadorumu', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Blast', 'Result': 'Ice / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Daimyo Hermitaur', 'Monster 3': '', 'Element Source(s)': 'Ice, Water', 'Status Source(s)': 'Blast', 'Result': 'Music (奏) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the stormy shoreline, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Doragyurosu', 'Monster 3': '', 'Element Source(s)': 'Dragon, Ice', 'Status Source(s)': 'None', 'Result': 'Dark (闇) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the glacial cliffs, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Doragyurosu', 'Monster 3': 'Gravios', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'Blast', 'Result': 'Okiko (微熱) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Doragyurosu', 'Monster 3': 'Midogaron', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'None', 'Result': 'Okiko (微熱) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ancient seal, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Doragyurosu', 'Monster 3': 'Rathalos', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'None', 'Result': 'Okiko (微熱) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the glacial cliffs, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Espinas', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Poison', 'Result': 'Ice / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the blighted grove, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Gasurabazura', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Poison', 'Result': 'Ice / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the toxic swamp, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Giaorugu', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'None', 'Result': 'Ice / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the frozen tundra, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Gravios', 'Monster 3': '', 'Element Source(s)': 'Fire, Ice', 'Status Source(s)': 'Blast', 'Result': 'Burning Zero (灼零) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the unstable cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Gravios', 'Monster 3': 'Rukodiora', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Okiko (微熱) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Harudomerugu', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'None', 'Result': 'Ice / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Hypnocatrice', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Sleep', 'Result': 'Ice / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the enchanted mist, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Hyujikiki', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'None', 'Result': 'Ice / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Inagami', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Sleep', 'Result': 'Ice / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the dreamlands, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Ice, Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Wind (風) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the magnetic ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire, Ice', 'Status Source(s)': 'None', 'Result': 'Burning Zero (灼零) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Midogaron', 'Monster 3': 'Rukodiora', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'Paralysis', 'Result': 'Okiko (微熱) / Paralysis', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Ice, Water', 'Status Source(s)': 'None', 'Result': 'Music (奏) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire, Ice', 'Status Source(s)': 'None', 'Result': 'Burning Zero (灼零) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the scorched battlefield, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Rathalos', 'Monster 3': 'Rukodiora', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'Paralysis', 'Result': 'Okiko (微熱) / Paralysis', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the frozen tundra, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon, Ice', 'Status Source(s)': 'Paralysis', 'Result': 'Dark (闇) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ancient seal, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Ice, Thunder', 'Status Source(s)': 'None', 'Result': 'Wind (風) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Blangonga', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Ice, Thunder', 'Status Source(s)': 'None', 'Result': 'Wind (風) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Daimyo Hermitaur', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast', 'Result': 'Water / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the unstable cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Doragyurosu', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Blast', 'Result': 'Dragon / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the unstable cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Giaorugu', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Blast', 'Result': 'Ice / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the unstable cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Gravios', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast', 'Result': 'Fire / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Thunder / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the explosive field, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Thunder / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast', 'Result': 'Fire / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volatile ground, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast', 'Result': 'Water / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the unstable cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast', 'Result': 'Fire / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volatile ground, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Dragon / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the shock zone, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Dragon / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the draconic wasteland, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Blast', 'Result': 'Thunder / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Bogabadorumu', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Blast', 'Result': 'Thunder / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the explosive field, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Doragyurosu', 'Monster 3': '', 'Element Source(s)': 'Dragon, Water', 'Status Source(s)': 'Blast', 'Result': 'Sound (鳴) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Espinas', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast, Poison', 'Result': 'Water / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the stormy shoreline, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Espinas', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast, Poison', 'Result': 'Water / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Gasurabazura', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast, Poison', 'Result': 'Water / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the flooded ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Gasurabazura', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast, Poison', 'Result': 'Water / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the blighted grove, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Giaorugu', 'Monster 3': '', 'Element Source(s)': 'Ice, Water', 'Status Source(s)': 'Blast', 'Result': 'Music (奏) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the explosive field, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Gravios', 'Monster 3': 'Khezu', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the raging inferno, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Gravios', 'Monster 3': 'Taikun Zamuza', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the unstable cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Gravios', 'Monster 3': 'Toridcless', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Harudomerugu', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast', 'Result': 'Water / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volatile ground, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Hypnocatrice', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast, Sleep', 'Result': 'Water / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the stormy shoreline, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Hypnocatrice', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast, Sleep', 'Result': 'Water / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the dreamlands, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Hyujikiki', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast', 'Result': 'Water / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volatile ground, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Inagami', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast, Sleep', 'Result': 'Water / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the haunted forest, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Inagami', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast, Sleep', 'Result': 'Water / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volatile ground, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Khezu', 'Monster 3': 'Midogaron', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the explosive field, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Khezu', 'Monster 3': 'Rathalos', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Midogaron', 'Monster 3': 'Taikun Zamuza', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the electrified skies, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Midogaron', 'Monster 3': 'Toridcless', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the scorched battlefield, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Blast', 'Result': 'Water / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Rathalos', 'Monster 3': 'Taikun Zamuza', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Rathalos', 'Monster 3': 'Toridcless', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the flooded ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon, Water', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Sound (鳴) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the magnetic ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Daimyo Hermitaur', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon, Water', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Sound (鳴) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Espinas', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Poison', 'Result': 'Dragon / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the toxic swamp, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Gasurabazura', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Poison', 'Result': 'Dragon / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the draconic wasteland, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Giaorugu', 'Monster 3': '', 'Element Source(s)': 'Dragon, Ice', 'Status Source(s)': 'None', 'Result': 'Dark (闇) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ancient seal, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Giaorugu', 'Monster 3': 'Gravios', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'Blast', 'Result': 'Okiko (微熱) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volatile ground, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Giaorugu', 'Monster 3': 'Midogaron', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'None', 'Result': 'Okiko (微熱) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ancient seal, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Giaorugu', 'Monster 3': 'Rathalos', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'None', 'Result': 'Okiko (微熱) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the frozen tundra, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Gravios', 'Monster 3': '', 'Element Source(s)': 'Dragon, Fire', 'Status Source(s)': 'Blast', 'Result': 'Crimson D. (紅蓮) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Harudomerugu', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'None', 'Result': 'Dragon / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ancient seal, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Hypnocatrice', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Sleep', 'Result': 'Dragon / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the draconic wasteland, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Hyujikiki', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'None', 'Result': 'Dragon / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ancient seal, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Inagami', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Sleep', 'Result': 'Dragon / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the draconic wasteland, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Dragon, Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Emp. Roar (皇鳴) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ancient seal, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Dragon, Fire', 'Status Source(s)': 'None', 'Result': 'Crimson D. (紅蓮) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ancient seal, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Dragon, Water', 'Status Source(s)': 'None', 'Result': 'Sound (鳴) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Dragon, Fire', 'Status Source(s)': 'None', 'Result': 'Crimson D. (紅蓮) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the mystic altar, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis', 'Result': 'Dragon / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the magnetic ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Dragon, Thunder', 'Status Source(s)': 'None', 'Result': 'Emp. Roar (皇鳴) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the electrified skies, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Doragyurosu', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Dragon, Thunder', 'Status Source(s)': 'None', 'Result': 'Emp. Roar (皇鳴) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the electrified skies, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Espinas', 'Monster 2': 'Giaorugu', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Poison', 'Result': 'Ice / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the frozen tundra, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Espinas', 'Monster 2': 'Gravios', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast, Poison', 'Result': 'Fire / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the unstable cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Espinas', 'Monster 2': 'Gravios', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast, Poison', 'Result': 'Fire / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Espinas', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis, Poison', 'Result': 'Thunder / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Espinas', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis, Poison', 'Result': 'Thunder / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the shock zone, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Espinas', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Poison', 'Result': 'Fire / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the venomous den, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Espinas', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Poison', 'Result': 'Water / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the blighted grove, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Espinas', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Poison', 'Result': 'Fire / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the scorched battlefield, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Espinas', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis, Poison', 'Result': 'Dragon / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the blighted grove, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Espinas', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis, Poison', 'Result': 'Dragon / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the toxic swamp, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Espinas', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Poison', 'Result': 'Thunder / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the toxic swamp, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Espinas', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Poison', 'Result': 'Thunder / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the venomous den, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gasurabazura', 'Monster 2': 'Giaorugu', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Poison', 'Result': 'Ice / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the glacial cliffs, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gasurabazura', 'Monster 2': 'Gravios', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast, Poison', 'Result': 'Fire / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volatile ground, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gasurabazura', 'Monster 2': 'Gravios', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast, Poison', 'Result': 'Fire / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the unstable cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gasurabazura', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis, Poison', 'Result': 'Thunder / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the electrified skies, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gasurabazura', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis, Poison', 'Result': 'Thunder / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gasurabazura', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Poison', 'Result': 'Fire / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the blighted grove, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gasurabazura', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Poison', 'Result': 'Water / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the venomous den, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gasurabazura', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Poison', 'Result': 'Fire / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the venomous den, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gasurabazura', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis, Poison', 'Result': 'Dragon / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the mystic altar, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gasurabazura', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis, Poison', 'Result': 'Dragon / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the toxic swamp, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gasurabazura', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Poison', 'Result': 'Thunder / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gasurabazura', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Poison', 'Result': 'Thunder / Poison', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Gravios', 'Monster 3': '', 'Element Source(s)': 'Fire, Ice', 'Status Source(s)': 'Blast', 'Result': 'Burning Zero (灼零) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Gravios', 'Monster 3': 'Rukodiora', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Okiko (微熱) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the frozen tundra, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Harudomerugu', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'None', 'Result': 'Ice / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the glacial cliffs, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Hypnocatrice', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Sleep', 'Result': 'Ice / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the glacial cliffs, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Hyujikiki', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'None', 'Result': 'Ice / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Inagami', 'Monster 3': '', 'Element Source(s)': 'Ice', 'Status Source(s)': 'Sleep', 'Result': 'Ice / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the haunted forest, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Ice, Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Wind (風) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire, Ice', 'Status Source(s)': 'None', 'Result': 'Burning Zero (灼零) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Midogaron', 'Monster 3': 'Rukodiora', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'Paralysis', 'Result': 'Okiko (微熱) / Paralysis', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Ice, Water', 'Status Source(s)': 'None', 'Result': 'Music (奏) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the ocean depths, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire, Ice', 'Status Source(s)': 'None', 'Result': 'Burning Zero (灼零) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Rathalos', 'Monster 3': 'Rukodiora', 'Element Source(s)': 'Dragon, Fire, Ice', 'Status Source(s)': 'Paralysis', 'Result': 'Okiko (微熱) / Paralysis', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon, Ice', 'Status Source(s)': 'Paralysis', 'Result': 'Dark (闇) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Ice, Thunder', 'Status Source(s)': 'None', 'Result': 'Wind (風) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Giaorugu', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Ice, Thunder', 'Status Source(s)': 'None', 'Result': 'Wind (風) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the snowbound pass, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Harudomerugu', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast', 'Result': 'Fire / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Hypnocatrice', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast, Sleep', 'Result': 'Fire / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volatile ground, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Hypnocatrice', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast, Sleep', 'Result': 'Fire / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the enchanted mist, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Hyujikiki', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast', 'Result': 'Fire / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the explosive field, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Inagami', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast, Sleep', 'Result': 'Fire / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volatile ground, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Inagami', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast, Sleep', 'Result': 'Fire / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the explosive field, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Fire, Thunder', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Light (光) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the shock zone, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Fire, Thunder', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Light (光) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the magnetic ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Khezu', 'Monster 3': 'Plesioth', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast', 'Result': 'Fire / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volatile ground, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Plesioth', 'Monster 3': 'Taikun Zamuza', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Plesioth', 'Monster 3': 'Toridcless', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Blast', 'Result': 'Tenshou (天翔) / Blast', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the stormy shoreline, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Blast', 'Result': 'Fire / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the explosive field, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon, Fire', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Crimson D. (紅蓮) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the scorched battlefield, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon, Fire', 'Status Source(s)': 'Blast, Paralysis', 'Result': 'Crimson D. (紅蓮) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Fire, Thunder', 'Status Source(s)': 'Blast', 'Result': 'Light (光) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the unstable cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Gravios', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Fire, Thunder', 'Status Source(s)': 'Blast', 'Result': 'Light (光) / Blast', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the electrified skies, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Harudomerugu', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Thunder / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the magnetic ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Harudomerugu', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'None', 'Result': 'Fire / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the raging inferno, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Harudomerugu', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'None', 'Result': 'Water / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the flooded ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Harudomerugu', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'None', 'Result': 'Fire / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Harudomerugu', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis', 'Result': 'Dragon / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the shock zone, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Harudomerugu', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'None', 'Result': 'Thunder / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Harudomerugu', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'None', 'Result': 'Thunder / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hypnocatrice', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis, Sleep', 'Result': 'Thunder / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hypnocatrice', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis, Sleep', 'Result': 'Thunder / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the shock zone, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hypnocatrice', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Sleep', 'Result': 'Fire / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the enchanted mist, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hypnocatrice', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Sleep', 'Result': 'Water / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the flooded ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hypnocatrice', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Sleep', 'Result': 'Fire / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the dreamlands, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hypnocatrice', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis, Sleep', 'Result': 'Dragon / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the shock zone, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hypnocatrice', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis, Sleep', 'Result': 'Dragon / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the dreamlands, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hypnocatrice', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Sleep', 'Result': 'Thunder / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the enchanted mist, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hypnocatrice', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Sleep', 'Result': 'Thunder / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the enchanted mist, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hyujikiki', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Thunder / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hyujikiki', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'None', 'Result': 'Fire / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the scorched battlefield, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hyujikiki', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'None', 'Result': 'Water / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the stormy shoreline, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hyujikiki', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'None', 'Result': 'Fire / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hyujikiki', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis', 'Result': 'Dragon / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the magnetic ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hyujikiki', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'None', 'Result': 'Thunder / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Hyujikiki', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'None', 'Result': 'Thunder / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Inagami', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis, Sleep', 'Result': 'Thunder / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Inagami', 'Monster 2': 'Khezu', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis, Sleep', 'Result': 'Thunder / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the electrified skies, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Inagami', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Sleep', 'Result': 'Fire / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Inagami', 'Monster 2': 'Plesioth', 'Monster 3': '', 'Element Source(s)': 'Water', 'Status Source(s)': 'Sleep', 'Result': 'Water / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the enchanted mist, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Inagami', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'Sleep', 'Result': 'Fire / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Inagami', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis, Sleep', 'Result': 'Dragon / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the draconic wasteland, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Inagami', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon', 'Status Source(s)': 'Paralysis, Sleep', 'Result': 'Dragon / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the shock zone, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Inagami', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Sleep', 'Result': 'Thunder / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the haunted forest, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Inagami', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Sleep', 'Result': 'Thunder / Sleep', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the electrified skies, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Khezu', 'Monster 2': 'Midogaron', 'Monster 3': '', 'Element Source(s)': 'Fire, Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Light (光) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the magnetic ruins, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Khezu', 'Monster 2': 'Midogaron', 'Monster 3': 'Plesioth', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Paralysis', 'Result': 'Tenshou (天翔) / Paralysis', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Khezu', 'Monster 2': 'Plesioth', 'Monster 3': 'Rathalos', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'Paralysis', 'Result': 'Tenshou (天翔) / Paralysis', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Khezu', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire, Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Light (光) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the electrified skies, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Khezu', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon, Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Emp. Roar (皇鳴) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the shock zone, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Khezu', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Thunder / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Khezu', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Thunder / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Midogaron', 'Monster 2': 'Plesioth', 'Monster 3': 'Taikun Zamuza', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'None', 'Result': 'Tenshou (天翔) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the stormy shoreline, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Midogaron', 'Monster 2': 'Plesioth', 'Monster 3': 'Toridcless', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'None', 'Result': 'Tenshou (天翔) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Midogaron', 'Monster 2': 'Rathalos', 'Monster 3': '', 'Element Source(s)': 'Fire', 'Status Source(s)': 'None', 'Result': 'Fire / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Midogaron', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon, Fire', 'Status Source(s)': 'Paralysis', 'Result': 'Crimson D. (紅蓮) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Midogaron', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Fire, Thunder', 'Status Source(s)': 'None', 'Result': 'Light (光) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the raging inferno, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Midogaron', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Fire, Thunder', 'Status Source(s)': 'None', 'Result': 'Light (光) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Plesioth', 'Monster 2': 'Rathalos', 'Monster 3': 'Taikun Zamuza', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'None', 'Result': 'Tenshou (天翔) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Plesioth', 'Monster 2': 'Rathalos', 'Monster 3': 'Toridcless', 'Element Source(s)': 'Fire, Thunder, Water', 'Status Source(s)': 'None', 'Result': 'Tenshou (天翔) / None', 'Monster Count': '3 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the volcanic eruption, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Plesioth', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon, Water', 'Status Source(s)': 'Paralysis', 'Result': 'Sound (鳴) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the stormy shoreline, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Rathalos', 'Monster 2': 'Rukodiora', 'Monster 3': '', 'Element Source(s)': 'Dragon, Fire', 'Status Source(s)': 'Paralysis', 'Result': 'Crimson D. (紅蓮) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the shock zone, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Rathalos', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Fire, Thunder', 'Status Source(s)': 'None', 'Result': 'Light (光) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the lightning-infused cavern, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Rathalos', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Fire, Thunder', 'Status Source(s)': 'None', 'Result': 'Light (光) / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Rukodiora', 'Monster 2': 'Taikun Zamuza', 'Monster 3': '', 'Element Source(s)': 'Dragon, Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Emp. Roar (皇鳴) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Rukodiora', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Dragon, Thunder', 'Status Source(s)': 'Paralysis', 'Result': 'Emp. Roar (皇鳴) / Paralysis', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the crystal cave, where monsters clash and power surges in wild resonance.'}, {'Monster 1': 'Taikun Zamuza', 'Monster 2': 'Toridcless', 'Monster 3': '', 'Element Source(s)': 'Thunder', 'Status Source(s)': 'None', 'Result': 'Thunder / None', 'Monster Count': '2 Monsters', 'Quest Description': 'Hunters are tasked with a perilous mission in the tempest storm, where monsters clash and power surges in wild resonance.'}];
+
+    function buildQuest() {
+        const combo = document.getElementById("comboSelect").value;
+        const map = document.getElementById("mapSelect").value;
+        const displayDiv = document.getElementById("questResult");
+
+        if (!combo || !map) {
+            displayDiv.style.display = "none";
+            return;
+        }
+
+        const parts = combo.split("|").sort();
+
+        const filtered = rewardData.filter(entry => {
+            let monsters = [entry["Monster 1"], entry["Monster 2"]];
+            if (entry["Monster Count"] === "3 Monsters") {
+                monsters.push(entry["Monster 3"]);
+            }
+            monsters = monsters.filter(Boolean).sort();
+            return JSON.stringify(monsters) === JSON.stringify(parts);
+        });
+
+        if (filtered.length > 0) {
+            const result = filtered[0];
+            const monsters = [result["Monster 1"], result["Monster 2"], result["Monster 3"]].filter(Boolean);
+
+            document.getElementById("monstersDisplay").innerText = monsters.join(" + ");
+            document.getElementById("mapDisplay").innerText = map;
+            document.getElementById("elementSourcesDisplay").innerText = result["Element Source(s)"];
+            document.getElementById("statusSourcesDisplay").innerText = result["Status Source(s)"];
+            document.getElementById("resultDisplay").innerText = result["Result"];
+
+            // Quest description logic
+            let description = "UL Report!\n\n";
+            description += monsters[0] + " threatens the " + map + ".";
+            if (monsters.length > 1) {
+                description += " Joined by " + monsters.slice(1).join(" and ") + ", the danger has intensified.";
+            }
+            description += " Hunters, defend the region before it’s too late!";
+            document.getElementById("questDescription").innerText = description;
+
+            displayDiv.style.display = "block";
+        } else {
+            displayDiv.style.display = "none";
+        }
+    }
+</script>
+
+    
+<h2>Monster Weapon Reward Combinations</h2>
+<label for="monsterFilter">Filter by Monster:</label>
+<select id="monsterFilter" onchange="filterTable()">
+    <option value="All">All</option>
+    <option value="Akura Vashimu">Akura Vashimu</option><option value="Anorupatisu">Anorupatisu</option><option value="Baruragaru">Baruragaru</option><option value="Blangonga">Blangonga</option><option value="Bogabadorumu">Bogabadorumu</option><option value="Daimyo Hermitaur">Daimyo Hermitaur</option><option value="Doragyurosu">Doragyurosu</option><option value="Espinas">Espinas</option><option value="Gasurabazura">Gasurabazura</option><option value="Giaorugu">Giaorugu</option><option value="Gravios">Gravios</option><option value="Harudomerugu">Harudomerugu</option><option value="Hypnocatrice">Hypnocatrice</option><option value="Hyujikiki">Hyujikiki</option><option value="Inagami">Inagami</option><option value="Khezu">Khezu</option><option value="Midogaron">Midogaron</option><option value="Plesioth">Plesioth</option><option value="Rathalos">Rathalos</option><option value="Rukodiora">Rukodiora</option><option value="Taikun Zamuza">Taikun Zamuza</option><option value="Toridcless">Toridcless</option>
+</select>
+
+<label for="comboTypeFilter">Combination Type:</label>
+<select id="comboTypeFilter" onchange="filterTable()">
+    <option value="All">All</option>
+    <option value="2 Monsters">2 Monsters</option>
+    <option value="3 Monsters">3 Monsters</option>
+</select>
+
+    <table border="1" class="dataframe table table-condensed" id="rewardTable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Monster 1</th>
+      <th>Monster 2</th>
+      <th>Monster 3</th>
+      <th>Element Source(s)</th>
+      <th>Status Source(s)</th>
+      <th>Result</th>
+      <th>Monster Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Anorupatisu</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Paralysis</td>
+      <td>Ice / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Baruragaru</td>
+      <td></td>
+      <td>Water</td>
+      <td>Paralysis</td>
+      <td>Water / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Blangonga</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Paralysis</td>
+      <td>Ice / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Daimyo Hermitaur</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast, Paralysis</td>
+      <td>Water / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Daimyo Hermitaur</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast, Paralysis</td>
+      <td>Water / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Doragyurosu</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis</td>
+      <td>Dragon / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Giaorugu</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Paralysis</td>
+      <td>Ice / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Gravios</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast, Paralysis</td>
+      <td>Fire / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Gravios</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast, Paralysis</td>
+      <td>Fire / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis</td>
+      <td>Thunder / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Paralysis</td>
+      <td>Fire / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Water</td>
+      <td>Paralysis</td>
+      <td>Water / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Paralysis</td>
+      <td>Fire / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis</td>
+      <td>Dragon / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis</td>
+      <td>Thunder / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Akura Vashimu</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis</td>
+      <td>Thunder / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Baruragaru</td>
+      <td></td>
+      <td>Ice, Water</td>
+      <td>None</td>
+      <td>Music (奏) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Blangonga</td>
+      <td></td>
+      <td>Ice</td>
+      <td>None</td>
+      <td>Ice / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Bogabadorumu</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Blast</td>
+      <td>Ice / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Daimyo Hermitaur</td>
+      <td></td>
+      <td>Ice, Water</td>
+      <td>Blast</td>
+      <td>Music (奏) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Doragyurosu</td>
+      <td></td>
+      <td>Dragon, Ice</td>
+      <td>None</td>
+      <td>Dark (闇) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Doragyurosu</td>
+      <td>Gravios</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>Blast</td>
+      <td>Okiko (微熱) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Doragyurosu</td>
+      <td>Midogaron</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>None</td>
+      <td>Okiko (微熱) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Doragyurosu</td>
+      <td>Rathalos</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>None</td>
+      <td>Okiko (微熱) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Espinas</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Poison</td>
+      <td>Ice / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Gasurabazura</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Poison</td>
+      <td>Ice / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Giaorugu</td>
+      <td></td>
+      <td>Ice</td>
+      <td>None</td>
+      <td>Ice / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Gravios</td>
+      <td></td>
+      <td>Fire, Ice</td>
+      <td>Blast</td>
+      <td>Burning Zero (灼零) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Gravios</td>
+      <td>Rukodiora</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>Blast, Paralysis</td>
+      <td>Okiko (微熱) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Harudomerugu</td>
+      <td></td>
+      <td>Ice</td>
+      <td>None</td>
+      <td>Ice / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Hypnocatrice</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Sleep</td>
+      <td>Ice / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Hyujikiki</td>
+      <td></td>
+      <td>Ice</td>
+      <td>None</td>
+      <td>Ice / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Inagami</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Sleep</td>
+      <td>Ice / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Ice, Thunder</td>
+      <td>Paralysis</td>
+      <td>Wind (風) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire, Ice</td>
+      <td>None</td>
+      <td>Burning Zero (灼零) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Midogaron</td>
+      <td>Rukodiora</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>Paralysis</td>
+      <td>Okiko (微熱) / Paralysis</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Ice, Water</td>
+      <td>None</td>
+      <td>Music (奏) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire, Ice</td>
+      <td>None</td>
+      <td>Burning Zero (灼零) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Rathalos</td>
+      <td>Rukodiora</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>Paralysis</td>
+      <td>Okiko (微熱) / Paralysis</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon, Ice</td>
+      <td>Paralysis</td>
+      <td>Dark (闇) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Ice, Thunder</td>
+      <td>None</td>
+      <td>Wind (風) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Anorupatisu</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Ice, Thunder</td>
+      <td>None</td>
+      <td>Wind (風) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Blangonga</td>
+      <td></td>
+      <td>Ice, Water</td>
+      <td>None</td>
+      <td>Music (奏) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Bogabadorumu</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast</td>
+      <td>Water / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Daimyo Hermitaur</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast</td>
+      <td>Water / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Doragyurosu</td>
+      <td></td>
+      <td>Dragon, Water</td>
+      <td>None</td>
+      <td>Sound (鳴) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Espinas</td>
+      <td></td>
+      <td>Water</td>
+      <td>Poison</td>
+      <td>Water / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Gasurabazura</td>
+      <td></td>
+      <td>Water</td>
+      <td>Poison</td>
+      <td>Water / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Giaorugu</td>
+      <td></td>
+      <td>Ice, Water</td>
+      <td>None</td>
+      <td>Music (奏) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Gravios</td>
+      <td>Khezu</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast, Paralysis</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Gravios</td>
+      <td>Taikun Zamuza</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Gravios</td>
+      <td>Toridcless</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Harudomerugu</td>
+      <td></td>
+      <td>Water</td>
+      <td>None</td>
+      <td>Water / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Hypnocatrice</td>
+      <td></td>
+      <td>Water</td>
+      <td>Sleep</td>
+      <td>Water / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Hyujikiki</td>
+      <td></td>
+      <td>Water</td>
+      <td>None</td>
+      <td>Water / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Inagami</td>
+      <td></td>
+      <td>Water</td>
+      <td>Sleep</td>
+      <td>Water / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Khezu</td>
+      <td>Midogaron</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Paralysis</td>
+      <td>Tenshou (天翔) / Paralysis</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Khezu</td>
+      <td>Rathalos</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Paralysis</td>
+      <td>Tenshou (天翔) / Paralysis</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Midogaron</td>
+      <td>Taikun Zamuza</td>
+      <td>Fire, Thunder, Water</td>
+      <td>None</td>
+      <td>Tenshou (天翔) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Midogaron</td>
+      <td>Toridcless</td>
+      <td>Fire, Thunder, Water</td>
+      <td>None</td>
+      <td>Tenshou (天翔) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Water</td>
+      <td>None</td>
+      <td>Water / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Rathalos</td>
+      <td>Taikun Zamuza</td>
+      <td>Fire, Thunder, Water</td>
+      <td>None</td>
+      <td>Tenshou (天翔) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Rathalos</td>
+      <td>Toridcless</td>
+      <td>Fire, Thunder, Water</td>
+      <td>None</td>
+      <td>Tenshou (天翔) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Baruragaru</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon, Water</td>
+      <td>Paralysis</td>
+      <td>Sound (鳴) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Bogabadorumu</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Blast</td>
+      <td>Ice / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Daimyo Hermitaur</td>
+      <td></td>
+      <td>Ice, Water</td>
+      <td>Blast</td>
+      <td>Music (奏) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Doragyurosu</td>
+      <td></td>
+      <td>Dragon, Ice</td>
+      <td>None</td>
+      <td>Dark (闇) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Doragyurosu</td>
+      <td>Gravios</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>Blast</td>
+      <td>Okiko (微熱) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Doragyurosu</td>
+      <td>Midogaron</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>None</td>
+      <td>Okiko (微熱) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Doragyurosu</td>
+      <td>Rathalos</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>None</td>
+      <td>Okiko (微熱) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Espinas</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Poison</td>
+      <td>Ice / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Gasurabazura</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Poison</td>
+      <td>Ice / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Giaorugu</td>
+      <td></td>
+      <td>Ice</td>
+      <td>None</td>
+      <td>Ice / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Gravios</td>
+      <td></td>
+      <td>Fire, Ice</td>
+      <td>Blast</td>
+      <td>Burning Zero (灼零) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Gravios</td>
+      <td>Rukodiora</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>Blast, Paralysis</td>
+      <td>Okiko (微熱) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Harudomerugu</td>
+      <td></td>
+      <td>Ice</td>
+      <td>None</td>
+      <td>Ice / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Hypnocatrice</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Sleep</td>
+      <td>Ice / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Hyujikiki</td>
+      <td></td>
+      <td>Ice</td>
+      <td>None</td>
+      <td>Ice / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Inagami</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Sleep</td>
+      <td>Ice / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Ice, Thunder</td>
+      <td>Paralysis</td>
+      <td>Wind (風) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire, Ice</td>
+      <td>None</td>
+      <td>Burning Zero (灼零) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Midogaron</td>
+      <td>Rukodiora</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>Paralysis</td>
+      <td>Okiko (微熱) / Paralysis</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Ice, Water</td>
+      <td>None</td>
+      <td>Music (奏) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire, Ice</td>
+      <td>None</td>
+      <td>Burning Zero (灼零) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Rathalos</td>
+      <td>Rukodiora</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>Paralysis</td>
+      <td>Okiko (微熱) / Paralysis</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon, Ice</td>
+      <td>Paralysis</td>
+      <td>Dark (闇) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Ice, Thunder</td>
+      <td>None</td>
+      <td>Wind (風) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Blangonga</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Ice, Thunder</td>
+      <td>None</td>
+      <td>Wind (風) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Daimyo Hermitaur</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast</td>
+      <td>Water / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Doragyurosu</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Blast</td>
+      <td>Dragon / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Giaorugu</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Blast</td>
+      <td>Ice / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Gravios</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast</td>
+      <td>Fire / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Blast, Paralysis</td>
+      <td>Thunder / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Blast, Paralysis</td>
+      <td>Thunder / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast</td>
+      <td>Fire / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast</td>
+      <td>Water / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast</td>
+      <td>Fire / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Blast, Paralysis</td>
+      <td>Dragon / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Blast, Paralysis</td>
+      <td>Dragon / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Blast</td>
+      <td>Thunder / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Bogabadorumu</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Blast</td>
+      <td>Thunder / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Doragyurosu</td>
+      <td></td>
+      <td>Dragon, Water</td>
+      <td>Blast</td>
+      <td>Sound (鳴) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Espinas</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast, Poison</td>
+      <td>Water / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Espinas</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast, Poison</td>
+      <td>Water / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Gasurabazura</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast, Poison</td>
+      <td>Water / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Gasurabazura</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast, Poison</td>
+      <td>Water / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Giaorugu</td>
+      <td></td>
+      <td>Ice, Water</td>
+      <td>Blast</td>
+      <td>Music (奏) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Gravios</td>
+      <td>Khezu</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast, Paralysis</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Gravios</td>
+      <td>Taikun Zamuza</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Gravios</td>
+      <td>Toridcless</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Harudomerugu</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast</td>
+      <td>Water / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Hypnocatrice</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast, Sleep</td>
+      <td>Water / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Hypnocatrice</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast, Sleep</td>
+      <td>Water / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Hyujikiki</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast</td>
+      <td>Water / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Inagami</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast, Sleep</td>
+      <td>Water / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Inagami</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast, Sleep</td>
+      <td>Water / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Khezu</td>
+      <td>Midogaron</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast, Paralysis</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Khezu</td>
+      <td>Rathalos</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast, Paralysis</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Midogaron</td>
+      <td>Taikun Zamuza</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Midogaron</td>
+      <td>Toridcless</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Water</td>
+      <td>Blast</td>
+      <td>Water / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Rathalos</td>
+      <td>Taikun Zamuza</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Rathalos</td>
+      <td>Toridcless</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon, Water</td>
+      <td>Blast, Paralysis</td>
+      <td>Sound (鳴) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Daimyo Hermitaur</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon, Water</td>
+      <td>Blast, Paralysis</td>
+      <td>Sound (鳴) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Espinas</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Poison</td>
+      <td>Dragon / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Gasurabazura</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Poison</td>
+      <td>Dragon / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Giaorugu</td>
+      <td></td>
+      <td>Dragon, Ice</td>
+      <td>None</td>
+      <td>Dark (闇) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Giaorugu</td>
+      <td>Gravios</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>Blast</td>
+      <td>Okiko (微熱) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Giaorugu</td>
+      <td>Midogaron</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>None</td>
+      <td>Okiko (微熱) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Giaorugu</td>
+      <td>Rathalos</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>None</td>
+      <td>Okiko (微熱) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Gravios</td>
+      <td></td>
+      <td>Dragon, Fire</td>
+      <td>Blast</td>
+      <td>Crimson D. (紅蓮) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Harudomerugu</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>None</td>
+      <td>Dragon / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Hypnocatrice</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Sleep</td>
+      <td>Dragon / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Hyujikiki</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>None</td>
+      <td>Dragon / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Inagami</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Sleep</td>
+      <td>Dragon / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Dragon, Thunder</td>
+      <td>Paralysis</td>
+      <td>Emp. Roar (皇鳴) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Dragon, Fire</td>
+      <td>None</td>
+      <td>Crimson D. (紅蓮) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Dragon, Water</td>
+      <td>None</td>
+      <td>Sound (鳴) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Dragon, Fire</td>
+      <td>None</td>
+      <td>Crimson D. (紅蓮) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis</td>
+      <td>Dragon / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Dragon, Thunder</td>
+      <td>None</td>
+      <td>Emp. Roar (皇鳴) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Doragyurosu</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Dragon, Thunder</td>
+      <td>None</td>
+      <td>Emp. Roar (皇鳴) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Espinas</td>
+      <td>Giaorugu</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Poison</td>
+      <td>Ice / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Espinas</td>
+      <td>Gravios</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast, Poison</td>
+      <td>Fire / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Espinas</td>
+      <td>Gravios</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast, Poison</td>
+      <td>Fire / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Espinas</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis, Poison</td>
+      <td>Thunder / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Espinas</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis, Poison</td>
+      <td>Thunder / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Espinas</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Poison</td>
+      <td>Fire / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Espinas</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Water</td>
+      <td>Poison</td>
+      <td>Water / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Espinas</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Poison</td>
+      <td>Fire / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Espinas</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis, Poison</td>
+      <td>Dragon / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Espinas</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis, Poison</td>
+      <td>Dragon / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Espinas</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Poison</td>
+      <td>Thunder / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Espinas</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Poison</td>
+      <td>Thunder / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gasurabazura</td>
+      <td>Giaorugu</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Poison</td>
+      <td>Ice / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gasurabazura</td>
+      <td>Gravios</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast, Poison</td>
+      <td>Fire / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gasurabazura</td>
+      <td>Gravios</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast, Poison</td>
+      <td>Fire / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gasurabazura</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis, Poison</td>
+      <td>Thunder / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gasurabazura</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis, Poison</td>
+      <td>Thunder / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gasurabazura</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Poison</td>
+      <td>Fire / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gasurabazura</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Water</td>
+      <td>Poison</td>
+      <td>Water / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gasurabazura</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Poison</td>
+      <td>Fire / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gasurabazura</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis, Poison</td>
+      <td>Dragon / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gasurabazura</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis, Poison</td>
+      <td>Dragon / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gasurabazura</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Poison</td>
+      <td>Thunder / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gasurabazura</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Poison</td>
+      <td>Thunder / Poison</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Gravios</td>
+      <td></td>
+      <td>Fire, Ice</td>
+      <td>Blast</td>
+      <td>Burning Zero (灼零) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Gravios</td>
+      <td>Rukodiora</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>Blast, Paralysis</td>
+      <td>Okiko (微熱) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Harudomerugu</td>
+      <td></td>
+      <td>Ice</td>
+      <td>None</td>
+      <td>Ice / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Hypnocatrice</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Sleep</td>
+      <td>Ice / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Hyujikiki</td>
+      <td></td>
+      <td>Ice</td>
+      <td>None</td>
+      <td>Ice / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Inagami</td>
+      <td></td>
+      <td>Ice</td>
+      <td>Sleep</td>
+      <td>Ice / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Ice, Thunder</td>
+      <td>Paralysis</td>
+      <td>Wind (風) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire, Ice</td>
+      <td>None</td>
+      <td>Burning Zero (灼零) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Midogaron</td>
+      <td>Rukodiora</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>Paralysis</td>
+      <td>Okiko (微熱) / Paralysis</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Ice, Water</td>
+      <td>None</td>
+      <td>Music (奏) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire, Ice</td>
+      <td>None</td>
+      <td>Burning Zero (灼零) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Rathalos</td>
+      <td>Rukodiora</td>
+      <td>Dragon, Fire, Ice</td>
+      <td>Paralysis</td>
+      <td>Okiko (微熱) / Paralysis</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon, Ice</td>
+      <td>Paralysis</td>
+      <td>Dark (闇) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Ice, Thunder</td>
+      <td>None</td>
+      <td>Wind (風) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Giaorugu</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Ice, Thunder</td>
+      <td>None</td>
+      <td>Wind (風) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Harudomerugu</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast</td>
+      <td>Fire / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Hypnocatrice</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast, Sleep</td>
+      <td>Fire / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Hypnocatrice</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast, Sleep</td>
+      <td>Fire / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Hyujikiki</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast</td>
+      <td>Fire / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Inagami</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast, Sleep</td>
+      <td>Fire / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Inagami</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast, Sleep</td>
+      <td>Fire / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Fire, Thunder</td>
+      <td>Blast, Paralysis</td>
+      <td>Light (光) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Fire, Thunder</td>
+      <td>Blast, Paralysis</td>
+      <td>Light (光) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Khezu</td>
+      <td>Plesioth</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast, Paralysis</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast</td>
+      <td>Fire / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Plesioth</td>
+      <td>Taikun Zamuza</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Plesioth</td>
+      <td>Toridcless</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Blast</td>
+      <td>Tenshou (天翔) / Blast</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Blast</td>
+      <td>Fire / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon, Fire</td>
+      <td>Blast, Paralysis</td>
+      <td>Crimson D. (紅蓮) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon, Fire</td>
+      <td>Blast, Paralysis</td>
+      <td>Crimson D. (紅蓮) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Fire, Thunder</td>
+      <td>Blast</td>
+      <td>Light (光) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Gravios</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Fire, Thunder</td>
+      <td>Blast</td>
+      <td>Light (光) / Blast</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Harudomerugu</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis</td>
+      <td>Thunder / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Harudomerugu</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire</td>
+      <td>None</td>
+      <td>Fire / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Harudomerugu</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Water</td>
+      <td>None</td>
+      <td>Water / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Harudomerugu</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire</td>
+      <td>None</td>
+      <td>Fire / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Harudomerugu</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis</td>
+      <td>Dragon / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Harudomerugu</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>None</td>
+      <td>Thunder / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Harudomerugu</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>None</td>
+      <td>Thunder / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hypnocatrice</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis, Sleep</td>
+      <td>Thunder / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hypnocatrice</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis, Sleep</td>
+      <td>Thunder / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hypnocatrice</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Sleep</td>
+      <td>Fire / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hypnocatrice</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Water</td>
+      <td>Sleep</td>
+      <td>Water / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hypnocatrice</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Sleep</td>
+      <td>Fire / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hypnocatrice</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis, Sleep</td>
+      <td>Dragon / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hypnocatrice</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis, Sleep</td>
+      <td>Dragon / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hypnocatrice</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Sleep</td>
+      <td>Thunder / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hypnocatrice</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Sleep</td>
+      <td>Thunder / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hyujikiki</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis</td>
+      <td>Thunder / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hyujikiki</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire</td>
+      <td>None</td>
+      <td>Fire / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hyujikiki</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Water</td>
+      <td>None</td>
+      <td>Water / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hyujikiki</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire</td>
+      <td>None</td>
+      <td>Fire / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hyujikiki</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis</td>
+      <td>Dragon / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hyujikiki</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>None</td>
+      <td>Thunder / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Hyujikiki</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>None</td>
+      <td>Thunder / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Inagami</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis, Sleep</td>
+      <td>Thunder / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Inagami</td>
+      <td>Khezu</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis, Sleep</td>
+      <td>Thunder / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Inagami</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Sleep</td>
+      <td>Fire / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Inagami</td>
+      <td>Plesioth</td>
+      <td></td>
+      <td>Water</td>
+      <td>Sleep</td>
+      <td>Water / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Inagami</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire</td>
+      <td>Sleep</td>
+      <td>Fire / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Inagami</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis, Sleep</td>
+      <td>Dragon / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Inagami</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon</td>
+      <td>Paralysis, Sleep</td>
+      <td>Dragon / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Inagami</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Sleep</td>
+      <td>Thunder / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Inagami</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Sleep</td>
+      <td>Thunder / Sleep</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Khezu</td>
+      <td>Midogaron</td>
+      <td></td>
+      <td>Fire, Thunder</td>
+      <td>Paralysis</td>
+      <td>Light (光) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Khezu</td>
+      <td>Midogaron</td>
+      <td>Plesioth</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Paralysis</td>
+      <td>Tenshou (天翔) / Paralysis</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Khezu</td>
+      <td>Plesioth</td>
+      <td>Rathalos</td>
+      <td>Fire, Thunder, Water</td>
+      <td>Paralysis</td>
+      <td>Tenshou (天翔) / Paralysis</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Khezu</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire, Thunder</td>
+      <td>Paralysis</td>
+      <td>Light (光) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Khezu</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon, Thunder</td>
+      <td>Paralysis</td>
+      <td>Emp. Roar (皇鳴) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Khezu</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis</td>
+      <td>Thunder / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Khezu</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>Paralysis</td>
+      <td>Thunder / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Midogaron</td>
+      <td>Plesioth</td>
+      <td>Taikun Zamuza</td>
+      <td>Fire, Thunder, Water</td>
+      <td>None</td>
+      <td>Tenshou (天翔) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Midogaron</td>
+      <td>Plesioth</td>
+      <td>Toridcless</td>
+      <td>Fire, Thunder, Water</td>
+      <td>None</td>
+      <td>Tenshou (天翔) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Midogaron</td>
+      <td>Rathalos</td>
+      <td></td>
+      <td>Fire</td>
+      <td>None</td>
+      <td>Fire / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Midogaron</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon, Fire</td>
+      <td>Paralysis</td>
+      <td>Crimson D. (紅蓮) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Midogaron</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Fire, Thunder</td>
+      <td>None</td>
+      <td>Light (光) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Midogaron</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Fire, Thunder</td>
+      <td>None</td>
+      <td>Light (光) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Plesioth</td>
+      <td>Rathalos</td>
+      <td>Taikun Zamuza</td>
+      <td>Fire, Thunder, Water</td>
+      <td>None</td>
+      <td>Tenshou (天翔) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Plesioth</td>
+      <td>Rathalos</td>
+      <td>Toridcless</td>
+      <td>Fire, Thunder, Water</td>
+      <td>None</td>
+      <td>Tenshou (天翔) / None</td>
+      <td>3 Monsters</td>
+    </tr>
+    <tr>
+      <td>Plesioth</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon, Water</td>
+      <td>Paralysis</td>
+      <td>Sound (鳴) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Rathalos</td>
+      <td>Rukodiora</td>
+      <td></td>
+      <td>Dragon, Fire</td>
+      <td>Paralysis</td>
+      <td>Crimson D. (紅蓮) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Rathalos</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Fire, Thunder</td>
+      <td>None</td>
+      <td>Light (光) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Rathalos</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Fire, Thunder</td>
+      <td>None</td>
+      <td>Light (光) / None</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Rukodiora</td>
+      <td>Taikun Zamuza</td>
+      <td></td>
+      <td>Dragon, Thunder</td>
+      <td>Paralysis</td>
+      <td>Emp. Roar (皇鳴) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Rukodiora</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Dragon, Thunder</td>
+      <td>Paralysis</td>
+      <td>Emp. Roar (皇鳴) / Paralysis</td>
+      <td>2 Monsters</td>
+    </tr>
+    <tr>
+      <td>Taikun Zamuza</td>
+      <td>Toridcless</td>
+      <td></td>
+      <td>Thunder</td>
+      <td>None</td>
+      <td>Thunder / None</td>
+      <td>2 Monsters</td>
+    </tr>
+  </tbody>
+</table>
+    
+<script>
+    function filterTable() {
+        const monsterFilter = document.getElementById("monsterFilter").value.toUpperCase();
+        const comboFilter = document.getElementById("comboTypeFilter").value.toUpperCase();
+        const table = document.getElementById("rewardTable");
+        const rows = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < rows.length; i++) {
+            const td1 = rows[i].getElementsByTagName("td")[0];
+            const td2 = rows[i].getElementsByTagName("td")[1];
+            const td3 = rows[i].getElementsByTagName("td")[2];
+            const tdCount = rows[i].getElementsByTagName("td")[rows[i].cells.length - 1];
+            const txt1 = td1.textContent || td1.innerText;
+            const txt2 = td2.textContent || td2.innerText;
+            const txt3 = td3.textContent || td3.innerText;
+            const comboType = tdCount.textContent || tdCount.innerText;
+
+            const monsterMatch = (monsterFilter === "ALL") ||
+                                 txt1.toUpperCase().includes(monsterFilter) ||
+                                 txt2.toUpperCase().includes(monsterFilter) ||
+                                 txt3.toUpperCase().includes(monsterFilter);
+
+            const comboMatch = (comboFilter === "ALL") ||
+                               (comboType.toUpperCase() === comboFilter);
+
+            rows[i].style.display = (monsterMatch && comboMatch) ? "" : "none";
+        }
+    }
+</script>
+
+    
+<details style="margin-top: 40px;">
+  <summary><h2 style="display: inline;">UL Zenith Mapping</h2></summary>
+  <p>List of all possible UL Zenith Quest combinations and the resulting Element / Status output:</p>
+  <ul>
+<li><strong>Akura Vashimu + Anorupatisu</strong> → Ice / Paralysis <em>(Elements: Ice; Status: Paralysis)</em></li>
+<li><strong>Akura Vashimu + Baruragaru</strong> → Water / Paralysis <em>(Elements: Water; Status: Paralysis)</em></li>
+<li><strong>Akura Vashimu + Blangonga</strong> → Ice / Paralysis <em>(Elements: Ice; Status: Paralysis)</em></li>
+<li><strong>Akura Vashimu + Daimyo Hermitaur</strong> → Water / Blast <em>(Elements: Water; Status: Blast, Paralysis)</em></li>
+<li><strong>Akura Vashimu + Daimyo Hermitaur</strong> → Water / Paralysis <em>(Elements: Water; Status: Blast, Paralysis)</em></li>
+<li><strong>Akura Vashimu + Doragyurosu</strong> → Dragon / Paralysis <em>(Elements: Dragon; Status: Paralysis)</em></li>
+<li><strong>Akura Vashimu + Giaorugu</strong> → Ice / Paralysis <em>(Elements: Ice; Status: Paralysis)</em></li>
+<li><strong>Akura Vashimu + Gravios</strong> → Fire / Blast <em>(Elements: Fire; Status: Blast, Paralysis)</em></li>
+<li><strong>Akura Vashimu + Gravios</strong> → Fire / Paralysis <em>(Elements: Fire; Status: Blast, Paralysis)</em></li>
+<li><strong>Akura Vashimu + Khezu</strong> → Thunder / Paralysis <em>(Elements: Thunder; Status: Paralysis)</em></li>
+<li><strong>Akura Vashimu + Midogaron</strong> → Fire / Paralysis <em>(Elements: Fire; Status: Paralysis)</em></li>
+<li><strong>Akura Vashimu + Plesioth</strong> → Water / Paralysis <em>(Elements: Water; Status: Paralysis)</em></li>
+<li><strong>Akura Vashimu + Rathalos</strong> → Fire / Paralysis <em>(Elements: Fire; Status: Paralysis)</em></li>
+<li><strong>Akura Vashimu + Rukodiora</strong> → Dragon / Paralysis <em>(Elements: Dragon; Status: Paralysis)</em></li>
+<li><strong>Akura Vashimu + Taikun Zamuza</strong> → Thunder / Paralysis <em>(Elements: Thunder; Status: Paralysis)</em></li>
+<li><strong>Akura Vashimu + Toridcless</strong> → Thunder / Paralysis <em>(Elements: Thunder; Status: Paralysis)</em></li>
+<li><strong>Anorupatisu + Baruragaru</strong> → Music (奏) / None <em>(Elements: Ice, Water; Status: None)</em></li>
+<li><strong>Anorupatisu + Blangonga</strong> → Ice / None <em>(Elements: Ice; Status: None)</em></li>
+<li><strong>Anorupatisu + Bogabadorumu</strong> → Ice / Blast <em>(Elements: Ice; Status: Blast)</em></li>
+<li><strong>Anorupatisu + Daimyo Hermitaur</strong> → Music (奏) / Blast <em>(Elements: Ice, Water; Status: Blast)</em></li>
+<li><strong>Anorupatisu + Doragyurosu</strong> → Dark (闇) / None <em>(Elements: Dragon, Ice; Status: None)</em></li>
+<li><strong>Anorupatisu + Doragyurosu + Gravios</strong> → Okiko (微熱) / Blast <em>(Elements: Dragon, Fire, Ice; Status: Blast)</em></li>
+<li><strong>Anorupatisu + Doragyurosu + Midogaron</strong> → Okiko (微熱) / None <em>(Elements: Dragon, Fire, Ice; Status: None)</em></li>
+<li><strong>Anorupatisu + Doragyurosu + Rathalos</strong> → Okiko (微熱) / None <em>(Elements: Dragon, Fire, Ice; Status: None)</em></li>
+<li><strong>Anorupatisu + Espinas</strong> → Ice / Poison <em>(Elements: Ice; Status: Poison)</em></li>
+<li><strong>Anorupatisu + Gasurabazura</strong> → Ice / Poison <em>(Elements: Ice; Status: Poison)</em></li>
+<li><strong>Anorupatisu + Giaorugu</strong> → Ice / None <em>(Elements: Ice; Status: None)</em></li>
+<li><strong>Anorupatisu + Gravios</strong> → Burning Zero (灼零) / Blast <em>(Elements: Fire, Ice; Status: Blast)</em></li>
+<li><strong>Anorupatisu + Gravios + Rukodiora</strong> → Okiko (微熱) / Blast <em>(Elements: Dragon, Fire, Ice; Status: Blast, Paralysis)</em></li>
+<li><strong>Anorupatisu + Harudomerugu</strong> → Ice / None <em>(Elements: Ice; Status: None)</em></li>
+<li><strong>Anorupatisu + Hypnocatrice</strong> → Ice / Sleep <em>(Elements: Ice; Status: Sleep)</em></li>
+<li><strong>Anorupatisu + Hyujikiki</strong> → Ice / None <em>(Elements: Ice; Status: None)</em></li>
+<li><strong>Anorupatisu + Inagami</strong> → Ice / Sleep <em>(Elements: Ice; Status: Sleep)</em></li>
+<li><strong>Anorupatisu + Khezu</strong> → Wind (風) / Paralysis <em>(Elements: Ice, Thunder; Status: Paralysis)</em></li>
+<li><strong>Anorupatisu + Midogaron</strong> → Burning Zero (灼零) / None <em>(Elements: Fire, Ice; Status: None)</em></li>
+<li><strong>Anorupatisu + Midogaron + Rukodiora</strong> → Okiko (微熱) / Paralysis <em>(Elements: Dragon, Fire, Ice; Status: Paralysis)</em></li>
+<li><strong>Anorupatisu + Plesioth</strong> → Music (奏) / None <em>(Elements: Ice, Water; Status: None)</em></li>
+<li><strong>Anorupatisu + Rathalos</strong> → Burning Zero (灼零) / None <em>(Elements: Fire, Ice; Status: None)</em></li>
+<li><strong>Anorupatisu + Rathalos + Rukodiora</strong> → Okiko (微熱) / Paralysis <em>(Elements: Dragon, Fire, Ice; Status: Paralysis)</em></li>
+<li><strong>Anorupatisu + Rukodiora</strong> → Dark (闇) / Paralysis <em>(Elements: Dragon, Ice; Status: Paralysis)</em></li>
+<li><strong>Anorupatisu + Taikun Zamuza</strong> → Wind (風) / None <em>(Elements: Ice, Thunder; Status: None)</em></li>
+<li><strong>Anorupatisu + Toridcless</strong> → Wind (風) / None <em>(Elements: Ice, Thunder; Status: None)</em></li>
+<li><strong>Baruragaru + Blangonga</strong> → Music (奏) / None <em>(Elements: Ice, Water; Status: None)</em></li>
+<li><strong>Baruragaru + Bogabadorumu</strong> → Water / Blast <em>(Elements: Water; Status: Blast)</em></li>
+<li><strong>Baruragaru + Daimyo Hermitaur</strong> → Water / Blast <em>(Elements: Water; Status: Blast)</em></li>
+<li><strong>Baruragaru + Doragyurosu</strong> → Sound (鳴) / None <em>(Elements: Dragon, Water; Status: None)</em></li>
+<li><strong>Baruragaru + Espinas</strong> → Water / Poison <em>(Elements: Water; Status: Poison)</em></li>
+<li><strong>Baruragaru + Gasurabazura</strong> → Water / Poison <em>(Elements: Water; Status: Poison)</em></li>
+<li><strong>Baruragaru + Giaorugu</strong> → Music (奏) / None <em>(Elements: Ice, Water; Status: None)</em></li>
+<li><strong>Baruragaru + Gravios + Khezu</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast, Paralysis)</em></li>
+<li><strong>Baruragaru + Gravios + Taikun Zamuza</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast)</em></li>
+<li><strong>Baruragaru + Gravios + Toridcless</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast)</em></li>
+<li><strong>Baruragaru + Harudomerugu</strong> → Water / None <em>(Elements: Water; Status: None)</em></li>
+<li><strong>Baruragaru + Hypnocatrice</strong> → Water / Sleep <em>(Elements: Water; Status: Sleep)</em></li>
+<li><strong>Baruragaru + Hyujikiki</strong> → Water / None <em>(Elements: Water; Status: None)</em></li>
+<li><strong>Baruragaru + Inagami</strong> → Water / Sleep <em>(Elements: Water; Status: Sleep)</em></li>
+<li><strong>Baruragaru + Khezu + Midogaron</strong> → Tenshou (天翔) / Paralysis <em>(Elements: Fire, Thunder, Water; Status: Paralysis)</em></li>
+<li><strong>Baruragaru + Khezu + Rathalos</strong> → Tenshou (天翔) / Paralysis <em>(Elements: Fire, Thunder, Water; Status: Paralysis)</em></li>
+<li><strong>Baruragaru + Midogaron + Taikun Zamuza</strong> → Tenshou (天翔) / None <em>(Elements: Fire, Thunder, Water; Status: None)</em></li>
+<li><strong>Baruragaru + Midogaron + Toridcless</strong> → Tenshou (天翔) / None <em>(Elements: Fire, Thunder, Water; Status: None)</em></li>
+<li><strong>Baruragaru + Plesioth</strong> → Water / None <em>(Elements: Water; Status: None)</em></li>
+<li><strong>Baruragaru + Rathalos + Taikun Zamuza</strong> → Tenshou (天翔) / None <em>(Elements: Fire, Thunder, Water; Status: None)</em></li>
+<li><strong>Baruragaru + Rathalos + Toridcless</strong> → Tenshou (天翔) / None <em>(Elements: Fire, Thunder, Water; Status: None)</em></li>
+<li><strong>Baruragaru + Rukodiora</strong> → Sound (鳴) / Paralysis <em>(Elements: Dragon, Water; Status: Paralysis)</em></li>
+<li><strong>Blangonga + Bogabadorumu</strong> → Ice / Blast <em>(Elements: Ice; Status: Blast)</em></li>
+<li><strong>Blangonga + Daimyo Hermitaur</strong> → Music (奏) / Blast <em>(Elements: Ice, Water; Status: Blast)</em></li>
+<li><strong>Blangonga + Doragyurosu</strong> → Dark (闇) / None <em>(Elements: Dragon, Ice; Status: None)</em></li>
+<li><strong>Blangonga + Doragyurosu + Gravios</strong> → Okiko (微熱) / Blast <em>(Elements: Dragon, Fire, Ice; Status: Blast)</em></li>
+<li><strong>Blangonga + Doragyurosu + Midogaron</strong> → Okiko (微熱) / None <em>(Elements: Dragon, Fire, Ice; Status: None)</em></li>
+<li><strong>Blangonga + Doragyurosu + Rathalos</strong> → Okiko (微熱) / None <em>(Elements: Dragon, Fire, Ice; Status: None)</em></li>
+<li><strong>Blangonga + Espinas</strong> → Ice / Poison <em>(Elements: Ice; Status: Poison)</em></li>
+<li><strong>Blangonga + Gasurabazura</strong> → Ice / Poison <em>(Elements: Ice; Status: Poison)</em></li>
+<li><strong>Blangonga + Giaorugu</strong> → Ice / None <em>(Elements: Ice; Status: None)</em></li>
+<li><strong>Blangonga + Gravios</strong> → Burning Zero (灼零) / Blast <em>(Elements: Fire, Ice; Status: Blast)</em></li>
+<li><strong>Blangonga + Gravios + Rukodiora</strong> → Okiko (微熱) / Blast <em>(Elements: Dragon, Fire, Ice; Status: Blast, Paralysis)</em></li>
+<li><strong>Blangonga + Harudomerugu</strong> → Ice / None <em>(Elements: Ice; Status: None)</em></li>
+<li><strong>Blangonga + Hypnocatrice</strong> → Ice / Sleep <em>(Elements: Ice; Status: Sleep)</em></li>
+<li><strong>Blangonga + Hyujikiki</strong> → Ice / None <em>(Elements: Ice; Status: None)</em></li>
+<li><strong>Blangonga + Inagami</strong> → Ice / Sleep <em>(Elements: Ice; Status: Sleep)</em></li>
+<li><strong>Blangonga + Khezu</strong> → Wind (風) / Paralysis <em>(Elements: Ice, Thunder; Status: Paralysis)</em></li>
+<li><strong>Blangonga + Midogaron</strong> → Burning Zero (灼零) / None <em>(Elements: Fire, Ice; Status: None)</em></li>
+<li><strong>Blangonga + Midogaron + Rukodiora</strong> → Okiko (微熱) / Paralysis <em>(Elements: Dragon, Fire, Ice; Status: Paralysis)</em></li>
+<li><strong>Blangonga + Plesioth</strong> → Music (奏) / None <em>(Elements: Ice, Water; Status: None)</em></li>
+<li><strong>Blangonga + Rathalos</strong> → Burning Zero (灼零) / None <em>(Elements: Fire, Ice; Status: None)</em></li>
+<li><strong>Blangonga + Rathalos + Rukodiora</strong> → Okiko (微熱) / Paralysis <em>(Elements: Dragon, Fire, Ice; Status: Paralysis)</em></li>
+<li><strong>Blangonga + Rukodiora</strong> → Dark (闇) / Paralysis <em>(Elements: Dragon, Ice; Status: Paralysis)</em></li>
+<li><strong>Blangonga + Taikun Zamuza</strong> → Wind (風) / None <em>(Elements: Ice, Thunder; Status: None)</em></li>
+<li><strong>Blangonga + Toridcless</strong> → Wind (風) / None <em>(Elements: Ice, Thunder; Status: None)</em></li>
+<li><strong>Bogabadorumu + Daimyo Hermitaur</strong> → Water / Blast <em>(Elements: Water; Status: Blast)</em></li>
+<li><strong>Bogabadorumu + Doragyurosu</strong> → Dragon / Blast <em>(Elements: Dragon; Status: Blast)</em></li>
+<li><strong>Bogabadorumu + Giaorugu</strong> → Ice / Blast <em>(Elements: Ice; Status: Blast)</em></li>
+<li><strong>Bogabadorumu + Gravios</strong> → Fire / Blast <em>(Elements: Fire; Status: Blast)</em></li>
+<li><strong>Bogabadorumu + Khezu</strong> → Thunder / Blast <em>(Elements: Thunder; Status: Blast, Paralysis)</em></li>
+<li><strong>Bogabadorumu + Khezu</strong> → Thunder / Paralysis <em>(Elements: Thunder; Status: Blast, Paralysis)</em></li>
+<li><strong>Bogabadorumu + Midogaron</strong> → Fire / Blast <em>(Elements: Fire; Status: Blast)</em></li>
+<li><strong>Bogabadorumu + Plesioth</strong> → Water / Blast <em>(Elements: Water; Status: Blast)</em></li>
+<li><strong>Bogabadorumu + Rathalos</strong> → Fire / Blast <em>(Elements: Fire; Status: Blast)</em></li>
+<li><strong>Bogabadorumu + Rukodiora</strong> → Dragon / Blast <em>(Elements: Dragon; Status: Blast, Paralysis)</em></li>
+<li><strong>Bogabadorumu + Rukodiora</strong> → Dragon / Paralysis <em>(Elements: Dragon; Status: Blast, Paralysis)</em></li>
+<li><strong>Bogabadorumu + Taikun Zamuza</strong> → Thunder / Blast <em>(Elements: Thunder; Status: Blast)</em></li>
+<li><strong>Bogabadorumu + Toridcless</strong> → Thunder / Blast <em>(Elements: Thunder; Status: Blast)</em></li>
+<li><strong>Daimyo Hermitaur + Doragyurosu</strong> → Sound (鳴) / Blast <em>(Elements: Dragon, Water; Status: Blast)</em></li>
+<li><strong>Daimyo Hermitaur + Espinas</strong> → Water / Blast <em>(Elements: Water; Status: Blast, Poison)</em></li>
+<li><strong>Daimyo Hermitaur + Espinas</strong> → Water / Poison <em>(Elements: Water; Status: Blast, Poison)</em></li>
+<li><strong>Daimyo Hermitaur + Gasurabazura</strong> → Water / Blast <em>(Elements: Water; Status: Blast, Poison)</em></li>
+<li><strong>Daimyo Hermitaur + Gasurabazura</strong> → Water / Poison <em>(Elements: Water; Status: Blast, Poison)</em></li>
+<li><strong>Daimyo Hermitaur + Giaorugu</strong> → Music (奏) / Blast <em>(Elements: Ice, Water; Status: Blast)</em></li>
+<li><strong>Daimyo Hermitaur + Gravios + Khezu</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast, Paralysis)</em></li>
+<li><strong>Daimyo Hermitaur + Gravios + Taikun Zamuza</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast)</em></li>
+<li><strong>Daimyo Hermitaur + Gravios + Toridcless</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast)</em></li>
+<li><strong>Daimyo Hermitaur + Harudomerugu</strong> → Water / Blast <em>(Elements: Water; Status: Blast)</em></li>
+<li><strong>Daimyo Hermitaur + Hypnocatrice</strong> → Water / Blast <em>(Elements: Water; Status: Blast, Sleep)</em></li>
+<li><strong>Daimyo Hermitaur + Hypnocatrice</strong> → Water / Sleep <em>(Elements: Water; Status: Blast, Sleep)</em></li>
+<li><strong>Daimyo Hermitaur + Hyujikiki</strong> → Water / Blast <em>(Elements: Water; Status: Blast)</em></li>
+<li><strong>Daimyo Hermitaur + Inagami</strong> → Water / Blast <em>(Elements: Water; Status: Blast, Sleep)</em></li>
+<li><strong>Daimyo Hermitaur + Inagami</strong> → Water / Sleep <em>(Elements: Water; Status: Blast, Sleep)</em></li>
+<li><strong>Daimyo Hermitaur + Khezu + Midogaron</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast, Paralysis)</em></li>
+<li><strong>Daimyo Hermitaur + Khezu + Rathalos</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast, Paralysis)</em></li>
+<li><strong>Daimyo Hermitaur + Midogaron + Taikun Zamuza</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast)</em></li>
+<li><strong>Daimyo Hermitaur + Midogaron + Toridcless</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast)</em></li>
+<li><strong>Daimyo Hermitaur + Plesioth</strong> → Water / Blast <em>(Elements: Water; Status: Blast)</em></li>
+<li><strong>Daimyo Hermitaur + Rathalos + Taikun Zamuza</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast)</em></li>
+<li><strong>Daimyo Hermitaur + Rathalos + Toridcless</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast)</em></li>
+<li><strong>Daimyo Hermitaur + Rukodiora</strong> → Sound (鳴) / Blast <em>(Elements: Dragon, Water; Status: Blast, Paralysis)</em></li>
+<li><strong>Daimyo Hermitaur + Rukodiora</strong> → Sound (鳴) / Paralysis <em>(Elements: Dragon, Water; Status: Blast, Paralysis)</em></li>
+<li><strong>Doragyurosu + Espinas</strong> → Dragon / Poison <em>(Elements: Dragon; Status: Poison)</em></li>
+<li><strong>Doragyurosu + Gasurabazura</strong> → Dragon / Poison <em>(Elements: Dragon; Status: Poison)</em></li>
+<li><strong>Doragyurosu + Giaorugu</strong> → Dark (闇) / None <em>(Elements: Dragon, Ice; Status: None)</em></li>
+<li><strong>Doragyurosu + Giaorugu + Gravios</strong> → Okiko (微熱) / Blast <em>(Elements: Dragon, Fire, Ice; Status: Blast)</em></li>
+<li><strong>Doragyurosu + Giaorugu + Midogaron</strong> → Okiko (微熱) / None <em>(Elements: Dragon, Fire, Ice; Status: None)</em></li>
+<li><strong>Doragyurosu + Giaorugu + Rathalos</strong> → Okiko (微熱) / None <em>(Elements: Dragon, Fire, Ice; Status: None)</em></li>
+<li><strong>Doragyurosu + Gravios</strong> → Crimson D. (紅蓮) / Blast <em>(Elements: Dragon, Fire; Status: Blast)</em></li>
+<li><strong>Doragyurosu + Harudomerugu</strong> → Dragon / None <em>(Elements: Dragon; Status: None)</em></li>
+<li><strong>Doragyurosu + Hypnocatrice</strong> → Dragon / Sleep <em>(Elements: Dragon; Status: Sleep)</em></li>
+<li><strong>Doragyurosu + Hyujikiki</strong> → Dragon / None <em>(Elements: Dragon; Status: None)</em></li>
+<li><strong>Doragyurosu + Inagami</strong> → Dragon / Sleep <em>(Elements: Dragon; Status: Sleep)</em></li>
+<li><strong>Doragyurosu + Khezu</strong> → Emp. Roar (皇鳴) / Paralysis <em>(Elements: Dragon, Thunder; Status: Paralysis)</em></li>
+<li><strong>Doragyurosu + Midogaron</strong> → Crimson D. (紅蓮) / None <em>(Elements: Dragon, Fire; Status: None)</em></li>
+<li><strong>Doragyurosu + Plesioth</strong> → Sound (鳴) / None <em>(Elements: Dragon, Water; Status: None)</em></li>
+<li><strong>Doragyurosu + Rathalos</strong> → Crimson D. (紅蓮) / None <em>(Elements: Dragon, Fire; Status: None)</em></li>
+<li><strong>Doragyurosu + Rukodiora</strong> → Dragon / Paralysis <em>(Elements: Dragon; Status: Paralysis)</em></li>
+<li><strong>Doragyurosu + Taikun Zamuza</strong> → Emp. Roar (皇鳴) / None <em>(Elements: Dragon, Thunder; Status: None)</em></li>
+<li><strong>Doragyurosu + Toridcless</strong> → Emp. Roar (皇鳴) / None <em>(Elements: Dragon, Thunder; Status: None)</em></li>
+<li><strong>Espinas + Giaorugu</strong> → Ice / Poison <em>(Elements: Ice; Status: Poison)</em></li>
+<li><strong>Espinas + Gravios</strong> → Fire / Blast <em>(Elements: Fire; Status: Blast, Poison)</em></li>
+<li><strong>Espinas + Gravios</strong> → Fire / Poison <em>(Elements: Fire; Status: Blast, Poison)</em></li>
+<li><strong>Espinas + Khezu</strong> → Thunder / Poison <em>(Elements: Thunder; Status: Paralysis, Poison)</em></li>
+<li><strong>Espinas + Khezu</strong> → Thunder / Paralysis <em>(Elements: Thunder; Status: Paralysis, Poison)</em></li>
+<li><strong>Espinas + Midogaron</strong> → Fire / Poison <em>(Elements: Fire; Status: Poison)</em></li>
+<li><strong>Espinas + Plesioth</strong> → Water / Poison <em>(Elements: Water; Status: Poison)</em></li>
+<li><strong>Espinas + Rathalos</strong> → Fire / Poison <em>(Elements: Fire; Status: Poison)</em></li>
+<li><strong>Espinas + Rukodiora</strong> → Dragon / Poison <em>(Elements: Dragon; Status: Paralysis, Poison)</em></li>
+<li><strong>Espinas + Rukodiora</strong> → Dragon / Paralysis <em>(Elements: Dragon; Status: Paralysis, Poison)</em></li>
+<li><strong>Espinas + Taikun Zamuza</strong> → Thunder / Poison <em>(Elements: Thunder; Status: Poison)</em></li>
+<li><strong>Espinas + Toridcless</strong> → Thunder / Poison <em>(Elements: Thunder; Status: Poison)</em></li>
+<li><strong>Gasurabazura + Giaorugu</strong> → Ice / Poison <em>(Elements: Ice; Status: Poison)</em></li>
+<li><strong>Gasurabazura + Gravios</strong> → Fire / Poison <em>(Elements: Fire; Status: Blast, Poison)</em></li>
+<li><strong>Gasurabazura + Gravios</strong> → Fire / Blast <em>(Elements: Fire; Status: Blast, Poison)</em></li>
+<li><strong>Gasurabazura + Khezu</strong> → Thunder / Poison <em>(Elements: Thunder; Status: Paralysis, Poison)</em></li>
+<li><strong>Gasurabazura + Khezu</strong> → Thunder / Paralysis <em>(Elements: Thunder; Status: Paralysis, Poison)</em></li>
+<li><strong>Gasurabazura + Midogaron</strong> → Fire / Poison <em>(Elements: Fire; Status: Poison)</em></li>
+<li><strong>Gasurabazura + Plesioth</strong> → Water / Poison <em>(Elements: Water; Status: Poison)</em></li>
+<li><strong>Gasurabazura + Rathalos</strong> → Fire / Poison <em>(Elements: Fire; Status: Poison)</em></li>
+<li><strong>Gasurabazura + Rukodiora</strong> → Dragon / Poison <em>(Elements: Dragon; Status: Paralysis, Poison)</em></li>
+<li><strong>Gasurabazura + Rukodiora</strong> → Dragon / Paralysis <em>(Elements: Dragon; Status: Paralysis, Poison)</em></li>
+<li><strong>Gasurabazura + Taikun Zamuza</strong> → Thunder / Poison <em>(Elements: Thunder; Status: Poison)</em></li>
+<li><strong>Gasurabazura + Toridcless</strong> → Thunder / Poison <em>(Elements: Thunder; Status: Poison)</em></li>
+<li><strong>Giaorugu + Gravios</strong> → Burning Zero (灼零) / Blast <em>(Elements: Fire, Ice; Status: Blast)</em></li>
+<li><strong>Giaorugu + Gravios + Rukodiora</strong> → Okiko (微熱) / Blast <em>(Elements: Dragon, Fire, Ice; Status: Blast, Paralysis)</em></li>
+<li><strong>Giaorugu + Harudomerugu</strong> → Ice / None <em>(Elements: Ice; Status: None)</em></li>
+<li><strong>Giaorugu + Hypnocatrice</strong> → Ice / Sleep <em>(Elements: Ice; Status: Sleep)</em></li>
+<li><strong>Giaorugu + Hyujikiki</strong> → Ice / None <em>(Elements: Ice; Status: None)</em></li>
+<li><strong>Giaorugu + Inagami</strong> → Ice / Sleep <em>(Elements: Ice; Status: Sleep)</em></li>
+<li><strong>Giaorugu + Khezu</strong> → Wind (風) / Paralysis <em>(Elements: Ice, Thunder; Status: Paralysis)</em></li>
+<li><strong>Giaorugu + Midogaron</strong> → Burning Zero (灼零) / None <em>(Elements: Fire, Ice; Status: None)</em></li>
+<li><strong>Giaorugu + Midogaron + Rukodiora</strong> → Okiko (微熱) / Paralysis <em>(Elements: Dragon, Fire, Ice; Status: Paralysis)</em></li>
+<li><strong>Giaorugu + Plesioth</strong> → Music (奏) / None <em>(Elements: Ice, Water; Status: None)</em></li>
+<li><strong>Giaorugu + Rathalos</strong> → Burning Zero (灼零) / None <em>(Elements: Fire, Ice; Status: None)</em></li>
+<li><strong>Giaorugu + Rathalos + Rukodiora</strong> → Okiko (微熱) / Paralysis <em>(Elements: Dragon, Fire, Ice; Status: Paralysis)</em></li>
+<li><strong>Giaorugu + Rukodiora</strong> → Dark (闇) / Paralysis <em>(Elements: Dragon, Ice; Status: Paralysis)</em></li>
+<li><strong>Giaorugu + Taikun Zamuza</strong> → Wind (風) / None <em>(Elements: Ice, Thunder; Status: None)</em></li>
+<li><strong>Giaorugu + Toridcless</strong> → Wind (風) / None <em>(Elements: Ice, Thunder; Status: None)</em></li>
+<li><strong>Gravios + Harudomerugu</strong> → Fire / Blast <em>(Elements: Fire; Status: Blast)</em></li>
+<li><strong>Gravios + Hypnocatrice</strong> → Fire / Blast <em>(Elements: Fire; Status: Blast, Sleep)</em></li>
+<li><strong>Gravios + Hypnocatrice</strong> → Fire / Sleep <em>(Elements: Fire; Status: Blast, Sleep)</em></li>
+<li><strong>Gravios + Hyujikiki</strong> → Fire / Blast <em>(Elements: Fire; Status: Blast)</em></li>
+<li><strong>Gravios + Inagami</strong> → Fire / Blast <em>(Elements: Fire; Status: Blast, Sleep)</em></li>
+<li><strong>Gravios + Inagami</strong> → Fire / Sleep <em>(Elements: Fire; Status: Blast, Sleep)</em></li>
+<li><strong>Gravios + Khezu</strong> → Light (光) / Paralysis <em>(Elements: Fire, Thunder; Status: Blast, Paralysis)</em></li>
+<li><strong>Gravios + Khezu</strong> → Light (光) / Blast <em>(Elements: Fire, Thunder; Status: Blast, Paralysis)</em></li>
+<li><strong>Gravios + Khezu + Plesioth</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast, Paralysis)</em></li>
+<li><strong>Gravios + Midogaron</strong> → Fire / Blast <em>(Elements: Fire; Status: Blast)</em></li>
+<li><strong>Gravios + Plesioth + Taikun Zamuza</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast)</em></li>
+<li><strong>Gravios + Plesioth + Toridcless</strong> → Tenshou (天翔) / Blast <em>(Elements: Fire, Thunder, Water; Status: Blast)</em></li>
+<li><strong>Gravios + Rathalos</strong> → Fire / Blast <em>(Elements: Fire; Status: Blast)</em></li>
+<li><strong>Gravios + Rukodiora</strong> → Crimson D. (紅蓮) / Blast <em>(Elements: Dragon, Fire; Status: Blast, Paralysis)</em></li>
+<li><strong>Gravios + Rukodiora</strong> → Crimson D. (紅蓮) / Paralysis <em>(Elements: Dragon, Fire; Status: Blast, Paralysis)</em></li>
+<li><strong>Gravios + Taikun Zamuza</strong> → Light (光) / Blast <em>(Elements: Fire, Thunder; Status: Blast)</em></li>
+<li><strong>Gravios + Toridcless</strong> → Light (光) / Blast <em>(Elements: Fire, Thunder; Status: Blast)</em></li>
+<li><strong>Harudomerugu + Khezu</strong> → Thunder / Paralysis <em>(Elements: Thunder; Status: Paralysis)</em></li>
+<li><strong>Harudomerugu + Midogaron</strong> → Fire / None <em>(Elements: Fire; Status: None)</em></li>
+<li><strong>Harudomerugu + Plesioth</strong> → Water / None <em>(Elements: Water; Status: None)</em></li>
+<li><strong>Harudomerugu + Rathalos</strong> → Fire / None <em>(Elements: Fire; Status: None)</em></li>
+<li><strong>Harudomerugu + Rukodiora</strong> → Dragon / Paralysis <em>(Elements: Dragon; Status: Paralysis)</em></li>
+<li><strong>Harudomerugu + Taikun Zamuza</strong> → Thunder / None <em>(Elements: Thunder; Status: None)</em></li>
+<li><strong>Harudomerugu + Toridcless</strong> → Thunder / None <em>(Elements: Thunder; Status: None)</em></li>
+<li><strong>Hypnocatrice + Khezu</strong> → Thunder / Paralysis <em>(Elements: Thunder; Status: Paralysis, Sleep)</em></li>
+<li><strong>Hypnocatrice + Khezu</strong> → Thunder / Sleep <em>(Elements: Thunder; Status: Paralysis, Sleep)</em></li>
+<li><strong>Hypnocatrice + Midogaron</strong> → Fire / Sleep <em>(Elements: Fire; Status: Sleep)</em></li>
+<li><strong>Hypnocatrice + Plesioth</strong> → Water / Sleep <em>(Elements: Water; Status: Sleep)</em></li>
+<li><strong>Hypnocatrice + Rathalos</strong> → Fire / Sleep <em>(Elements: Fire; Status: Sleep)</em></li>
+<li><strong>Hypnocatrice + Rukodiora</strong> → Dragon / Paralysis <em>(Elements: Dragon; Status: Paralysis, Sleep)</em></li>
+<li><strong>Hypnocatrice + Rukodiora</strong> → Dragon / Sleep <em>(Elements: Dragon; Status: Paralysis, Sleep)</em></li>
+<li><strong>Hypnocatrice + Taikun Zamuza</strong> → Thunder / Sleep <em>(Elements: Thunder; Status: Sleep)</em></li>
+<li><strong>Hypnocatrice + Toridcless</strong> → Thunder / Sleep <em>(Elements: Thunder; Status: Sleep)</em></li>
+<li><strong>Hyujikiki + Khezu</strong> → Thunder / Paralysis <em>(Elements: Thunder; Status: Paralysis)</em></li>
+<li><strong>Hyujikiki + Midogaron</strong> → Fire / None <em>(Elements: Fire; Status: None)</em></li>
+<li><strong>Hyujikiki + Plesioth</strong> → Water / None <em>(Elements: Water; Status: None)</em></li>
+<li><strong>Hyujikiki + Rathalos</strong> → Fire / None <em>(Elements: Fire; Status: None)</em></li>
+<li><strong>Hyujikiki + Rukodiora</strong> → Dragon / Paralysis <em>(Elements: Dragon; Status: Paralysis)</em></li>
+<li><strong>Hyujikiki + Taikun Zamuza</strong> → Thunder / None <em>(Elements: Thunder; Status: None)</em></li>
+<li><strong>Hyujikiki + Toridcless</strong> → Thunder / None <em>(Elements: Thunder; Status: None)</em></li>
+<li><strong>Inagami + Khezu</strong> → Thunder / Paralysis <em>(Elements: Thunder; Status: Paralysis, Sleep)</em></li>
+<li><strong>Inagami + Khezu</strong> → Thunder / Sleep <em>(Elements: Thunder; Status: Paralysis, Sleep)</em></li>
+<li><strong>Inagami + Midogaron</strong> → Fire / Sleep <em>(Elements: Fire; Status: Sleep)</em></li>
+<li><strong>Inagami + Plesioth</strong> → Water / Sleep <em>(Elements: Water; Status: Sleep)</em></li>
+<li><strong>Inagami + Rathalos</strong> → Fire / Sleep <em>(Elements: Fire; Status: Sleep)</em></li>
+<li><strong>Inagami + Rukodiora</strong> → Dragon / Paralysis <em>(Elements: Dragon; Status: Paralysis, Sleep)</em></li>
+<li><strong>Inagami + Rukodiora</strong> → Dragon / Sleep <em>(Elements: Dragon; Status: Paralysis, Sleep)</em></li>
+<li><strong>Inagami + Taikun Zamuza</strong> → Thunder / Sleep <em>(Elements: Thunder; Status: Sleep)</em></li>
+<li><strong>Inagami + Toridcless</strong> → Thunder / Sleep <em>(Elements: Thunder; Status: Sleep)</em></li>
+<li><strong>Khezu + Midogaron</strong> → Light (光) / Paralysis <em>(Elements: Fire, Thunder; Status: Paralysis)</em></li>
+<li><strong>Khezu + Midogaron + Plesioth</strong> → Tenshou (天翔) / Paralysis <em>(Elements: Fire, Thunder, Water; Status: Paralysis)</em></li>
+<li><strong>Khezu + Plesioth + Rathalos</strong> → Tenshou (天翔) / Paralysis <em>(Elements: Fire, Thunder, Water; Status: Paralysis)</em></li>
+<li><strong>Khezu + Rathalos</strong> → Light (光) / Paralysis <em>(Elements: Fire, Thunder; Status: Paralysis)</em></li>
+<li><strong>Khezu + Rukodiora</strong> → Emp. Roar (皇鳴) / Paralysis <em>(Elements: Dragon, Thunder; Status: Paralysis)</em></li>
+<li><strong>Khezu + Taikun Zamuza</strong> → Thunder / Paralysis <em>(Elements: Thunder; Status: Paralysis)</em></li>
+<li><strong>Khezu + Toridcless</strong> → Thunder / Paralysis <em>(Elements: Thunder; Status: Paralysis)</em></li>
+<li><strong>Midogaron + Plesioth + Taikun Zamuza</strong> → Tenshou (天翔) / None <em>(Elements: Fire, Thunder, Water; Status: None)</em></li>
+<li><strong>Midogaron + Plesioth + Toridcless</strong> → Tenshou (天翔) / None <em>(Elements: Fire, Thunder, Water; Status: None)</em></li>
+<li><strong>Midogaron + Rathalos</strong> → Fire / None <em>(Elements: Fire; Status: None)</em></li>
+<li><strong>Midogaron + Rukodiora</strong> → Crimson D. (紅蓮) / Paralysis <em>(Elements: Dragon, Fire; Status: Paralysis)</em></li>
+<li><strong>Midogaron + Taikun Zamuza</strong> → Light (光) / None <em>(Elements: Fire, Thunder; Status: None)</em></li>
+<li><strong>Midogaron + Toridcless</strong> → Light (光) / None <em>(Elements: Fire, Thunder; Status: None)</em></li>
+<li><strong>Plesioth + Rathalos + Taikun Zamuza</strong> → Tenshou (天翔) / None <em>(Elements: Fire, Thunder, Water; Status: None)</em></li>
+<li><strong>Plesioth + Rathalos + Toridcless</strong> → Tenshou (天翔) / None <em>(Elements: Fire, Thunder, Water; Status: None)</em></li>
+<li><strong>Plesioth + Rukodiora</strong> → Sound (鳴) / Paralysis <em>(Elements: Dragon, Water; Status: Paralysis)</em></li>
+<li><strong>Rathalos + Rukodiora</strong> → Crimson D. (紅蓮) / Paralysis <em>(Elements: Dragon, Fire; Status: Paralysis)</em></li>
+<li><strong>Rathalos + Taikun Zamuza</strong> → Light (光) / None <em>(Elements: Fire, Thunder; Status: None)</em></li>
+<li><strong>Rathalos + Toridcless</strong> → Light (光) / None <em>(Elements: Fire, Thunder; Status: None)</em></li>
+<li><strong>Rukodiora + Taikun Zamuza</strong> → Emp. Roar (皇鳴) / Paralysis <em>(Elements: Dragon, Thunder; Status: Paralysis)</em></li>
+<li><strong>Rukodiora + Toridcless</strong> → Emp. Roar (皇鳴) / Paralysis <em>(Elements: Dragon, Thunder; Status: Paralysis)</em></li>
+<li><strong>Taikun Zamuza + Toridcless</strong> → Thunder / None <em>(Elements: Thunder; Status: None)</em></li>
+</ul></details>
+</body>
+</html>
