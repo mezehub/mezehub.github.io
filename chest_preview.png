@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.25">
+    <meta property="og:title" content="Raviente Rebalance">
+    <meta property="og:description" content="Overview of the Raviente Rebalance update: ticket exchanges, Divine Power Gem changes, and transmogs.">
+    <meta property="og:url" content="https://mezehub.github.io/Raviente Rebalance">
+    <meta property="og:image" content="https://mezehub.github.io/images/mezehub.png">
+    <meta property="og:type" content="website">
+    <title>Raviente Rebalance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../images/mezehub.png" type="image/gif">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+          body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            color: #343a40;
+            height: 100vh;
+            padding-top: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            z-index: 1000;
+            border-right: 1px solid #ddd;
+        }
+
+            color: #343a40;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+       
+
+        .sidebar .accordion-button {
+            background-color: #fff;
+            color: #343a40;
+            border: none;
+        }
+
+        .sidebar .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .sidebar .accordion-item {
+            border: none;
+        }
+
+        .sidebar .accordion-collapse {
+            background-color: #f8f9fa;
+        }
+
+        .main-content {
+            margin-left: 270px;
+            margin-right: 220px;
+            padding: 20px;
+            flex-grow: 1;
+            background-color: #ffffff;
+            color: #7030a0;
+        }
+
+        .right-sidebar {
+            width: 200px;
+            background-color: #fff;
+            color: #343a40;
+            height: 100vh;
+            padding: 10px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            overflow-y: auto;
+            z-index: 1000;
+            border-left: 1px solid #ddd;
+        }
+body.dark .right-sidebar a {
+    color: white !important;
+}
+        .right-sidebar a {
+            color: #7030a0;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .right-sidebar a:hover {
+            background-color: #f8f9fa;
+        }
+
+        .navbar-toggler {
+            display: inline-block;
+            border: none;
+            background: none;
+            outline: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .navbar-toggler span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #7030a0;
+            margin: 5px 0.
+        }
+
+        .hamburger-container {
+            display: none;
+        }
+
+        .images-container img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-container {
+                display: block;
+            }
+
+            .sidebar {
+                width: 200px;
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                z-index: 999;
+                background-color: #fff;
+                padding-top: 60px;
+            }
+
+            .sidebar.show {
+                display: block;
+            }
+
+            .right-sidebar {
+                width: 200px;
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100%;
+                z-index: 999;
+                background-color: #fff;
+                padding-top: 60px;
+            }
+
+            .right-sidebar.show {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+                margin-right: 0;
+                padding: 10px;
+            }
+
+            .navbar-toggler {
+                display: inline-block;
+            }
+        }
+
+        table {
+            width: 100%;
+            color: #7030a0;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+.right-sidebar {
+    padding-top: 60px !important;
+}
+        th,
+        td {
+            padding: 8px;
+            border: 1px solid #7030a0;
+            text-align: left;
+        }
+
+        th {
+            background-color: #7030a0;
+            color: #ffffff;
+        }
+
+        td {
+            background-color: #ffffff;
+            color: #7030a0;
+        }
+
+        body.dark .sidebar,
+body.dark .right-sidebar {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+body.dark .sidebar a,
+body.dark .right-sidebar a {
+    color: #ffffff;
+}
+
+body.dark .right-sidebar a:hover {
+    background-color: #222222;
+}
+
+body.dark .main-content {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+body.dark h1, body.dark h2, body.dark p {
+    color: #ffffff;
+}
+
+body.dark table {
+    border-color: #791313;
+    color: #7a2f2f;
+}
+
+body.dark th {
+    background-color: #222222;
+}
+
+body.dark td {
+    background-color: #222222;
+    color: #ffffff;
+}
+body.dark strong { 
+    color: #E89FFF ! important; 
+}
+
+body.dark h2 { 
+    color: #E89FFF ! important; 
+}
+
+body.dark p { 
+    color: #ffffff ! important; 
+}
+        
+
+
+
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.querySelector('.navbar-toggler');
+            const sidebar = document.getElementById('sidebar');
+            const rightSidebar = document.getElementById('right-sidebar');
+
+            toggleButton.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                rightSidebar.classList.toggle('show');
+                toggleButton.classList.toggle('active');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="hamburger-container">
+        <button class="navbar-toggler" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <a href="../index.html">
+            <img src="../images/mezehub.png" alt="Logo" class="logo" style="width: 200px;"></a>
+                    <div class="accordion" id="accordionExample">
+                        <br>  
+                        <div class="accordion-item">
+                                    <a class="btn manual-download" href="/index.html">
+                                            <img class="btn-logo" src="/images/original.png" alt="Logo">
+                                            <span class="btn-text">Home</span>
+                                        </a>
+                        </div>            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+
+                        General Achievements
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link role-crown" href="/achievements/crown-hunter.html">🏆 Crown Hunter</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-master999" href="/achievements/master-of-999.html">⭐ Master of 999</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-prayergod" href="/achievements/prayer-god.html">⭐ Prayer God</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-monstiecollector" href="/achievements/monstie-collector.html">🏅 Wallpaper Enthusiast</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        Hunting Road Achievements
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class ="nav-link role-z4roadlegend" href="/achievements/z4-road-legend.html">🎗️Z4 Road Legend</a>
+                            </li>
+                           <li class="nav-item">
+                                <a class="nav-link role-roadmaster" href="/achievements/road-master.html">💀 Road Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-z4roadmaster" href="/achievements/z4-road-master.html">💀 Z4 Road Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-z4easy" href="/achievements/z4-easy.html">♘ Z4 Easy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lonewolf" href="/achievements/lone-wolf.html">✹ Lone Wolf</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-masterofallweapons" href="/achievements/master-of-all-weapons.html">🏅 Master of All Weapons</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-sns" href="/achievements/sns-master.html">🏅 SNS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-ds" href="/achievements/ds-master.html">🏅 DS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-gs" href="/achievements/gs-master.html">🏅 GS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-ls" href="/achievements/ls-master.html">🏅 LS Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hammer" href="/achievements/hammer-master.html">🏅 Hammer Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hh" href="/achievements/hh-master.html">🏅 HH Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lance" href="/achievements/lance-master.html">🏅 Lance Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-gl" href="/achievements/gl-master.html">🏅 GL Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-swaxe" href="/achievements/swaxe-master.html">🏅 Swaxe Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-tonfa" href="/achievements/tonfa-master.html">🏅 Tonfa Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-lbg" href="/achievements/lbg-master.html">🏅 LBG Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-hbg" href="/achievements/hbg-master.html">🏅 HBG Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-bow" href="/achievements/bow-master.html">🏅 Bow Master</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link role-bow" href="/achievements/achievements-stats.html">🏅 Achievements Stats</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Achievement Guides
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/guides/">Hunting Road Achievement Guides</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        General Guides
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Server-Essentials/">MezeLounge Server Essentials</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Refinement/">Decoration Refinement Guide</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Hiden/">Hiden Armor & Deco Guide</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a class = "nav-link" href = "/UL Zeniths/">UL Zenith Update</li>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Raviente Rebalance/">Raviente Rebalance</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        Server Resources
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/achievements-roles/">MezeLounge Achievement Roles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/eventcalendar/">MezeLounge Event Calendar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/transmogs/">MezeLounge Transmog Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/gacha/">MezeLounge Gacha</a>
+                            </li>
+                            <li class="nav-item"></li>
+                            <a class="nav-link" href="/hunting-road-shop/">Hunting Road Shop</a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div id="cogwheel"></div>
+
+        <div class="description">
+            <h1 id="top" style="text-align: center;"><strong>Raviente Rebalance</strong></h1>
+            <p style="text-align: center;"><em>Published: July 14, 2025 | Updated: July 30, 2025</em></p>
+            <hr>
+            <div class="images-container" style="justify-content: center; display: flex;">
+                <img src="images/raviente.png" alt="Raviente" style="max-width: 480px; width: 100%; height: auto; margin: 20px auto;">
+            </div>
+
+            <p>The purpose of this rebalance is to achieve the following:</p>
+            <ul>
+                <li>Centralize the main source for Raviente equipment (Decorations, Weapons) away from the Road Shop.</li>
+            </ul>
+
+            <p><strong>What this means:</strong></p>
+            <ul>
+                <li>Divine Power Gems have been adjusted to be much more efficient to farm from Raviente, than Hunting Road.</li>
+                <li>Raviente Decorations are now much more efficient to farm from Raviente, than Hunting Road.</li>
+            </ul>
+
+            <p><strong>✽ Raviente Decorations and Divine Power Gems are still accessible via the Roadshop, however at an increased price rate.</strong></p>
+            <p>This update serves as a way to increase options for players and incentivize farming the materials from the original source.</p>
+
+            <h2 id="rebalance-outline" style="text-align: center;">Rebalance Outline</h2>
+            <p style="text-align: center;"><strong>The loot/drop system for Raviente and its rewards have changed.</strong></p>
+            <p><strong>Here is an outline:</strong></p>
+
+            <p><strong>✽ The following items have been added to drop from Berserk & Extreme Raviente:</strong></p>
+
+            <p>- <strong>Ravi Deco Tkt</strong> (Used to exchange for Berserk, Violent, and Normal Raviente Decorations)</p>
+            <div style="margin: 15px 0;">
+                <img src="images/ravi_deco_tkt.png" alt="Ravi Deco Tkt" style="max-width: 360px; width: 100%; height: auto; display: block;">
+            </div>
+
+            <p>- <strong>EX Ravi Deco Tkt</strong> (Used to exchange for Extreme Raviente Decorations)</p>
+            <div style="margin: 15px 0;">
+                <img src="images/ex_ravi_deco_tkt.png" alt="EX Ravi Deco Tkt" style="max-width: 360px; width: 100%; height: auto; display: block;">
+            </div>
+
+            <p>- <strong>Ravi Transmog Tkt</strong> (Used to exchange for Raviente Transmogs)</p>
+            <div style="margin: 15px 0;">
+                <img src="images/ravi_transmog_tkt.png" alt="Ravi Transmog Tkt" style="max-width: 360px; width: 100%; height: auto; display: block;">
+            </div>
+
+            <p><strong>✽ The following item has been added to the Road Shop (5 RDP) with a restriction of GR999:</strong></p>
+
+            <p>- <strong>Ravi Combiner Tkt</strong> (Used to access Raviente Combiner Exchanges)</p>
+            <div style="margin: 15px 0;">
+                <img src="images/ravi_combiner_tkt.png" alt="Ravi Combiner Tkt" style="max-width: 360px; width: 100%; height: auto; display: block;">
+            </div>
+
+            <p>This is essential to avoid abuse of the new exchange system before reaching max GR.</p>
+
+            <h2 id="decoration-exchange" style="text-align: center;">Decoration Exchange</h2>
+            <p>After slaying Berserk/Extreme Raviente, you will receive guaranteed drops of either <strong>"Ravi Deco Tkt"</strong> or <strong>"EX Ravi Deco Tkt"</strong>.</p>
+            <p>By taking these tickets to the combiner, you can exchange them for decorations.</p>
+            <p>Navigate to the <strong>"Premium Tickets"</strong> option at the Combiner NPC.</p>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="images/premium_tickets.png" alt="Premium Tickets Combiner Menu" style="max-width: 100%; height: auto; display: inline-block;">
+            </div>
+
+            <p><strong>Ravi Deco Tkt</strong> will only drop from Berserk Raviente, and can be used to exchange for all level of Raviente Decorations, however will cost more tickets to exchange for Extreme Raviente Decorations.</p>
+            <p><strong>EX Ravi Deco Tkt</strong> will only drop from Extreme Raviente, and can be used to exchange for all Raviente Decorations at a cheaper exchange rate.</p>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="images/extreme_ravi_recipes.png" alt="Extreme Ravi Deco Recipes" style="max-width: 560px; width: 100%; height: auto; display: inline-block;">
+            </div>
+
+            <p>As shown above, it will require a larger amount of Ravi Deco Tickets to exchange for an Extreme Raviente Decoration, compared to other levels.</p>
+            <p>To utilize the exchange, remember to purchase Ravi Combiner tickets from the Road Shop.</p>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="images/combiner_5rdp.png" alt="Ravi Combiner Tkt — 5 RdP" style="max-width: 420px; width: 100%; height: auto; display: inline-block;">
+            </div>
+
+            <p><strong>✽ Remember, you can still craft decorations with the material drops from Raviente via refining!</strong></p>
+            <p>Refer to the <a href="/Refinement/" style="color: #7030a0;"><strong>Decoration Refinement Guide</strong></a> for detailed information.</p>
+
+            <h2 id="divine-power-gems" style="text-align: center;">Divine Power Gems</h2>
+            <p>As mentioned above, the amount of <strong>Divine Power Gems</strong> dropped has been substantially increased.</p>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="images/dpg_screen.png" alt="Divine Power Gem Reward Screen" style="max-width: 420px; width: 100%; height: auto; display: inline-block;">
+            </div>
+
+            <p>Lesser gems such as <strong>Heavy Power Gem</strong> &amp; <strong>True Power Gem</strong> have been removed from the Berserk/Extreme Raviente reward pool.</p>
+            <p>The Reward pool now instead features fixed Divine Power Gem drops across the hunt.</p>
+
+            <p>Here is a breakdown of the drops for <strong>Berserk Raviente</strong>:</p>
+            <p><strong>Gems per Phase:</strong></p>
+            <ul>
+                <li><strong>Phase 1:</strong> 10,000 Divine Power Gems</li>
+                <li><strong>Phase 2:</strong> 10,000 Divine Power Gems</li>
+                <li><strong>Phase 3:</strong> 10,000 Divine Power Gems</li>
+                <li><strong>Phase 4:</strong> 10,000 Divine Power Gems</li>
+                <li><strong>Phase 5:</strong> 10,000 Divine Power Gems</li>
+                <li><strong>Carve Phase:</strong> 25,000 Divine Power Gems (with bonus chance for more)</li>
+                <li><strong>Total (fixed) per run:</strong> 75,000 Divine Power Gems</li>
+            </ul>
+
+            <p>Killing Berserk Raviente 6 times will yield a guarantee of <strong>450,000 Divine Power Gems</strong>, which currently equates to <strong>1,350,000 Road Points</strong>.</p>
+            <p><strong>✽ During the Bi-Weekly Raviente Event, reward skills will be enabled!</strong> This means you can bring Lucky Charms onto the Carve Quest for bonus gems.</p>
+            <p><strong>✽ Extreme Raviente drops double the amount of gems, compared to Berserk Raviente.</strong></p>
+
+            <h2 id="transmogs" style="text-align: center;">Transmogs</h2>
+            <p style="text-align: center;"><strong>With this update comes the ability to transmog Raviente Armor!</strong></p>
+            <p>First, make sure to have some transmog ticket drops from Raviente.</p>
+            <p>To view/unlock them, navigate to the Smithy, and go through this option path: <strong>[Armors → Transmog → Unlock Transmog → [Armor Type] → Premium]</strong></p>
+            <p>You will see the newly listed Raviente Transmogs:</p>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="images/chest_preview.png" alt="Raviente Transmog List Preview" style="max-width: 720px; width: 100%; height: auto; display: inline-block;">
+            </div>
+            <p>Each piece only requires one transmog ticket to unlock.</p>
+
+            <h3 style="text-align: center; color: #7030a0; margin-top: 30px;"><strong>Transmog Images</strong></h3>
+
+            <table style="width: 100%; margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>Raviente D (M)</th>
+                        <th>Violent Ravi D (M)</th>
+                        <th>Berserk Ravi D (M)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center;"><img src="images/male_raviente.png" alt="Raviente D (M)" style="max-width: 100%; height: auto;"></td>
+                        <td style="text-align: center;"><img src="images/male_violent.png" alt="Violent Ravi D (M)" style="max-width: 100%; height: auto;"></td>
+                        <td style="text-align: center;"><img src="images/male_berserk.png" alt="Berserk Ravi D (M)" style="max-width: 100%; height: auto;"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table style="width: 100%; margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>Raviente D (F)</th>
+                        <th>Violent Ravi D (F)</th>
+                        <th>Berserk Ravi D (F)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center;"><img src="images/female_raviente.png" alt="Raviente D (F)" style="max-width: 100%; height: auto;"></td>
+                        <td style="text-align: center;"><img src="images/female_violent.png" alt="Violent Ravi D (F)" style="max-width: 100%; height: auto;"></td>
+                        <td style="text-align: center;"><img src="images/female_berserk.png" alt="Berserk Ravi D (F)" style="max-width: 100%; height: auto;"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+     <div id="right-sidebar" class="right-sidebar">
+        <h4 style="color: #7030a0;"><strong>On This Page</strong></h4>
+        <a href="#top" style="color: #7030a0;">Overview</a>
+        <a href="#rebalance-outline" style="color: #7030a0;">Rebalance Outline</a>
+        <a href="#decoration-exchange" style="color: #7030a0;">Decoration Exchange</a>
+        <a href="#divine-power-gems" style="color: #7030a0;">Divine Power Gems</a>
+        <a href="#transmogs" style="color: #7030a0;">Transmogs</a>
+    </div>
+
+    <div class="button-mode">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span class="ball"></span>
+        </label>
+    </div>
+
+    <script>
+        const checkbox = document.getElementById("checkbox");
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const isDarkMode = localStorage.getItem("darkMode") === "true";
+            document.body.classList.toggle("dark", isDarkMode);
+            checkbox.checked = isDarkMode;
+        });
+
+        checkbox.addEventListener("change", () => {
+            const isDarkMode = checkbox.checked;
+            document.body.classList.toggle("dark", isDarkMode);
+            localStorage.setItem("darkMode", isDarkMode);
+        });
+    </script>
+</body>
+
+</html>
